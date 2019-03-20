@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="base.xhtml">
+
+	<ui:define name="body">
+
+
+
+		<h:form id="form">
+			<fieldset>
+				<legend>Relatorio Medico</legend>
+				<h:panelGroup>
+
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Nome do Paciente: " for="nome_do_paciente" />
+						<h:inputText id="nome_do_paciente" />
+
+						<h:outputLabel value="Espécie: " for="especie" />
+						<h:inputText id="especie" />
+
+						<h:outputLabel value="Raça: " for="raca" />
+						<h:inputText id="Raca" />
+
+						<h:outputLabel value="Pelagem: " for="pelagem" />
+						<h:inputText id="pelagem" />
+
+						<h:outputLabel value="Sexo" for="sexo" />
+
+						<h:selectOneRadio id="selectRadio1">
+							<f:selectItem itemValue="0" itemLabel=" Macho" />
+							<f:selectItem itemValue="1" itemLabel=" Fêmea" />
+						</h:selectOneRadio>
+
+						<h:outputLabel value="Idade " for="idade" />
+						<h:inputText id="idade" />
+
+						<h:outputLabel value="Peso " for="peso" />
+						<h:inputText id="peso" />
+
+						<h:outputLabel value="Queixa Principal " for="queixa_principal" />
+						<h:inputText id="queixa_principal" />
+
+
+						<h:outputLabel value="Hidratação" />
+						<h:selectOneRadio id="selectRadio2">
+							<f:selectItem itemValue="0" itemLabel="Normal" />
+							<f:selectItem itemValue="1" itemLabel="Alterada" />
+						</h:selectOneRadio>
+
+						<h:outputLabel value="Pelagem" />
+						<h:selectOneRadio id="selectRadio3">
+							<f:selectItem itemValue="0" itemLabel="Normal" />
+							<f:selectItem itemValue="1" itemLabel="Alterada" />
+						</h:selectOneRadio>
+
+						<h:outputLabel value="Frequencia Cardiaca" />
+						<h:selectOneRadio id="selectRadio4">
+							<f:selectItem itemValue="0" itemLabel="Normal" />
+							<f:selectItem itemValue="1" itemLabel="Alterada" />
+						</h:selectOneRadio>
+
+
+						<h:outputLabel value="Sistema Respiratorio" />
+						<h:selectOneRadio id="selectRadio5">
+							<f:selectItem itemValue="0" itemLabel="Normal" />
+							<f:selectItem itemValue="1" itemLabel="Alterada" />
+						</h:selectOneRadio>
+
+
+
+						<h:outputLabel value="Cavidade Oral" />
+						<h:selectOneRadio id="selectRadio6">
+							<f:selectItem itemValue="0" itemLabel="Normal" />
+							<f:selectItem itemValue="1" itemLabel="Alterada" />
+						</h:selectOneRadio>
+
+
+						<h:outputLabel value="Condutores Auditivos" />
+						<h:selectOneRadio id="selectRadio7">
+							<f:selectItem itemValue="0" itemLabel="Normal" />
+							<f:selectItem itemValue="1" itemLabel="Alterada" />
+						</h:selectOneRadio>
+
+
+						<h:outputLabel value="Temperatura" />
+						<h:selectOneRadio id="selectRadio8">
+							<f:selectItem itemValue="0" itemLabel="Normal" />
+							<f:selectItem itemValue="1" itemLabel="Alterada" />
+						</h:selectOneRadio>
+
+						<h:selectManyCheckbox value="Sistema Digestório">
+							<f:selectItem itemValue="1" itemLabel="Vomito" />
+							<f:selectItem itemValue="2" itemLabel="Regurgitação" />
+							<f:selectItem itemValue="3" itemLabel="Diarréia" />
+							<f:selectItem itemValue="4" itemLabel="Apetite" />
+							<f:selectItem itemValue="5" itemLabel="Ingessão Agua" />
+						</h:selectManyCheckbox>
+
+
+
+						<h:outputLabel value="Observações: " for="observações" />
+						<h:inputText id="observações" />
+
+
+						<h:commandButton value="Cadastrar Relatorio"></h:commandButton>
+
+
+					</h:panelGrid>
+
+				</h:panelGroup>
+			</fieldset>
+
+		</h:form>
+
+
+
+
+	</ui:define>
+
+
+</ui:composition>
+</html>

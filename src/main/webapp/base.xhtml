@@ -1,7 +1,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-	<title>PetHealth</title>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<h:head>
+		<title>PetHealth</title>
+	
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</h:head>
+
 	<ui:insert name="menu">
+	
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">PetHealth</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="home.xhtml">Home</a></li>
+					<li><a href="cadastro_animal.xhtml">Cadastro do Animal</a></li>
+					<li><a href="cadastro_cliente.xhtml">Cadastro de Cliente</a></li>
+					<li><a href="relatorio_medico.xhtml">Relatorio Medico</a></li>
+					<li><a href="vacinas.xhtml">Vacinas</a></li>
+				</ul>
+			</div>
+		</nav>
+	
 	</ui:insert>
-	<ui:insert name="body"></ui:insert>
+<ui:insert name="body">
+	<f:view>
+		<h:body>
+
+		</h:body>
+	</f:view>
+</ui:insert>
 </html>

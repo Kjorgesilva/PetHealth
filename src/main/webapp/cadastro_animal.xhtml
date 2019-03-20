@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="base.xhtml">
+
+	<ui:define name="body">
+
+		<h:form id="form">
+			<fieldset>
+				<legend>Adicionar Novo Animal</legend>
+				<h:panelGroup>
+
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Nome: " for="nome" />
+						<h:inputText id="nome" />
+
+						<h:outputLabel value="Raça: " for="raca" />
+						<h:inputText id="raca" />
+
+						<h:outputLabel value="Cor: " for="cor" />
+						<h:inputText id="cor" />
+
+						<h:outputLabel value="Data de Nascimento: " for="data_de_nascimento" />
+						<h:inputText id="data_de_nascimento" />
+
+						<h:outputLabel value="Sexo (M / F): " for="sexo" />
+						<h:inputText id="sexo" />
+
+						<h:outputLabel value="Pais: " for="pais_de_origem" />
+						<h:inputText id="pais_de_origem" />
+
+						<h:outputLabel value="observacoes: " for="observacoes" />
+						<h:inputText id="observacoes" />				
+
+						<h:commandButton value="Cadastrar: "></h:commandButton>
+
+
+					</h:panelGrid>
+				</h:panelGroup>
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
