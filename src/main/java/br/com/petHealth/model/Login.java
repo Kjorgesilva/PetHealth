@@ -33,11 +33,8 @@ public class Login implements Serializable {
 	@Column(name = "email")
 	private String email;
 	
-	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "id_perfil")
 	private Integer perfil;
-	
-	
 	
 	
 	public Login() {

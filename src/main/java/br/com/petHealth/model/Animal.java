@@ -35,7 +35,7 @@ public class Animal implements Serializable {
 	private LocalDateTime dataNascimento;
 	
 	@Column(name = "sexo")
-	private String sexo;
+	private char sexo;
 	
 	
 	@Column(name = "pais_de_origem")
@@ -96,12 +96,12 @@ public class Animal implements Serializable {
 	}
 
 
-	public String getSexo() {
+	public char getSexo() {
 		return sexo;
 	}
 
 
-	public void setSexo(String sexo) {
+	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
 

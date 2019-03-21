@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -31,7 +32,7 @@ public class Medico implements Serializable{
 	@Column(name = "email")
 	private String email;
 	
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_usuario")
 	private Login usuario;
 

@@ -2,6 +2,8 @@ package br.com.petHealth.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +47,7 @@ public class Cliente implements Serializable{
 	
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_animal")
-	private Animal animal;
+	private List<Animal> animal;
 
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_usuario")
@@ -107,11 +109,11 @@ public class Cliente implements Serializable{
 		this.email = email;
 	}
 
-	public Animal getAnimal() {
+	public List<Animal> getAnimal() {
 		return animal;
 	}
 
-	public void setAnimal(Animal animal) {
+	public void setAnimal(List<Animal> animal) {
 		this.animal = animal;
 	}
 
