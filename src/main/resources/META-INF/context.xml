@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+    <Manager pathname=""/>
+    
+    <Resource 
+        name="BeanManager" 
+        auth="Container"
+        type="javax.enterprise.inject.spi.BeanManager" 
+        factory="org.jboss.weld.resources.ManagerObjectFactory" />
+
+
+<!--         
+    <Resource 
+        name="jdbc/postgres" 
+        auth="Container" 
+        type="javax.sql.DataSource"
+        maxTotal="100" 
+        maxIdle="30" 
+        maxWaitMillis="10000"
+        username="monstro" 
+        password="pchina" 
+        driverClassName="org.postgresql.Driver"
+        url="jdbc:postgresql://10.12.5.201:10100/monstro"
+        removeAbandonedOnBorrow="true"
+        removeAbandonedOnMaintenance="true"
+        timeBetweenEvictionRunsMillis="60000"
+        removeAbandonedTimeout="10"/>
+ -->        
+        
+</Context>

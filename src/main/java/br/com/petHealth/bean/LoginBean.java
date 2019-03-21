@@ -1,28 +1,30 @@
 package br.com.petHealth.bean;
 
+import java.io.Serializable;
+
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.petHealth.model.Login;
 import br.com.petHealth.service.LoginService;
 
 @Named
 @ViewScoped
-public class LoginBean {
+public class LoginBean implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1761440157005324488L;
 	@Inject
 	private LoginService loginService;
 	
-	public LoginService getLoginService() {
-		return loginService;
-	}
-
-	public void setLoginService(LoginService loginService) {
-		this.loginService = loginService;
-	}
 	
 	public void login(){
-		System.out.println("chegou");
+		for (Login logins : loginService.findAll()) {
+			System.out.println(logins.getNome() + " " + logins.getNome());
+		}
 	}
 
 }
