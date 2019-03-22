@@ -18,6 +18,11 @@ import javax.persistence.Table;
 @Table(name="tab_medico")
 public class Medico implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8505853068227067133L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_medico")
@@ -34,7 +39,7 @@ public class Medico implements Serializable{
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_usuario")
-	private Login usuario;
+	private Usuario usuario;
 
 	public int getId() {
 		return id;
@@ -68,11 +73,11 @@ public class Medico implements Serializable{
 		this.email = email;
 	}
 
-	public Login getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Login usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 	

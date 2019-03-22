@@ -13,6 +13,11 @@ import javax.persistence.Table;
 public class Endereco implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5220732959704754516L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_endereco")

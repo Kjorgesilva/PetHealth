@@ -14,32 +14,35 @@
 				<legend>Adicionar Novo Cliente</legend>
 				<h:panelGroup>
 
-					<h:panelGrid columns="2">
+					<h:panelGrid columns="3">
 						<h:outputLabel value="Nome: " for="nome" />
-						<h:inputText id="nome" />
-
+						<h:inputText id="nome" value="#{cadastroClienteBean.cliente.nome}" required="true"  requiredMessage="Preencha o campo nome" />
+						<h:message for="nome"  errorStyle="color:red"/>	
+						
 						<h:outputLabel value="RG: " for="rg" />
-						<h:inputText id="rg" />
+						<h:inputText id="rg" value="#{cadastroClienteBean.cliente.rg}" required="true"  requiredMessage="Preencha o campo RG" />
+						<h:message for="rg" errorStyle="color:red"/>	
+						
 
-						<h:outputLabel value="Data de Nascimento: " for="data_de_nascimento" />
-						<h:inputText id="data_de_nascimento" />
-
+<!-- 						<h:outputLabel value="Data de Nascimento: " for="data_de_nascimento" /> -->
+<!-- 						<h:inputText id="data_de_nascimento"  value ="#{cadastroClienteBean.cliente.dataNascimento}" required="true" requiredMessage="Preencha o campo de Data de Nascimento"/> -->
+<!-- 						<h:message for="data_de_nascimento" errorStyle="color:red"/>	 -->
+					
 						<h:outputLabel value="Endereço: " for="endereco" />
-						<h:inputText id="endereco" />
+						<h:inputText id="endereco" value ="#{cadastroClienteBean.cliente.endereco}" required="true" requiredMessage="Preencha o campo Endereço"/>
+						<h:message for="endereco" errorStyle="color:red"/>	
 
 						<h:outputLabel value="Telefone: " for="telefone" />
-						<h:inputText id="telefone" />
+						<h:inputText id="telefone"  value ="#{cadastroClienteBean.cliente.telefone}" required="true" requiredMessage="Preencha o campo Telefone"/>
+						<h:message for="telefone" errorStyle="color:red"/>	
 
 						<h:outputLabel value="E-mail: " for="email" />
-						<h:inputText id="email" />
+						<h:inputText id="email" value ="#{cadastroClienteBean.cliente.email}" required="true" requiredMessage="Preencha o campo E-mail"/>
+						<h:message for="email" errorStyle="color:red"/>	
 
-						<h:outputLabel value="Animal: " for="animal" />
-						<h:inputText id="animal" />
 
-						<h:outputLabel value="Perfil: " for="perfil" />
-						<h:inputText id="perfil" />
 						
-						<h:commandButton value="Cadastrar" ></h:commandButton>
+						<h:commandButton value="Cadastrar" action="#{cadastroClienteBean.inserir}" ></h:commandButton>
 
 
 					</h:panelGrid>

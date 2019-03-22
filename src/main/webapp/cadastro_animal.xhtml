@@ -12,29 +12,45 @@
 				<legend>Adicionar Novo Animal</legend>
 				<h:panelGroup>
 
-					<h:panelGrid columns="2">
-						<h:outputLabel value="Nome: " for="nome" />
-						<h:inputText id="nome" />
+					<h:panelGrid columns="3">
+					
+					<h:outputLabel value="Nome: " for="nome" />
+						<h:inputText id="nome" value="#{cadastroAnimalBean.animal.nome}" required="true"  requiredMessage="Preencha o campo nome" />
+						<h:message for="nome"  errorStyle="color:red"/>						
 
 						<h:outputLabel value="Raça: " for="raca" />
-						<h:inputText id="raca" />
+						<h:inputText id="raca" value="#{cadastroAnimalBean.animal.raca}" required="true"  requiredMessage="Preencha o campo raça" />
+						<h:message for="raca"  errorStyle="color:red"/>						
+						
 
 						<h:outputLabel value="Cor: " for="cor" />
-						<h:inputText id="cor" />
-
-						<h:outputLabel value="Data de Nascimento: " for="data_de_nascimento" />
-						<h:inputText id="data_de_nascimento" />
+						<h:inputText id="cor" value="#{cadastroAnimalBean.animal.cor}" required="true"  requiredMessage="Preencha o campo cor" />
+						<h:message for="cor"  errorStyle="color:red"/>	
+						
 
 						<h:outputLabel value="Sexo (M / F): " for="sexo" />
-						<h:inputText id="sexo" />
+						<h:inputText id="sexo"  value="#{cadastroAnimalBean.animal.sexo}" required="true"  requiredMessage="Preencha o campo sexo" />
+						<h:message for="sexo"  errorStyle="color:red"/>						
+						
 
 						<h:outputLabel value="Pais: " for="pais_de_origem" />
-						<h:inputText id="pais_de_origem" />
+						<h:inputText id="pais_de_origem"  value="#{cadastroAnimalBean.animal.paisOrigem}" required="true"  requiredMessage="Preencha o campo pais de origem" />
+						<h:message for="pais_de_origem"  errorStyle="color:red"/>						
+						
+						
 
 						<h:outputLabel value="observacoes: " for="observacoes" />
-						<h:inputText id="observacoes" />				
+						<h:inputText id="observacoes" value="#{cadastroAnimalBean.animal.observacoes}" required="true"  requiredMessage="Preencha o campo observações" />
+						<h:message for="observacoes"  errorStyle="color:red"/>		
+						
+						
+						<h:outputLabel value="id_cliente " for="idCliente" />
+						<h:inputText id="idCliente" value="#{cadastroAnimalBean.animal.cliente.id}" required="true"  requiredMessage="Preencha o campo cliente" />
+						<h:message for="cliente"  errorStyle="color:red"/>					
+						
+						
 
-						<h:commandButton value="Cadastrar: "></h:commandButton>
+						<h:commandButton value="Cadastrar" action="#{cadastroAnimalBean.inserir}" ></h:commandButton>
 
 
 					</h:panelGrid>

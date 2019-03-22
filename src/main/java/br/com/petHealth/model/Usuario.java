@@ -14,8 +14,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tab_usuario")
-public class Login implements Serializable {
+public class Usuario implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6957601394969864366L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_usuario")
@@ -37,7 +42,15 @@ public class Login implements Serializable {
 	private Integer perfil;
 	
 	
-	public Login() {
+	public Integer getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Integer perfil) {
+		this.perfil = perfil;
+	}
+
+	public Usuario() {
 		super();
 	}
 

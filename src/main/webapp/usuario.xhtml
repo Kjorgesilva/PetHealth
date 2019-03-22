@@ -12,14 +12,15 @@
 <f:view>
 	<h:body>
 		<h:form>
+		<h:messages style = "color:red;margin:8px;" />
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Usuario" />
-				<h:inputText />
+				<h:inputText value="#{usuarioBean.login}"/>
 				<h:outputLabel value="Senha" />
-				<h:inputSecret />
+				<h:inputSecret value="#{usuarioBean.senha}"/>
 
 
-				<h:commandButton value="Entrar" action="#{loginBean.login}" >
+				<h:commandButton value="Entrar" action="#{usuarioBean.checkLogin}" >
 
 				</h:commandButton>
 

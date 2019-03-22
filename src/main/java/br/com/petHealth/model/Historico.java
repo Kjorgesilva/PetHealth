@@ -16,6 +16,12 @@ import javax.persistence.Table;
 @Table(name="tab_histoico")
 public class Historico implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3758814248799273823L;
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_historico")

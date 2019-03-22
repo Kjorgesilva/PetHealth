@@ -21,6 +21,11 @@ import javax.persistence.Table;
 public class Agendamento implements Serializable {
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2703927585425751509L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_agendamento")

@@ -17,6 +17,11 @@ import javax.persistence.Table;
 @Table(name="tab_relatorio_medico")
 public class RelatorioMedico implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2002425671859434619L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_relatorio_medico")

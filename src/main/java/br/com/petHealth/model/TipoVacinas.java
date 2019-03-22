@@ -14,6 +14,12 @@ import javax.persistence.Table;
 public class TipoVacinas implements Serializable {
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2411357278602183001L;
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_tipo_vacina")

@@ -15,6 +15,11 @@ import javax.persistence.Table;
 public class PerguntaRelatorio implements Serializable{
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -973416838071443167L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_pergunta_relatorio")
