@@ -1,17 +1,58 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="base.xhtml">
 
-<ui:define name="body">
-<h1>Animal</h1>
+	<f:metadata>
+		<f:viewAction action="#{vacinasBean.init}" />
+	</f:metadata>
+
+	<ui:define name="body">
+		<div class="ui-g" >
+			<div class="ui-g-10 ui-md-12" >
+				<p:dataTable var="vacinas" value="#{vacinasBean.vacinas}">
+					<p:column headerText="Nº Vacina">
+						<h:outputText value="#{vacinas.id}" />
+					</p:column>
+
+					<p:column headerText="Data Vacina">
+						<h:outputText value="#{vacinas.dataVacina}">
+							<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Data Proxima">
+						<h:outputText value="#{vacinas.dataProxima}">
+							<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Descricao">
+						<h:outputText value="#{vacinas.tipoVacina.descricao}" />
+					</p:column>
+
+					<p:column headerText="Vacina em Dia">
+						<h:outputText
+							value="#{vacinas.vacinaEmDia eq 'false'? 'Não':( vacinas.vacinaEmDia eq 'true' ? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
+					</p:column>
+					
+					<p:column headerText="Vacina">
+						<div class="text-center">
+							<p:commandButton title="Vacina"  value="Vacinar" disabled="#{vacinas.vacinaEmDia}">
+									
+											
+							</p:commandButton>
+						</div>
+					</p:column>
 
 
-</ui:define>
+				</p:dataTable>
+			</div>
+		</div>
+	</ui:define>
 
 
 </ui:composition>

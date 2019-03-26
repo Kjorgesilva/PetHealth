@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="tab_vacina")
@@ -27,8 +28,8 @@ public class Vacinas implements Serializable{
 	@Column(name="id_vacina")
 	private int id;
 	
-	@Column(name="resposta")
-	private String resposta;
+	@Column(name="aviso")
+	private String aviso;
 	
 	@Column(name="data_vacina")
 	private LocalDateTime dataVacina;
@@ -38,6 +39,9 @@ public class Vacinas implements Serializable{
 	
 	@Column(name="descricao")
 	private String descricao;
+	
+	@Column(name="vacina_em_dia")
+	private boolean vacinaEmDia;
 	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -50,6 +54,16 @@ public class Vacinas implements Serializable{
 	private TipoVacinas  tipoVacina ;
 
 
+	public boolean isVacinaEmDia() {
+		return vacinaEmDia;
+	}
+
+
+	public void setVacinaEmDia(boolean vacinaEmDia) {
+		this.vacinaEmDia = vacinaEmDia;
+	}
+
+
 	public int getId() {
 		return id;
 	}
@@ -60,13 +74,13 @@ public class Vacinas implements Serializable{
 	}
 
 
-	public String getResposta() {
-		return resposta;
+	public String getAviso() {
+		return aviso;
 	}
 
 
-	public void setResposta(String resposta) {
-		this.resposta = resposta;
+	public void setAviso(String aviso) {
+		this.aviso = aviso;
 	}
 
 

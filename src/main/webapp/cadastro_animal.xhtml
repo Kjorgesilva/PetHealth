@@ -1,11 +1,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="base.xhtml">
-
 	<ui:define name="body">
+		
+		<script>
+			PrimeFaces.locales['pt'] = {
+				closeText : 'Fechar',
+				prevText : 'Anterior',
+				nextText : 'Próximo',
+				currentText : 'Começo',
+				monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril',
+						'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
+						'Outubro', 'Novembro', 'Dezembro' ],
+				monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+						'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+				dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+						'Sexta', 'Sábado' ],
+				dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex',
+						'Sáb' ],
+				dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+				weekHeader : 'Semana',
+				firstDay : 0,
+				isRTL : false,
+				showMonthAfterYear : false,
+				yearSuffix : '',
+				timeOnlyTitle : 'Só Horas',
+				timeText : 'Tempo',
+				hourText : 'Hora',
+				minuteText : 'Minuto',
+				secondText : 'Segundo',
+				ampm : false,
+				month : 'Mês',
+				week : 'Semana',
+				day : 'Dia',
+				allDayText : 'Todo o Dia'
+			};
+		</script>
 
 		<h:form id="form">
 			<fieldset>
@@ -13,44 +47,66 @@
 				<h:panelGroup>
 
 					<h:panelGrid columns="3">
-					
-					<h:outputLabel value="Nome: " for="nome" />
-						<h:inputText id="nome" value="#{cadastroAnimalBean.animal.nome}" required="true"  requiredMessage="Preencha o campo nome" />
-						<h:message for="nome"  errorStyle="color:red"/>						
+
+						<h:outputLabel value="Nome: " for="nome" />
+						<h:inputText id="nome" value="#{cadastroAnimalBean.animal.nome}"
+							required="true" requiredMessage="Preencha o campo nome" />
+						<h:message for="nome" errorStyle="color:red" />
 
 						<h:outputLabel value="Raça: " for="raca" />
-						<h:inputText id="raca" value="#{cadastroAnimalBean.animal.raca}" required="true"  requiredMessage="Preencha o campo raça" />
-						<h:message for="raca"  errorStyle="color:red"/>						
-						
+						<h:inputText id="raca" value="#{cadastroAnimalBean.animal.raca}"
+							required="true" requiredMessage="Preencha o campo raça" />
+						<h:message for="raca" errorStyle="color:red" />
+
 
 						<h:outputLabel value="Cor: " for="cor" />
-						<h:inputText id="cor" value="#{cadastroAnimalBean.animal.cor}" required="true"  requiredMessage="Preencha o campo cor" />
-						<h:message for="cor"  errorStyle="color:red"/>	
-						
+						<h:inputText id="cor" value="#{cadastroAnimalBean.animal.cor}"
+							required="true" requiredMessage="Preencha o campo cor" />
+						<h:message for="cor" errorStyle="color:red" />
+
 
 						<h:outputLabel value="Sexo (M / F): " for="sexo" />
-						<h:inputText id="sexo"  value="#{cadastroAnimalBean.animal.sexo}" required="true"  requiredMessage="Preencha o campo sexo" />
-						<h:message for="sexo"  errorStyle="color:red"/>						
 						
+						<p:selectOneMenu value="#{cadastroAnimalBean.animal.sexo}" style="width:200px"
+							required="true" requiredMessage="Preencha o campo sexo">
+							<f:selectItem itemValue="M" itemLabel="Macho"/>
+							<f:selectItem itemValue="F" itemLabel="Fêmea"/>
+						</p:selectOneMenu>
+						
+						<h:message for="sexo" errorStyle="color:red" />
 
-						<h:outputLabel value="Pais: " for="pais_de_origem" />
-						<h:inputText id="pais_de_origem"  value="#{cadastroAnimalBean.animal.paisOrigem}" required="true"  requiredMessage="Preencha o campo pais de origem" />
-						<h:message for="pais_de_origem"  errorStyle="color:red"/>						
-						
-						
+
+						<h:outputLabel value="País: " for="pais_de_origem" />
+						<h:inputText id="pais_de_origem"
+							value="#{cadastroAnimalBean.animal.paisOrigem}" required="true"
+							requiredMessage="Preencha o campo pais de origem" />
+						<h:message for="pais_de_origem" errorStyle="color:red" />
+
+
 
 						<h:outputLabel value="observacoes: " for="observacoes" />
-						<h:inputText id="observacoes" value="#{cadastroAnimalBean.animal.observacoes}" required="true"  requiredMessage="Preencha o campo observações" />
-						<h:message for="observacoes"  errorStyle="color:red"/>		
-						
-						
-						<h:outputLabel value="id_cliente " for="idCliente" />
-						<h:inputText id="idCliente" value="#{cadastroAnimalBean.animal.cliente.id}" required="true"  requiredMessage="Preencha o campo cliente" />
-						<h:message for="cliente"  errorStyle="color:red"/>					
-						
-						
+						<h:inputText id="observacoes"
+							value="#{cadastroAnimalBean.animal.observacoes}" required="true"
+							requiredMessage="Preencha o campo observações" />
+						<h:message for="observacoes" errorStyle="color:red" />
 
-						<h:commandButton value="Cadastrar" action="#{cadastroAnimalBean.inserir}" ></h:commandButton>
+
+						<h:outputLabel value="id_cliente " for="idCliente" />
+						<h:inputText id="idCliente"
+							value="#{cadastroAnimalBean.animal.cliente.id}" required="true"
+							requiredMessage="Preencha o campo cliente" />
+						<h:message for="cliente" errorStyle="color:red" />
+
+						<h:outputLabel value="Data Nascimento " for="dataNascimento" />
+
+						<p:calendar id="dataNascimento" required="true"
+							converter="dataConverter"
+							value="#{cadastroAnimalBean.animal.dataNascimento}" locale="pt"
+							pattern="dd/MM/yyyy hh:mm">
+						</p:calendar>
+
+						<h:commandButton value="Cadastrar"
+							action="#{cadastroAnimalBean.inserir}"></h:commandButton>
 
 
 					</h:panelGrid>

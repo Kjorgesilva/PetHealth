@@ -7,116 +7,72 @@
 
 <ui:composition template="base.xhtml">
 
+	<f:metadata>
+		<f:viewAction action="#{cadastroRelatorioMedicoBean.init}" />
+	</f:metadata>
+
+
 	<ui:define name="body">
 
+		<div class="ui-g">
+			<div class="ui-g-10 ui-md-12">
+				<p:dataTable var="relatorioAnimal"
+					value="#{cadastroRelatorioMedicoBean.animal}">
+					<p:column headerText="Nº Animal">
+						<h:outputText value="#{relatorioAnimal.id}" />
+					</p:column>
+
+					<p:column headerText="Nome">
+						<h:outputText value="#{relatorioAnimal.nome}">
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Raça">
+						<h:outputText value="#{relatorioAnimal.raca}">
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Cor">
+						<h:outputText value="#{relatorioAnimal.cor}">
+						</h:outputText>
+					</p:column>
 
 
-		<h:form id="form">
-			<fieldset>
-				<legend>Relatorio Medico</legend>
-				<h:panelGroup>
+					<p:column headerText="Data Nascimento">
+						<h:outputText value="#{relatorioAnimal.dataNascimento}">
+							<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy HH:MM" />
+						</h:outputText>
+					</p:column>
 
-					<h:panelGrid columns="2">
-						<h:outputLabel value="Nome do Paciente: " for="nome_do_paciente" />
-						<h:inputText id="nome_do_paciente" />
-
-						<h:outputLabel value="Espécie: " for="especie" />
-						<h:inputText id="especie" />
-
-						<h:outputLabel value="Raça: " for="raca" />
-						<h:inputText id="Raca" />
-
-						<h:outputLabel value="Pelagem: " for="pelagem" />
-						<h:inputText id="pelagem" />
-
-						<h:outputLabel value="Sexo" for="sexo" />
-
-						<h:selectOneRadio id="selectRadio1">
-							<f:selectItem itemValue="0" itemLabel=" Macho" />
-							<f:selectItem itemValue="1" itemLabel=" Fêmea" />
-						</h:selectOneRadio>
-
-						<h:outputLabel value="Idade " for="idade" />
-						<h:inputText id="idade" />
-
-						<h:outputLabel value="Peso " for="peso" />
-						<h:inputText id="peso" />
-
-						<h:outputLabel value="Queixa Principal " for="queixa_principal" />
-						<h:inputText id="queixa_principal" />
+					<p:column headerText="Sexo">
+						<h:outputText
+							value="#{relatorioAnimal.sexo eq 'M'? 'Macho':(relatorioAnimal.sexo eq 'F' ? 'Fêmea' :relatorioAnimal.sexo)}">
 
 
-						<h:outputLabel value="Hidratação" />
-						<h:selectOneRadio id="selectRadio2">
-							<f:selectItem itemValue="0" itemLabel="Normal" />
-							<f:selectItem itemValue="1" itemLabel="Alterada" />
-						</h:selectOneRadio>
+						</h:outputText>
+					</p:column>
+					<p:column headerText="País De Origem">
+						<h:outputText value="#{relatorioAnimal.paisOrigem}">
+						</h:outputText>
+					</p:column>
 
-						<h:outputLabel value="Pelagem" />
-						<h:selectOneRadio id="selectRadio3">
-							<f:selectItem itemValue="0" itemLabel="Normal" />
-							<f:selectItem itemValue="1" itemLabel="Alterada" />
-						</h:selectOneRadio>
+					<p:column headerText="Dono">
+						<h:outputText value="#{relatorioAnimal.cliente.nome}">
+						</h:outputText>
+					</p:column>
 
-						<h:outputLabel value="Frequencia Cardiaca" />
-						<h:selectOneRadio id="selectRadio4">
-							<f:selectItem itemValue="0" itemLabel="Normal" />
-							<f:selectItem itemValue="1" itemLabel="Alterada" />
-						</h:selectOneRadio>
+					<p:column headerText="Relatorio" style="width:100px">
+						<div class="text-center">
 
-
-						<h:outputLabel value="Sistema Respiratorio" />
-						<h:selectOneRadio id="selectRadio5">
-							<f:selectItem itemValue="0" itemLabel="Normal" />
-							<f:selectItem itemValue="1" itemLabel="Alterada" />
-						</h:selectOneRadio>
+							<h:commandButton title="Relatorio"  value="Relatorio">							
+							</h:commandButton>
+						</div>
+					</p:column>
 
 
-
-						<h:outputLabel value="Cavidade Oral" />
-						<h:selectOneRadio id="selectRadio6">
-							<f:selectItem itemValue="0" itemLabel="Normal" />
-							<f:selectItem itemValue="1" itemLabel="Alterada" />
-						</h:selectOneRadio>
-
-
-						<h:outputLabel value="Condutores Auditivos" />
-						<h:selectOneRadio id="selectRadio7">
-							<f:selectItem itemValue="0" itemLabel="Normal" />
-							<f:selectItem itemValue="1" itemLabel="Alterada" />
-						</h:selectOneRadio>
-
-
-						<h:outputLabel value="Temperatura" />
-						<h:selectOneRadio id="selectRadio8">
-							<f:selectItem itemValue="0" itemLabel="Normal" />
-							<f:selectItem itemValue="1" itemLabel="Alterada" />
-						</h:selectOneRadio>
-
-						<h:selectManyCheckbox value="Sistema Digestório">
-							<f:selectItem itemValue="1" itemLabel="Vomito" />
-							<f:selectItem itemValue="2" itemLabel="Regurgitação" />
-							<f:selectItem itemValue="3" itemLabel="Diarréia" />
-							<f:selectItem itemValue="4" itemLabel="Apetite" />
-							<f:selectItem itemValue="5" itemLabel="Ingessão Agua" />
-						</h:selectManyCheckbox>
-
-
-
-						<h:outputLabel value="Observações: " for="observações" />
-						<h:inputText id="observações" />
-
-
-						<h:commandButton value="Cadastrar Relatorio"></h:commandButton>
-
-
-					</h:panelGrid>
-
-				</h:panelGroup>
-			</fieldset>
-
-		</h:form>
-
+				</p:dataTable>
+			</div>
+		</div>
 
 
 
