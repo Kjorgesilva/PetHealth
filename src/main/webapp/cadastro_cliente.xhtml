@@ -1,9 +1,14 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
+	
+	<f:metadata>
+	<f:viewParam name="editarParam" value="#{cadastroClienteBean.id}"/>
+	<f:viewAction action="#{cadastroClienteBean.init}"/>
+</f:metadata>
 
 <ui:composition template="base.xhtml">
 
@@ -23,12 +28,7 @@
 						<h:outputLabel value="RG: " for="rg" />
 						<h:inputText id="rg" value="#{cadastroClienteBean.cliente.rg}" required="true"  requiredMessage="Preencha o campo RG" />
 						<h:message for="rg" errorStyle="color:red"/>	
-						
-
-<!-- 						<h:outputLabel value="Data de Nascimento: " for="data_de_nascimento" /> -->
-<!-- 						<h:inputText id="data_de_nascimento"  value ="#{cadastroClienteBean.cliente.dataNascimento}" required="true" requiredMessage="Preencha o campo de Data de Nascimento"/> -->
-<!-- 						<h:message for="data_de_nascimento" errorStyle="color:red"/>	 -->
-					
+											
 						<h:outputLabel value="Endereço: " for="endereco" />
 						<h:inputText id="endereco" value ="#{cadastroClienteBean.cliente.endereco}" required="true" requiredMessage="Preencha o campo Endereço"/>
 						<h:message for="endereco" errorStyle="color:red"/>	
@@ -40,7 +40,7 @@
 						<h:outputLabel value="E-mail: " for="email" />
 						<h:inputText id="email" value ="#{cadastroClienteBean.cliente.email}" required="true" requiredMessage="Preencha o campo E-mail"/>
 						<h:message for="email" errorStyle="color:red"/>	
-
+<hr/>
 
 						
 						<h:commandButton value="Cadastrar" action="#{cadastroClienteBean.inserir}" ></h:commandButton>

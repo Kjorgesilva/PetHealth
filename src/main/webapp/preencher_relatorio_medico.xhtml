@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="base.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="relatorioParam"
+			value="#{preencherRelatorioMedicoBean.id}" />
+	</f:metadata>
+
+
+	<ui:define name="body">
+
+		<div class="ui-g">
+			<div class="ui-g-10 ui-md-12" align="center">
+
+				<h:outputLabel value="Hidratação" />
+				<h:selectOneRadio id="selectRadio2">
+					<f:selectItem itemValue="0" itemLabel="Normal" />
+					<f:selectItem itemValue="1" itemLabel="Alterada" />
+				</h:selectOneRadio>
+
+				<hr />
+
+				<h:outputLabel value="Pelagem" />
+				<h:selectOneRadio id="selectRadio3">
+					<f:selectItem itemValue="0" itemLabel="Normal" />
+					<f:selectItem itemValue="1" itemLabel="Alterada" />
+				</h:selectOneRadio>
+				<hr />
+
+				<h:outputLabel value="Frequencia Cardiaca" />
+				<h:selectOneRadio id="selectRadio4">
+					<f:selectItem itemValue="0" itemLabel="Normal" />
+					<f:selectItem itemValue="1" itemLabel="Alterada" />
+				</h:selectOneRadio>
+				<hr />
+
+
+				<h:outputLabel value="Sistema Respiratorio" />
+				<h:selectOneRadio id="selectRadio5">
+					<f:selectItem itemValue="0" itemLabel="Normal" />
+					<f:selectItem itemValue="1" itemLabel="Alterada" />
+				</h:selectOneRadio>
+				<hr />
+
+
+				<h:outputLabel value="Cavidade Oral" />
+				<h:selectOneRadio id="selectRadio6">
+					<f:selectItem itemValue="0" itemLabel="Normal" />
+					<f:selectItem itemValue="1" itemLabel="Alterada" />
+				</h:selectOneRadio>
+				<hr />
+
+				<h:outputLabel value="Condutores Auditivos" />
+				<h:selectOneRadio id="selectRadio7">
+					<f:selectItem itemValue="0" itemLabel="Normal" />
+					<f:selectItem itemValue="1" itemLabel="Alterada" />
+				</h:selectOneRadio>
+				<hr />
+
+				<h:outputLabel value="Temperatura" />
+				<h:selectOneRadio id="selectRadio8">
+					<f:selectItem itemValue="0" itemLabel="Normal" />
+					<f:selectItem itemValue="1" itemLabel="Alterada" />
+				</h:selectOneRadio>
+				<hr />
+
+
+				<h:outputLabel value="Queixa Principal: " for="queixa_principal" />
+				<h:inputText id="queixa_principal" />
+				<hr />
+
+				<h:outputLabel value="Observações: " for="observações" />
+				<h:inputText id="observações" />
+				<hr />
+
+				<h:commandButton value="Finalizar Formulario"></h:commandButton>
+				<hr />
+			</div>
+		</div>
+
+
+
+	</ui:define>
+
+
+</ui:composition>
+</html>

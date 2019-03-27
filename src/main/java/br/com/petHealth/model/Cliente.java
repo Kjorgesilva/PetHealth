@@ -31,7 +31,7 @@ public class Cliente implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_cliente")
-	private int id;	
+	private Integer id;	
 	
 	@Column(name = "nome")
 	private String nome;
@@ -39,8 +39,6 @@ public class Cliente implements Serializable{
 	@Column(name = "rg")
 	private String rg; 
 	
-	@Column(name = "data_de_nascimento")
-	private LocalDateTime dataNascimento;
 	
 	@Column(name = "endereco")
 	private String endereco;
@@ -60,11 +58,11 @@ public class Cliente implements Serializable{
 	
 
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -84,13 +82,6 @@ public class Cliente implements Serializable{
 		this.rg = rg;
 	}
 
-	public LocalDateTime getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(LocalDateTime dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
 
 	public String getEndereco() {
 		return endereco;

@@ -1,6 +1,7 @@
 package br.com.petHealth.service;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -46,5 +47,19 @@ public class CadastroMedicoService implements Serializable{
 		
 	}
 	
+	public List<Medico> findAll() {
+		return cadastroMedicoRepository.findAll();
+		
+		}
+	
+	
+	public Medico findById(int id){
+		return cadastroMedicoRepository.findById(id);
+		
+	}
 
+	
+	public Medico atualizar(Medico medico){		
+		return medico = cadastroMedicoRepository.atualizar(medico);
+	}
 }

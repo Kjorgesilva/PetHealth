@@ -28,12 +28,34 @@ public class CadastroClienteBean implements Serializable {
 	@Inject
 	private CadastroAnimalService cadastroAnimalService;
 	private Cliente cliente;
+	private int id;
 
 	@PostConstruct
 	public void init(){
+		
+		if(id>0){
+			cliente = cadastroClienteService.findByid(id);
+		}else{
+		
 		cliente = new Cliente();
-	}
+	}}
 	
+	public CadastroAnimalService getCadastroAnimalService() {
+		return cadastroAnimalService;
+	}
+
+	public void setCadastroAnimalService(CadastroAnimalService cadastroAnimalService) {
+		this.cadastroAnimalService = cadastroAnimalService;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public CadastroClienteService getCadastroClienteService() {
 		return cadastroClienteService;
 	}
@@ -54,4 +76,13 @@ public class CadastroClienteBean implements Serializable {
 		cadastroClienteService.insert(cliente);
 	}
 
+	public void salvar() {		
+		if(cliente.getId() != null && cliente.getId() > 0){
+			cadastroClienteService.atualizar(cliente);
+		}else {
+			cadastroClienteService.insert(cliente);
+		}
+		
+	}
+	
 }

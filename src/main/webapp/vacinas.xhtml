@@ -11,8 +11,8 @@
 	</f:metadata>
 
 	<ui:define name="body">
-		<div class="ui-g" >
-			<div class="ui-g-10 ui-md-12" >
+		<div class="ui-g">
+			<div class="ui-g-10 ui-md-12">
 				<p:dataTable var="vacinas" value="#{vacinasBean.vacinas}">
 					<p:column headerText="Nº Vacina">
 						<h:outputText value="#{vacinas.id}" />
@@ -38,12 +38,12 @@
 						<h:outputText
 							value="#{vacinas.vacinaEmDia eq 'false'? 'Não':( vacinas.vacinaEmDia eq 'true' ? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
 					</p:column>
-					
+
 					<p:column headerText="Vacina">
 						<div class="text-center">
-							<p:commandButton title="Vacina"  value="Vacinar" disabled="#{vacinas.vacinaEmDia}">
-									
-											
+							<p:commandButton title="Vacina" value="Vacinar"
+								disabled="#{vacinas.vacinaEmDia}">
+
 							</p:commandButton>
 						</div>
 					</p:column>

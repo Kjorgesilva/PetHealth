@@ -8,39 +8,49 @@
 <ui:composition template="base.xhtml">
 
 	<f:metadata>
-		<f:viewAction action="#{cadastroRelatorioMedicoBean.init}" />
+		<f:viewAction action="#{listarAnimalBean.init}" />
 	</f:metadata>
 
 
 	<ui:define name="body">
-	<h:form>
+		<h:form>
+			<legend align="center">Listar Animal</legend>
+	
+	<div class="text-left">
+
+			<h:link outcome="cadastro_animal" title="Cliente"
+				value="ADD Animal">
+			</h:link>
+		</div>
+	
 
 		<div class="ui-g">
 			<div class="ui-g-10 ui-md-12">
-				<p:dataTable var="relatorioAnimal"
-					value="#{cadastroRelatorioMedicoBean.animal}">
+				
+				<p:dataTable var="animal"
+					value="#{listarAnimalBean.animal}">
 					<p:column headerText="Nº Animal">
-						<h:outputText value="#{relatorioAnimal.id}" />
+						<h:outputText value="#{animal.id}" />
 					</p:column>
 
 					<p:column headerText="Nome">
-						<h:outputText value="#{relatorioAnimal.nome}">
+						<h:outputText value="#{animal.nome}">
 						</h:outputText>
 					</p:column>
 
 					<p:column headerText="Raça">
-						<h:outputText value="#{relatorioAnimal.raca}">
+						<h:outputText value="#{animal.raca}">
 						</h:outputText>
 					</p:column>
 
 					<p:column headerText="Cor">
-						<h:outputText value="#{relatorioAnimal.cor}">
+						<h:outputText value="#{animal.cor}">
 						</h:outputText>
 					</p:column>
 
 
 					<p:column headerText="Data Nascimento">
-						<h:outputText value="#{relatorioAnimal.dataNascimento}">
+						<h:outputText value="#{animal.dataNascimento}">
 							<f:convertDateTime type="localDateTime"
 								pattern="dd/MM/yyyy HH:MM" />
 						</h:outputText>
@@ -48,31 +58,31 @@
 
 					<p:column headerText="Sexo">
 						<h:outputText
-							value="#{relatorioAnimal.sexo eq 'M'? 'Macho':(relatorioAnimal.sexo eq 'F' ? 'Fêmea' :relatorioAnimal.sexo)}">
+							value="#{animal.sexo eq 'M'? 'Macho':(animall.sexo eq 'F' ? 'Fêmea' :animal.sexo)}">
 
 
 						</h:outputText>
 					</p:column>
 					<p:column headerText="País De Origem">
-						<h:outputText value="#{relatorioAnimal.paisOrigem}">
+						<h:outputText value="#{animal.paisOrigem}">
 						</h:outputText>
 					</p:column>
 
 					<p:column headerText="Dono">
-						<h:outputText value="#{relatorioAnimal.cliente.nome}">
+						<h:outputText value="#{animal.cliente.nome}">
 						</h:outputText>
 					</p:column>
-
-					<p:column headerText="Relatorio" style="width:100px">
+					
+					<p:column headerText="Ação" style="width:100px">
 						<div class="text-center">
 
-							<h:link outcome="preencher_relatorio_medico" title="Relatorio" value="Relatorio">
-								<f:param name="relatorioParam" value="#{relatorioAnimal.id}" />
-								
+							<h:link outcome="cadastro_animal" title="Editar" value="Editar">
+								<f:param name="editarParam" value="#{animal.id}" />
 							</h:link>
 						</div>
 					</p:column>
 
+					
 
 				</p:dataTable>
 			</div>

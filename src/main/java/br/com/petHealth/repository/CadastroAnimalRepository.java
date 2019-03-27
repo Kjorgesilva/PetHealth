@@ -43,4 +43,14 @@ public class CadastroAnimalRepository {
 		
 		
 	}
+	
+	
+	public Animal atualizar(Animal animal){
+		em = JpaConnector.getConnectionMySql();
+		em.getTransaction().begin();
+		animal = em.merge(animal);
+		em.getTransaction().commit();
+		return animal;
+		
+	}
 }

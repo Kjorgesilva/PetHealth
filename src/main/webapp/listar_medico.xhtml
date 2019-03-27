@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="base.xhtml">
+	<f:metadata>
+			<f:viewAction action="#{listarMedicoBean.init}" />
+		</f:metadata>
+
+	<ui:define name="body">
+		<h:form>
+		<legend align="center">Listar Medico</legend>
+		<div class="text-left">
+
+			<h:link outcome="cadastro_medico" title="Medico"
+				value="ADD Medico">
+			</h:link>
+		</div>
+		<div class="ui-g">
+			<div class="ui-g-10 ui-md-12">
+
+				<p:dataTable var="medico" value="#{listarMedicoBean.medico}">
+					
+					
+					<p:column headerText="Nome">
+						<h:outputText value="#{medico.nome}" />
+					</p:column>
+				
+					
+					<p:column headerText="Telefone">
+						<h:outputText value="#{medico.telefone}" />
+					</p:column>
+					
+					<p:column headerText="E-mail">
+						<h:outputText value="#{medico.email}" />
+					</p:column>
+					
+					<p:column headerText="Ação" style="width:100px">
+						<div class="text-center">
+
+							<h:link outcome="cadastro_medico" title="Editar" value="Editar">
+								<f:param name="editarParam" value="#{medico.id}" />
+							</h:link>
+						</div>
+					</p:column>
+				</p:dataTable>
+			</div>
+		</div>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

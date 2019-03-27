@@ -1,10 +1,14 @@
 package br.com.petHealth.service;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.inject.Inject;
 
+import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.Usuario;
+import br.com.petHealth.model.Vacinas;
 import br.com.petHealth.model.Usuario.PerfilUsuario;
 import br.com.petHealth.repository.CadastroAnimalRepository;
 import br.com.petHealth.repository.CadastroClienteRepository;
@@ -37,6 +41,20 @@ public class CadastroClienteService implements Serializable {
 		cliente.setUsuario(usuario);
 		cadastroClienteRepository.insert(cliente);
 		
+	}
+	
+	
+	public List<Cliente> findAll() {
+		return cadastroClienteRepository.findAll();
+		
+		}
+	
+	public Cliente atualizar(Cliente cliente){		
+		return cliente = cadastroClienteRepository.atualizar(cliente);
+	}
+	
+	public Cliente findByid(int id){
+		return cadastroClienteRepository.findByid(id);
 	}
 	
 	

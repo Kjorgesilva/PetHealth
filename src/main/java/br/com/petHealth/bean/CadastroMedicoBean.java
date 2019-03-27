@@ -24,10 +24,26 @@ public class CadastroMedicoBean implements Serializable {
 	@Inject
 	private CadastroMedicoService cadastroMedicoService;
 	private Medico medico;
+	private int id;
 	
-	@PostConstruct
 	public void init(){
-		medico = new Medico();
+		
+		if(id > 0){
+			medico = cadastroMedicoService.findById(id);		
+		}else {
+			medico = new Medico();
+		}
+		
+		
+	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Medico getMedico() {
@@ -46,8 +62,14 @@ public class CadastroMedicoBean implements Serializable {
 		this.cadastroMedicoService = cadastroMedicoService;
 	}
 	
-	public void inserir() {
-		cadastroMedicoService.insert(medico);
+	public void salvar() {
+		
+		if(medico.getId() != null && medico.getId() > 0){
+			cadastroMedicoService.atualizar(medico);
+		}else {
+			cadastroMedicoService.insert(medico);
+		}
+		
 	}
 
 }

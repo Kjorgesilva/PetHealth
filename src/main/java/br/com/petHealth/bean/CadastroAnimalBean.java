@@ -22,18 +22,33 @@ public class CadastroAnimalBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -1566842690014543106L;
-	
+
 	@Inject
 	private CadastroAnimalService cadastroAnimalService;
 	private Animal animal;
-	
-	
+	private int id;
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	@PostConstruct
 	public void init(){
-		Cliente c = new Cliente();
-		animal = new Animal();
-		animal.setCliente(c);
-	}
+
+		if(id>0){
+			animal = cadastroAnimalService.findByid(id);
+		}else{
+			Cliente c = new Cliente();
+			animal = new Animal();
+			animal.setCliente(c);
+		}}
 
 
 	public CadastroAnimalService getCadastroAnimalService() {
@@ -54,14 +69,23 @@ public class CadastroAnimalBean implements Serializable {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
-	
-	
+
+
 	public void inserir() {
 		cadastroAnimalService.inserirAnimal(animal);
-		
+
 	}
 	
-	
+public void salvar() {		
+		if(animal.getId() != null && animal.getId() > 0){
+			cadastroAnimalService.atualizar(animal);
+		}else {
+			cadastroAnimalService.inserirAnimal(animal);
+		}
+		
+	}
+
+
 
 
 }
