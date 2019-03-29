@@ -33,9 +33,7 @@ public class Historico implements Serializable{
 	private Agendamento  agendamento ;
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_relatorio_medico")
-	private RelatorioMedico relatorio_medico;
+
 
 
 	public int getId() {
@@ -58,13 +56,5 @@ public class Historico implements Serializable{
 	}
 
 
-	public RelatorioMedico getRelatorio_medico() {
-		return relatorio_medico;
-	}
-
-
-	public void setRelatorio_medico(RelatorioMedico relatorio_medico) {
-		this.relatorio_medico = relatorio_medico;
-	}
 
 }

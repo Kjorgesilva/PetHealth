@@ -6,7 +6,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.petHealth.model.Animal;
-import br.com.petHealth.model.RelatorioMedico;
+import br.com.petHealth.model.PerguntaRelatorio;
+import br.com.petHealth.model.RespostaRelatorio;
 import br.com.petHealth.repository.CadastroRelatorioMedicoRepository;
 
 
@@ -22,13 +23,23 @@ public class CadastroRelatorioMedicoService implements Serializable{
 	@Inject
 	private CadastroRelatorioMedicoRepository cadastroRelatorioMedicoRepository;
 
-	public void inserir(RelatorioMedico relatorioMedico){
-		cadastroRelatorioMedicoRepository.insert(relatorioMedico);
-
+	
+	
+	public void inserir(RespostaRelatorio respostaRelatorio){
+		cadastroRelatorioMedicoRepository.insert(respostaRelatorio);
 	}
 	
 	public List<Animal> findAll() {				
 		return cadastroRelatorioMedicoRepository.findAll();
+	}
+	
+	public List<PerguntaRelatorio> findAllPerguntas() {	
+		return cadastroRelatorioMedicoRepository.findAllPerguntas();
+	}
+	
+	public PerguntaRelatorio findById(int id){
+		return cadastroRelatorioMedicoRepository.findById(id);
+		
 	}
 
 

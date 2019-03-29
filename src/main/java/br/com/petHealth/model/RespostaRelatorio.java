@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,13 +30,11 @@ public class RespostaRelatorio implements Serializable{
 	@Column(name="resposta")
 	private String resposta;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_pergunta_relatorio")
 	private PerguntaRelatorio  pergunta_relatorio ;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_relatorio_medico")
-	private RelatorioMedico relatorio_medico;
+
 
 	public int getId() {
 		return id;
@@ -61,12 +60,6 @@ public class RespostaRelatorio implements Serializable{
 		this.pergunta_relatorio = pergunta_relatorio;
 	}
 
-	public RelatorioMedico getRelatorio_medico() {
-		return relatorio_medico;
-	}
 
-	public void setRelatorio_medico(RelatorioMedico relatorio_medico) {
-		this.relatorio_medico = relatorio_medico;
-	}
 
 }

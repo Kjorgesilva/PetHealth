@@ -10,7 +10,6 @@ import javax.inject.Named;
 
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Cliente;
-import br.com.petHealth.model.RelatorioMedico;
 import br.com.petHealth.service.CadastroRelatorioMedicoService;
 
 @Named

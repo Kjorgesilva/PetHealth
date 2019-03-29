@@ -23,16 +23,16 @@ public class PerguntaRelatorio implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_pergunta_relatorio")
-	private int id;	
+	private Integer id;	
 	
 	@Column(name="descricao")
 	private String descricao;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

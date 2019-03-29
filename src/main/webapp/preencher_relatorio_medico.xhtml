@@ -10,81 +10,59 @@
 	<f:metadata>
 		<f:viewParam name="relatorioParam"
 			value="#{preencherRelatorioMedicoBean.id}" />
+		<f:viewAction action="#{preencherRelatorioMedicoBean.init}" />
 	</f:metadata>
 
 
 	<ui:define name="body">
-
 		<div class="ui-g">
-			<div class="ui-g-10 ui-md-12" align="center">
+			<div class="ui-g-10 ui-md-12">
 
-				<h:outputLabel value="Hidratação" />
-				<h:selectOneRadio id="selectRadio2">
-					<f:selectItem itemValue="0" itemLabel="Normal" />
-					<f:selectItem itemValue="1" itemLabel="Alterada" />
-				</h:selectOneRadio>
+				<p:dataTable var="pergunta"
+					value="#{preencherRelatorioMedicoBean.relatoriosListas}">
+					<p:column headerText="Perguntas">
+						<h:outputText value="#{pergunta.pergunta_relatorio.descricao}"></h:outputText>
+					</p:column>
 
-				<hr />
-
-				<h:outputLabel value="Pelagem" />
-				<h:selectOneRadio id="selectRadio3">
-					<f:selectItem itemValue="0" itemLabel="Normal" />
-					<f:selectItem itemValue="1" itemLabel="Alterada" />
-				</h:selectOneRadio>
-				<hr />
-
-				<h:outputLabel value="Frequencia Cardiaca" />
-				<h:selectOneRadio id="selectRadio4">
-					<f:selectItem itemValue="0" itemLabel="Normal" />
-					<f:selectItem itemValue="1" itemLabel="Alterada" />
-				</h:selectOneRadio>
-				<hr />
-
-
-				<h:outputLabel value="Sistema Respiratorio" />
-				<h:selectOneRadio id="selectRadio5">
-					<f:selectItem itemValue="0" itemLabel="Normal" />
-					<f:selectItem itemValue="1" itemLabel="Alterada" />
-				</h:selectOneRadio>
-				<hr />
-
-
-				<h:outputLabel value="Cavidade Oral" />
-				<h:selectOneRadio id="selectRadio6">
-					<f:selectItem itemValue="0" itemLabel="Normal" />
-					<f:selectItem itemValue="1" itemLabel="Alterada" />
-				</h:selectOneRadio>
-				<hr />
-
-				<h:outputLabel value="Condutores Auditivos" />
-				<h:selectOneRadio id="selectRadio7">
-					<f:selectItem itemValue="0" itemLabel="Normal" />
-					<f:selectItem itemValue="1" itemLabel="Alterada" />
-				</h:selectOneRadio>
-				<hr />
-
-				<h:outputLabel value="Temperatura" />
-				<h:selectOneRadio id="selectRadio8">
-					<f:selectItem itemValue="0" itemLabel="Normal" />
-					<f:selectItem itemValue="1" itemLabel="Alterada" />
-				</h:selectOneRadio>
-				<hr />
-
-
-				<h:outputLabel value="Queixa Principal: " for="queixa_principal" />
-				<h:inputText id="queixa_principal" />
-				<hr />
-
-				<h:outputLabel value="Observações: " for="observações" />
-				<h:inputText id="observações" />
-				<hr />
-
-				<h:commandButton value="Finalizar Formulario"></h:commandButton>
-				<hr />
+					<p:column headerText="Respostas">
+						<h:selectOneRadio id="radio" value="#{pergunta.resposta}">
+							<f:selectItem itemValue="0" itemLabel="Normal" />
+							<f:selectItem itemValue="1" itemLabel="Alterada" />
+						</h:selectOneRadio>
+					</p:column>
+					<br />
+					</p:dataTable>
 			</div>
 		</div>
 
+		<div class="ui-g">
+			<div class="ui-g-10 ui-md-12">
+				<div class="form-group row">
+					<h:commandButton value="Salvar"
+						action="#{preencherRelatorioMedicoBean.insert}">
+					</h:commandButton>
+				</div>
+			</div>
 
+
+
+		</div>
+
+		<!-- <div class="ui-g">
+			<div class="ui-g-10 ui-md-12">
+				<div class="form-group row">
+					<h:outputLabel for="Pergunta" var="pergunta"
+						styleClass="col-sm-3 control-label col-form-label" />			
+
+				</div>
+				
+				<ui:repeat value="#{preencherRelatorioMedicoBean.perguntaRelatorios}" var="z">
+					<h:outputText value="#{z.descricao}"/>
+					<br/>
+				</ui:repeat>
+				
+			</div>
+		</div> -->
 
 	</ui:define>
 
