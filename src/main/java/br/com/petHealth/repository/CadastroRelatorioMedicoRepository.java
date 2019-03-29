@@ -43,10 +43,10 @@ public class CadastroRelatorioMedicoRepository {
 	}
 	
 	
-	public List<PerguntaRelatorio> findAllPerguntas() {		
+	public List<RespostaRelatorio> findAllResposta() {		
 		em = JpaConnector.getConnectionMySql();		
-		Query animal = em.createQuery("FROM PerguntaRelatorio l ");		
-		List<PerguntaRelatorio> lista = animal.getResultList();	
+		Query resposta = em.createQuery("FROM RespostaRelatorio l INNER JOIN FETCH l.pergunta");		
+		List<RespostaRelatorio> lista = resposta.getResultList();	
 		
 		return lista;
 	

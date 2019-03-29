@@ -25,22 +25,22 @@ public class RespostaRelatorio implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_resposta_relatorio")
-	private int id;	
+	private Integer id;	
 	
 	@Column(name="resposta")
 	private String resposta;
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_pergunta_relatorio")
-	private PerguntaRelatorio  pergunta_relatorio ;
+	private PerguntaRelatorio  pergunta ;
 	
 
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -52,12 +52,12 @@ public class RespostaRelatorio implements Serializable{
 		this.resposta = resposta;
 	}
 
-	public PerguntaRelatorio getPergunta_relatorio() {
-		return pergunta_relatorio;
+	public PerguntaRelatorio getPergunta() {
+		return pergunta;
 	}
 
-	public void setPergunta_relatorio(PerguntaRelatorio pergunta_relatorio) {
-		this.pergunta_relatorio = pergunta_relatorio;
+	public void setPergunta(PerguntaRelatorio pergunta) {
+		this.pergunta = pergunta;
 	}
 
 

@@ -18,18 +18,20 @@
 		<div class="ui-g">
 			<div class="ui-g-10 ui-md-12">
 
-				<p:dataTable var="pergunta"
-					value="#{preencherRelatorioMedicoBean.relatoriosListas}">
+				<p:dataTable var="pergunta"	value="#{preencherRelatorioMedicoBean.relatoriosListas}">
+					
 					<p:column headerText="Perguntas">
-						<h:outputText value="#{pergunta.pergunta_relatorio.descricao}"></h:outputText>
+						<h:outputText value="#{pergunta.pergunta.descricao}"></h:outputText>
 					</p:column>
+					
+		<p:column headerText="Respostas">
+            <h:selectOneRadio id="radio" value="#{preencherRelatorioMedicoBean.respostaRelatorio}">
+              <f:selectItem itemValue="0" itemLabel="Normal" />
+              <f:selectItem itemValue="1" itemLabel="Alterada" />
+            </h:selectOneRadio>
+          </p:column>
 
-					<p:column headerText="Respostas">
-						<h:selectOneRadio id="radio" value="#{pergunta.resposta}">
-							<f:selectItem itemValue="0" itemLabel="Normal" />
-							<f:selectItem itemValue="1" itemLabel="Alterada" />
-						</h:selectOneRadio>
-					</p:column>
+				
 					<br />
 					</p:dataTable>
 			</div>
