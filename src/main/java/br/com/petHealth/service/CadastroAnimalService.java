@@ -23,6 +23,7 @@ public class CadastroAnimalService implements Serializable{
 	}
 	
 	public Animal findByid(int id){
+		cadastroAnimalRepository = new CadastroAnimalRepository();
 		return cadastroAnimalRepository.findByid(id);
 	}
 	

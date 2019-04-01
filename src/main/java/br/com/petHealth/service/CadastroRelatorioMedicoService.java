@@ -33,8 +33,12 @@ public class CadastroRelatorioMedicoService implements Serializable{
 		return cadastroRelatorioMedicoRepository.findAll();
 	}
 	
-	public List<RespostaRelatorio> findAllResposta() {		
-		return cadastroRelatorioMedicoRepository.findAllResposta();
+//	public List<RespostaRelatorio> findAllResposta() {		
+//		return cadastroRelatorioMedicoRepository.findAllResposta();
+//	}
+//	
+	public List<PerguntaRelatorio> findAllPergunta() {		
+		return cadastroRelatorioMedicoRepository.findAllPergunta();
 	}
 	
 	public PerguntaRelatorio findById(int id){

@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.petHealth.core.JpaConnector;
 import br.com.petHealth.model.Animal;
+import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.PerguntaRelatorio;
 import br.com.petHealth.model.RespostaRelatorio;
 
@@ -43,16 +44,22 @@ public class CadastroRelatorioMedicoRepository {
 	}
 	
 	
-	public List<RespostaRelatorio> findAllResposta() {		
+//	public List<RespostaRelatorio> findAllResposta() {		
+//		em = JpaConnector.getConnectionMySql();		
+//		TypedQuery<RespostaRelatorio> resposta = em.createQuery
+//			("FROM RespostaRelatorio l LEFT JOIN FETCH l.pergunta ",RespostaRelatorio.class);		
+//		List<RespostaRelatorio> lista = resposta.getResultList();	
+//		return lista;
+//	}
+	
+	public List<PerguntaRelatorio> findAllPergunta() {		
 		em = JpaConnector.getConnectionMySql();		
-		Query resposta = em.createQuery("FROM RespostaRelatorio l INNER JOIN FETCH l.pergunta");		
-		List<RespostaRelatorio> lista = resposta.getResultList();	
-		
+		TypedQuery<PerguntaRelatorio> resposta = em.createQuery
+			("FROM PerguntaRelatorio  ",PerguntaRelatorio.class);		
+		List<PerguntaRelatorio> lista = resposta.getResultList();	
 		return lista;
-	
-
 	}
-	
+		
 	public PerguntaRelatorio findById(int id){
 		PerguntaRelatorio perguntaRelatorio = null;
 
