@@ -23,5 +23,13 @@ public class VacinasService implements Serializable{
 		
 		}
 	
+	public Vacinas findById(int id){		
+		return vacinasRepository.findById(id);
+	}
+	
+	public Vacinas atualizar(Vacinas vacinas){
+		return vacinas = vacinasRepository.atualizar(vacinas);
+	}
+	
 
 }

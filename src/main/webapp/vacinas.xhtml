@@ -11,47 +11,48 @@
 	</f:metadata>
 
 	<ui:define name="body">
-		<div class="ui-g">
-			<div class="ui-g-10 ui-md-12">
-				<p:dataTable var="vacinas" value="#{vacinasBean.vacinas}">
-					<p:column headerText="Nº Vacina">
-						<h:outputText value="#{vacinas.id}" />
-					</p:column>
+		<h:form>
+			<div class="ui-g">
+				<div class="ui-g-10 ui-md-12">
+					<p:dataTable var="vacinas" value="#{vacinasBean.vacinas}">
+						<p:column headerText="Nº Vacina">
+							<h:outputText value="#{vacinas.id}" />
+						</p:column>
 
-					<p:column headerText="Data Vacina">
-						<h:outputText value="#{vacinas.dataVacina}">
-							<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
-						</h:outputText>
-					</p:column>
+						<p:column headerText="Data Vacina">
+							<h:outputText value="#{vacinas.dataVacina}">
+								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</p:column>
 
-					<p:column headerText="Data Proxima">
-						<h:outputText value="#{vacinas.dataProxima}">
-							<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
-						</h:outputText>
-					</p:column>
+						<p:column headerText="Data Proxima">
+							<h:outputText value="#{vacinas.dataProxima}">
+								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</p:column>
 
-					<p:column headerText="Descricao">
-						<h:outputText value="#{vacinas.tipoVacina.descricao}" />
-					</p:column>
+						<p:column headerText="Descricao">
+							<h:outputText value="#{vacinas.tipoVacina.descricao}" />
+						</p:column>
 
-					<p:column headerText="Vacina em Dia">
-						<h:outputText
-							value="#{vacinas.vacinaEmDia eq 'false'? 'Não':( vacinas.vacinaEmDia eq 'true' ? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
-					</p:column>
+						<p:column headerText="Vacina em Dia">
+							<h:outputText
+								value="#{vacinas.vacinaEmDia eq 'false'? 'Não':( vacinas.vacinaEmDia eq 'true' ? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
+						</p:column>
 
-					<p:column headerText="Vacina">
-						<div class="text-center">
-							<p:commandButton title="Vacina" value="Vacinar"
-								disabled="#{vacinas.vacinaEmDia}">
-
+						<p:column headerText="Vacina">
+							<p:commandButton title="Vacina" disabled="#{vacinas.vacinaEmDia}"
+								action="#{vacinasBean.salvar(vacinas.id)}">
 							</p:commandButton>
-						</div>
-					</p:column>
+
+						</p:column>>
+				
 
 
 				</p:dataTable>
+				</div>
 			</div>
-		</div>
+		</h:form>
 	</ui:define>
 
 

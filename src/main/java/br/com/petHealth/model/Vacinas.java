@@ -26,7 +26,7 @@ public class Vacinas implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_vacina")
-	private int id;
+	private Integer id;
 	
 	@Column(name="aviso")
 	private String aviso;
@@ -63,13 +63,12 @@ public class Vacinas implements Serializable{
 		this.vacinaEmDia = vacinaEmDia;
 	}
 
-
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
