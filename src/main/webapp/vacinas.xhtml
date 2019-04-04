@@ -8,16 +8,24 @@
 
 	<f:metadata>
 		<f:viewAction action="#{vacinasBean.init}" />
+		<f:viewParam name="editarParam" value="#{vacinasBean.id}" />
+
 	</f:metadata>
 
 	<ui:define name="body">
 		<h:form>
+
+			<h:panelGrid columns="3">
+
+				<h:outputLabel value="Numero de identificação do animal: "
+					for="nome" />
+				<h:outputText id="nome" value=" #{vacinasBean.id}" />
+
+			</h:panelGrid>
 			<div class="ui-g">
 				<div class="ui-g-10 ui-md-12">
 					<p:dataTable var="vacinas" value="#{vacinasBean.vacinas}">
-						<p:column headerText="Nº Vacina">
-							<h:outputText value="#{vacinas.id}" />
-						</p:column>
+
 
 						<p:column headerText="Data Vacina">
 							<h:outputText value="#{vacinas.dataVacina}">
@@ -37,7 +45,7 @@
 
 						<p:column headerText="Vacina em Dia">
 							<h:outputText
-								value="#{vacinas.vacinaEmDia eq 'false'? 'Não':( vacinas.vacinaEmDia eq 'true' ? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
+								value="#{vacinas.vacinaEmDia eq 'false'? 'Não':(vacinas.vacinaEmDia eq 'true'? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
 						</p:column>
 
 						<p:column headerText="Vacina">
@@ -47,11 +55,10 @@
 
 						</p:column>>
 				
-
-
 				</p:dataTable>
 				</div>
 			</div>
+
 		</h:form>
 	</ui:define>
 

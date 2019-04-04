@@ -32,6 +32,15 @@ public class VacinasBean implements Serializable {
 
 	private List<Vacinas> vacinas;
 	private Vacinas vacina;
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public Vacinas getVacina() {
 		return vacina;
