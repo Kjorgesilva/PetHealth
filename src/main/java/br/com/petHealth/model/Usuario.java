@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
+
 @Entity
 @Table(name="tab_usuario")
 public class Usuario implements Serializable {
@@ -107,6 +108,10 @@ public class Usuario implements Serializable {
 			return this.id;
 		}
 
+	}
+	
+	public boolean validarSenha(String input) {
+		return senha.equals(input);
 	}
 			
 	

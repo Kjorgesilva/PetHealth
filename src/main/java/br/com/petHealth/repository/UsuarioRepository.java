@@ -1,11 +1,9 @@
 package br.com.petHealth.repository;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-
 import br.com.petHealth.core.JpaConnector;
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Usuario;
@@ -72,6 +70,30 @@ public class UsuarioRepository {
 		}
 		return login.getId();
 
+	}
+	
+	
+public Usuario findByLogin(String login) {
+		
+		try {
+
+			em = JpaConnector.getConnectionMySql();
+			TypedQuery<Usuario> query = em.createQuery(
+				"SELECT u "+
+				"FROM "+
+				"	Usuario u "+
+				"WHERE "+
+				" u.login = :login",Usuario.class);
+			query.setParameter("login", login);
+			
+			Usuario usuario = query.getSingleResult();
+			
+			return usuario;
+			
+		} catch (NoResultException nre) {
+			return null;
+		}
+		
 	}
 
 
