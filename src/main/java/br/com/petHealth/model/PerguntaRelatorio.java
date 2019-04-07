@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 @Entity
@@ -27,6 +29,17 @@ public class PerguntaRelatorio implements Serializable{
 	
 	@Column(name="descricao")
 	private String descricao;
+	
+	@Transient
+	private String resposta;
+
+	public String getResposta() {
+		return resposta;
+	}
+
+	public void setResposta(String resposta) {
+		this.resposta = resposta;
+	}
 
 	public Integer getId() {
 		return id;

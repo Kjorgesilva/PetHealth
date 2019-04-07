@@ -35,7 +35,6 @@ public class CadastroRelatorioMedicoRepository {
 		Query animal = em.createQuery("FROM Animal l INNER JOIN FETCH l.cliente");		
 		List<Animal> lista = animal.getResultList();	
 		
-		
 		for(int i=0; i<lista.size();i++){
 			System.out.println(lista.get(i).getCliente().getNome());		
 		}

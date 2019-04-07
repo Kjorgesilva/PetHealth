@@ -98,11 +98,12 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 
 	public void botao() {
 
-		respostaRelatorio = new RespostaRelatorio();
-		respostaRelatorio.setPergunta(perguntasLista.get(0));
 		
 		
-		
+		for (PerguntaRelatorio perguntaRelatorio : perguntasLista) {
+			respostaRelatorio = new RespostaRelatorio();
+			respostaRelatorio.setPergunta(perguntaRelatorio);
+			
 		//instancia seus services de animal, cliente e médido
 		//findById(int id);
 		//Animal animal = animalService.findById(idAnimal)
@@ -124,10 +125,11 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 		
 		
 		if (respostaRelatorio != null) {
-			respostaRelatorio.setResposta(teste);
+			respostaRelatorio.setResposta(perguntaRelatorio.getResposta());
 			cadastroRelatorioMedicoService.inserir(respostaRelatorio);
 		} else {
 			System.out.println("valor nulo");
+		}
 		}
 
 	}
