@@ -15,6 +15,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.primefaces.json.JSONObject;
+
 import br.com.petHealth.model.Usuario;
 import br.com.petHealth.service.UsuarioService;
 
@@ -24,15 +26,27 @@ public class UsuarioWs implements Serializable {
 	@Inject
 	private UsuarioService usuarioService;
 	
+//	@POST
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Usuario getTestService(@QueryParam("login") String login, @QueryParam("senha") String senha) {
+//		System.out.println("teste");
+//		Usuario usuario = new Usuario();
+//		usuario =  usuarioService.checkLogin(login, senha); 
+//		return usuario;
+//	}
+	
+	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	public Usuario getTestService(@QueryParam("login") String login, @QueryParam("senha") String senha) {
-		System.out.println("teste");
+	public Usuario getTestService(String json) {
+		JSONObject jsonObject = new JSONObject(json);
+		
+		System.out.println(json);
 		Usuario usuario = new Usuario();
-		usuario =  usuarioService.checkLogin(login, senha); 
+		usuario =  usuarioService.checkLogin(jsonObject.getString("login"),
+				jsonObject.getString("senha")); 
 		return usuario;
 	}
-	
 
 
 	
