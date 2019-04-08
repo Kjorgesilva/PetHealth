@@ -1,9 +1,15 @@
 package br.com.petHealth.resource;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -18,12 +24,16 @@ public class UsuarioWs implements Serializable {
 	@Inject
 	private UsuarioService usuarioService;
 	
-	@GET
+	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public Usuario getTestService(@QueryParam("login") String login, @QueryParam("senha") String senha) {
+		System.out.println("teste");
 		Usuario usuario = new Usuario();
 		usuario =  usuarioService.checkLogin(login, senha); 
 		return usuario;
 	}
+	
 
+
+	
 }
