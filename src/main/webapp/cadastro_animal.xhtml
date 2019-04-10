@@ -70,7 +70,7 @@
 						<h:message for="cor" errorStyle="color:red" />
 
 
-						<h:outputLabel value="Sexo (M / F): " for="sexo" />
+						<h:outputLabel value="Sexo: " for="sexo" />
 						
 						<p:selectOneMenu value="#{cadastroAnimalBean.animal.sexo}" style="width:200px"
 							required="true" requiredMessage="Preencha o campo sexo">
@@ -79,6 +79,19 @@
 						</p:selectOneMenu>
 						
 						<h:message for="sexo" errorStyle="color:red" />
+						
+						
+						
+						<h:outputLabel value="Especie: " for="especie" />
+						
+						<p:selectOneMenu value="#{cadastroAnimalBean.animal.especie}" style="width:200px"
+							required="true" requiredMessage="Preencha o campo especie">
+							<f:selectItem itemValue="Felino" itemLabel="Felino"/>
+							<f:selectItem itemValue="Canino" itemLabel="Canino"/>
+						</p:selectOneMenu>
+						
+						<h:message for="sexo" errorStyle="color:red" />
+						
 
 
 						<h:outputLabel value="País: " for="pais_de_origem" />

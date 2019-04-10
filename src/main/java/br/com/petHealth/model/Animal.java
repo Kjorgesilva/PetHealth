@@ -55,6 +55,7 @@ public class Animal implements Serializable {
 	
 	@Column(name = "observacoes")
 	private String observacoes;
+	
 
 	
 	
@@ -152,6 +153,10 @@ public class Animal implements Serializable {
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
 	}
+
+
+
+
 
 	
 }

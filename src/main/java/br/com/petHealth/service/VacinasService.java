@@ -14,22 +14,23 @@ public class VacinasService implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 955316697540746832L;
-	
+
 	@Inject
 	private VacinasRepository vacinasRepository;
-	
+
 	public List<Vacinas> findAll() {
 		return vacinasRepository.findAll();
-		
-		}
-	
-	public Vacinas findById(int id){		
+
+	}
+
+	public Vacinas findById(int id){			
 		return vacinasRepository.findById(id);
 	}
-	
+
+
 	public Vacinas atualizar(Vacinas vacinas){
 		return vacinas = vacinasRepository.atualizar(vacinas);
 	}
-	
+
 
 }

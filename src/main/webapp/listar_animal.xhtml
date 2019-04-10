@@ -52,19 +52,23 @@
 					<p:column headerText="Data Nascimento">
 						<h:outputText value="#{animal.dataNascimento}">
 							<f:convertDateTime type="localDateTime"
-								pattern="dd/MM/yyyy HH:MM" />
+								pattern="dd/MM/yyyy" />
 						</h:outputText>
 					</p:column>
 
 					<p:column headerText="Sexo">
 						<h:outputText
-							value="#{animal.sexo eq 'M'? 'Macho':(animall.sexo eq 'F' ? 'Fêmea' :animal.sexo)}">
-
-
+							value="#{animal.sexo eq 'M'? 'Macho':(animal.sexo eq 'F'? 'Fêmea' :animal.sexo)}">
 						</h:outputText>
 					</p:column>
+					
 					<p:column headerText="País De Origem">
 						<h:outputText value="#{animal.paisOrigem}">
+						</h:outputText>
+					</p:column>
+					
+					<p:column headerText="Especie">
+						<h:outputText value="#{animal.especie}">
 						</h:outputText>
 					</p:column>
 

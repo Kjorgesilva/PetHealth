@@ -18,7 +18,7 @@ import br.com.petHealth.service.VacinasService;
 @ViewScoped
 public class VacinasBean implements Serializable {
 
-	public void init(){
+	public void init() {
 		listar();
 	}
 
@@ -50,8 +50,8 @@ public class VacinasBean implements Serializable {
 		this.vacina = vacina;
 	}
 
-	public void listar(){
-		vacinas = vacinasService.findAll();		
+	public void listar() {
+		vacinas = vacinasService.findAll();
 	}
 
 	public VacinasService getVacinasService() {
@@ -70,12 +70,11 @@ public class VacinasBean implements Serializable {
 		this.vacinas = vacinas;
 	}
 
-	public void salvar(Integer id){
-		System.out.println("teste de valor: "+ id);
-		LocalDateTime hoje = LocalDateTime.now();		
-		DateTimeFormatter formatadorBarra = DateTimeFormatter.ofPattern("dd/MM/yyyy");	
+	public void salvar(Integer id) {
+		System.out.println("teste de valor: " + id);
+		LocalDateTime hoje = LocalDateTime.now();
+		DateTimeFormatter formatadorBarra = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-		
 		vacina = new Vacinas();
 		vacina.setId(id);
 		vacina.setDataVacina(hoje);
@@ -83,15 +82,13 @@ public class VacinasBean implements Serializable {
 		vacina.setVacinaEmDia(true);
 		vacina.setDescricao("V3");
 		vacina.setAviso("passou aqui");
-		
-	
-		vacinasService.atualizar(vacina);		
-		//		
-		//		System.out.println("Hoje: " + hoje.format(formatadorBarra));
-		//		System.out.println("meses: " + hoje.plusMonths(2).format(formatadorBarra));
 
+		vacinasService.atualizar(vacina);
+		//
+		// System.out.println("Hoje: " + hoje.format(formatadorBarra));
+		// System.out.println("meses: " +
+		// hoje.plusMonths(2).format(formatadorBarra));
 
 	}
-
 
 }

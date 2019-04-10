@@ -48,14 +48,21 @@
 								value="#{vacinas.vacinaEmDia eq 'false'? 'Não':(vacinas.vacinaEmDia eq 'true'? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
 						</p:column>
 
+						<p:column headerText="Especie">
+							<h:outputText value="#{vacinas.especie}">
+							</h:outputText>
+						</p:column>
+
 						<p:column headerText="Vacina">
 							<p:commandButton title="Vacina" disabled="#{vacinas.vacinaEmDia}"
 								action="#{vacinasBean.salvar(vacinas.id)}">
 							</p:commandButton>
+						</p:column>
 
-						</p:column>>
-				
-				</p:dataTable>
+
+
+
+					</p:dataTable>
 				</div>
 			</div>
 

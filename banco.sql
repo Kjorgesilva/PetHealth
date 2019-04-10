@@ -1,18 +1,21 @@
 use  pethealth;
 
 drop table if exists tab_vacina;
-drop table if exists tab_tipo_vacina;
 drop table if exists tab_histoico;
 drop table if exists tab_resposta_relatorio;
 drop table if exists tab_pergunta_relatorio;
 drop table if exists tab_relatorio_medico;
 drop table if exists tab_agendamento;
 drop table if exists tab_endereco;
-drop table if exists tab_medico;
+drop table if exists tab_vacina_tomada_especie;
+drop table if exists tab_vacina_especie;
 drop table if exists tab_animal;
+drop table if exists tab_especie_animal;
+drop table if exists tab_medico;
 drop table if exists tab_cliente;
 drop table if exists tab_usuario;
 drop table if exists tab_perfil;
+drop table if exists tab_tipo_vacina;
 
 
 
@@ -50,9 +53,14 @@ create table tab_cliente(
         primary key (id_cliente),
         CONSTRAINT id_usuario_cliente_fk FOREIGN KEY (id_usuario) REFERENCES tab_usuario (id_usuario)
 	);
-       
+	
+	create table tab_especie_animal(
+		id_especie_animal int NOT NULL AUTO_INCREMENT,
+		especie varchar(255),
+		primary key (id_especie_animal)
+	);
     
-    create table tab_animal (
+     create table tab_animal (
 		id_animal int NOT NULL AUTO_INCREMENT,
         nome  varchar (255) not null,
         raca varchar (255) not null,
@@ -61,12 +69,13 @@ create table tab_cliente(
         sexo varchar (1) not null,
         pais_de_origem varchar (255),
         observacoes varchar(255),
-        id_cliente int ,
+        id_cliente INTEGER ,
+        id_especie INTEGER ,
 		PRIMARY KEY (id_animal),
 		CONSTRAINT sexo_ck check (sexo in('M','F')) ,
-        CONSTRAINT cliente_fk foreign key (id_cliente) references tab_cliente (id_cliente)
-  
-  ); 
+        CONSTRAINT cliente_fk foreign key (id_cliente) references tab_cliente (id_cliente),
+        CONSTRAINT id_especie_fk foreign key (id_especie) references tab_especie_animal (id_especie_animal)
+); 
     
     
 create table tab_medico (
@@ -137,8 +146,8 @@ create table tab_histoico(
  
 create table tab_tipo_vacina(
 		id_tipo_vacina int primary key NOT NULL AUTO_INCREMENT,
-        descricao varchar (255)not null
-        
+        descricao varchar (255)not null,
+        especie varchar (255)        
 	);
    
 create table tab_vacina(
@@ -147,23 +156,37 @@ create table tab_vacina(
         data_vacina timestamp ,
 		data_da_proxima timestamp ,	
 		descricao varchar (255) ,
-        id_animal INTEGER ,
+        id_animal_vacina_vacina INTEGER ,
 		id_tipo_vacina INTEGER ,
-        vacina_em_dia boolean,        
-        CONSTRAINT id_animal_vacina_fk FOREIGN KEY (id_animal) REFERENCES tab_animal (id_animal),
+        vacina_em_dia boolean,  
+        CONSTRAINT id_animal_vacina_vacina_fk FOREIGN KEY (id_animal_vacina_vacina) REFERENCES tab_animal (id_animal),
         CONSTRAINT id_tipo_vacina_fk FOREIGN KEY (id_tipo_vacina) REFERENCES tab_tipo_vacina (id_tipo_vacina)
 	);
     
     
+create table tab_vacina_especie(
+		id_vacina_especie int primary key NOT NULL AUTO_INCREMENT,
+        id_tipo_especie INTEGER ,
+		id_tipo_vacina_especie INTEGER ,
+        CONSTRAINT id__tipo_especie_vacina_fk FOREIGN KEY (id_tipo_especie) REFERENCES tab_especie_animal (id_especie_animal),
+        CONSTRAINT id_tipo_vacina_especie_fk FOREIGN KEY (id_tipo_vacina_especie) REFERENCES tab_tipo_vacina (id_tipo_vacina)
 
-    
+);  
+
+create table tab_vacina_tomada_especie(
+		id_vacina_tomara_especie int primary key NOT NULL AUTO_INCREMENT,
+        id_animal_vacina_tomada_especie INTEGER,
+        id_vacina_especie_tomada INTEGER,
+		CONSTRAINT id_animal_vacina_tomada_especie_fk FOREIGN KEY (id_animal_vacina_tomada_especie) REFERENCES tab_animal (id_animal),
+		CONSTRAINT id_vacina_especie_tomada_fk FOREIGN KEY (id_vacina_especie_tomada) REFERENCES tab_vacina_especie (id_vacina_especie)
+        
+);
+
 INSERT INTO tab_perfil (id_perfil,descricao)
 VALUES(1,'cliente');
 
 INSERT INTO tab_perfil (id_perfil,descricao)
 VALUES(2,'medico');
-
-
 
 
 INSERT INTO tab_usuario
@@ -178,9 +201,12 @@ INSERT INTO tab_cliente
 (nome,rg,endereco,telefone,email,id_usuario)
 VALUES('Pedro','33333333-3', 'Rua Dois' ,'5555-5555','pedroSilva@outlook.com' ,1);
 
+INSERT INTO tab_especie_animal (id_especie_animal,especie)
+VALUES(1,'canino');
+
 INSERT INTO tab_animal
-(nome,raca,cor,data_de_nascimento,sexo,pais_de_origem,observacoes,id_cliente)
-VALUES('gato','gato alemao','Branco', now() ,'M','Brasil',NULL,1);
+(nome,raca,cor,data_de_nascimento,sexo,pais_de_origem,observacoes,id_cliente,id_especie)
+VALUES('totó','cachorro alemao','Preto', now() ,'F','Brasil',NULL,1,1);
 
 INSERT INTO tab_medico
 (nome,telefone,email,id_usuario)
@@ -229,78 +255,24 @@ INSERT INTO tab_histoico
 VALUES(1); 
 
 /*Tipos de vacinas para Pets*/
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('1', 'V3');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('2', 'V4');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('3', 'V5');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('4', 'V8');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('5', 'Rinotraqueite Infecciosa');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('6', 'V10');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('7', 'Gripe Canina');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('8', 'Giardiase');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('9', 'Anti- Rábica');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('10', 'Calicivirose');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('11', 'Panleucopenia');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('12', 'Clamidiose');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('13', 'Leucemia Felina');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('14', 'Vermifungo');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('1', 'V3','canino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('2', 'V4','canino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('3', 'V5','felino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('4', 'V8','canino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('5', 'Rinotraqueite Infecciosa','felino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('6', 'V10','felino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('7', 'Gripe Canina','canino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('8', 'Giardiase','felino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('9', 'Anti- Rábica','canino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('10', 'Calicivirose','felino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('11', 'Panleucopenia','canino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('12', 'Clamidiose','felino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('13', 'Leucemia Felina','felino');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('14', 'Vermifungo','canino');
 
 
 
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,1,false);
 
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,2,true);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,3,false);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,4,true);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,5,false);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,6,false);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,7,true);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,8,true);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,9,false);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,10,true);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,11,false);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,12,true);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,13,false);
-
-INSERT INTO tab_vacina
-(aviso,data_vacina,data_da_proxima,descricao,id_animal,id_tipo_vacina,vacina_em_dia)
-VALUES('resposta Vacina alerta para a proxima',now(),now(),'descricao',1 ,14,true);
 
 
 
