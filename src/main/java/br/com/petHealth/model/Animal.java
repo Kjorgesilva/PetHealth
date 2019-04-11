@@ -56,13 +56,26 @@ public class Animal implements Serializable {
 	@Column(name = "observacoes")
 	private String observacoes;
 	
-
-	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
+	
+	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_especie")
+	private EspecieAnimal idEspecieAnimal;
 
+
+
+	public EspecieAnimal getIdEspecieAnimal() {
+		return idEspecieAnimal;
+	}
+
+
+	public void setIdEspecieAnimal(EspecieAnimal idEspecieAnimal) {
+		this.idEspecieAnimal = idEspecieAnimal;
+	}
 
 
 	public Cliente getCliente() {

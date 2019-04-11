@@ -43,31 +43,16 @@ public class Vacinas implements Serializable{
 	@Column(name="vacina_em_dia")
 	private boolean vacinaEmDia;
 	
-	
-	@Column(name="especie")
-	private String especie;
-	
-	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_animal")
-	private Animal  animal ;
+	@JoinColumn(name="id_animal_vacina_vacina")
+	private Animal animal ;
 	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_tipo_vacina")
 	private TipoVacinas  tipoVacina ;
 
-	public String getEspecie() {
-		return especie;
-	}
 
-
-	public void setEspecie(String especie) {
-		this.especie = especie;
-	}
-
-	
-	
 	public boolean isVacinaEmDia() {
 		return vacinaEmDia;
 	}

@@ -4,7 +4,6 @@ drop table if exists tab_vacina;
 drop table if exists tab_histoico;
 drop table if exists tab_resposta_relatorio;
 drop table if exists tab_pergunta_relatorio;
-drop table if exists tab_relatorio_medico;
 drop table if exists tab_agendamento;
 drop table if exists tab_endereco;
 drop table if exists tab_vacina_tomada_especie;
@@ -16,9 +15,6 @@ drop table if exists tab_cliente;
 drop table if exists tab_usuario;
 drop table if exists tab_perfil;
 drop table if exists tab_tipo_vacina;
-
-
-
 
  
 create table tab_perfil(
@@ -146,8 +142,7 @@ create table tab_histoico(
  
 create table tab_tipo_vacina(
 		id_tipo_vacina int primary key NOT NULL AUTO_INCREMENT,
-        descricao varchar (255)not null,
-        especie varchar (255)        
+        descricao varchar (255)not null
 	);
    
 create table tab_vacina(
@@ -201,12 +196,6 @@ INSERT INTO tab_cliente
 (nome,rg,endereco,telefone,email,id_usuario)
 VALUES('Pedro','33333333-3', 'Rua Dois' ,'5555-5555','pedroSilva@outlook.com' ,1);
 
-INSERT INTO tab_especie_animal (id_especie_animal,especie)
-VALUES(1,'canino');
-
-INSERT INTO tab_animal
-(nome,raca,cor,data_de_nascimento,sexo,pais_de_origem,observacoes,id_cliente,id_especie)
-VALUES('totó','cachorro alemao','Preto', now() ,'F','Brasil',NULL,1,1);
 
 INSERT INTO tab_medico
 (nome,telefone,email,id_usuario)
@@ -220,6 +209,16 @@ INSERT INTO tab_agendamento
 (data_de_inicio,data_de_fim,id_cliente,id_medico,id_endereco)
 VALUES(now(),now(),1,1,1);
 
+INSERT INTO tab_especie_animal (id_especie_animal,especie)
+VALUES(1,'canino');
+
+INSERT INTO tab_especie_animal (id_especie_animal,especie)
+VALUES(2,'felino');
+
+
+INSERT INTO tab_animal
+(nome,raca,cor,data_de_nascimento,sexo,pais_de_origem,observacoes,id_cliente,id_especie)
+VALUES('totó','cachorro alemao','Preto', now() ,'F','Brasil',NULL,1,1);
 
 INSERT INTO tab_pergunta_relatorio
 (descricao)
@@ -241,38 +240,41 @@ INSERT INTO tab_pergunta_relatorio
 VALUES('Condutores Auditivos');  
 INSERT INTO tab_pergunta_relatorio
 (descricao)
-VALUES('Temperatura');  
-
-
-
-
-INSERT INTO tab_resposta_relatorio
-(resposta,id_pergunta_relatorio,id_cliente,id_medico,id_animal)
-VALUES('resposta do relatorio',1,1,1,1);  
+VALUES('Temperatura'); 
 
 INSERT INTO tab_histoico
 (id_agendamento)
 VALUES(1); 
 
-/*Tipos de vacinas para Pets*/
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('1', 'V3','canino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('2', 'V4','canino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('3', 'V5','felino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('4', 'V8','canino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('5', 'Rinotraqueite Infecciosa','felino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('6', 'V10','felino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('7', 'Gripe Canina','canino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('8', 'Giardiase','felino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('9', 'Anti- Rábica','canino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('10', 'Calicivirose','felino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('11', 'Panleucopenia','canino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('12', 'Clamidiose','felino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('13', 'Leucemia Felina','felino');
-INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`, `especie`) VALUES ('14', 'Vermifungo','canino');
+
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('1', 'V3');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('2', 'V4');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('3', 'V5');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('4', 'V8');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('5', 'Rinotraqueite Infecciosa');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('6', 'V10');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('7', 'Gripe Canina');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('8', 'Giardiase');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('9', 'Anti- Rábica');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('10', 'Calicivirose');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('11', 'Panleucopenia');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('12', 'Clamidiose');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('13', 'Leucemia Felina');
+INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`) VALUES ('14', 'Vermifungo');
 
 
 
+INSERT INTO tab_vacina (id_vacina,aviso,data_vacina,data_da_proxima,descricao,id_animal_vacina_vacina,id_tipo_vacina,vacina_em_dia)
+VALUES(1,'aviso',now(),now(),'Animal Descricao',1,1,true); 
 
 
+INSERT INTO tab_vacina_especie
+(id_vacina_especie,id_tipo_especie,id_tipo_vacina_especie)
+VALUES(1,1,1); 
+
+
+INSERT INTO tab_vacina_tomada_especie
+(id_vacina_tomara_especie,id_animal_vacina_tomada_especie,id_vacina_especie_tomada)
+VALUES(1,1,1); 
 
 
