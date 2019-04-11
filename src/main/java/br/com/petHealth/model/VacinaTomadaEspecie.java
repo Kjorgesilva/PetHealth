@@ -1,6 +1,7 @@
 package br.com.petHealth.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,6 +36,59 @@ public class VacinaTomadaEspecie implements Serializable {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_vacina_especie_tomada")
 	private VacinaEspecie  idVacinaEspecie ;
+	
+	@Column(name="data_vacina")
+	private LocalDateTime dataVacina;
+	
+	@Column(name="data_da_proxima")
+	private LocalDateTime dataProxima;
+	
+	@Column(name="vacina_em_dia")
+	private boolean vacinaEmDia;
+	
+	@Column(name="aviso")
+	private String aviso;
+	
+
+
+	public LocalDateTime getDataVacina() {
+		return dataVacina;
+	}
+
+
+	public void setDataVacina(LocalDateTime dataVacina) {
+		this.dataVacina = dataVacina;
+	}
+
+
+	public LocalDateTime getDataProxima() {
+		return dataProxima;
+	}
+
+
+	public void setDataProxima(LocalDateTime dataProxima) {
+		this.dataProxima = dataProxima;
+	}
+
+
+	public boolean isVacinaEmDia() {
+		return vacinaEmDia;
+	}
+
+
+	public void setVacinaEmDia(boolean vacinaEmDia) {
+		this.vacinaEmDia = vacinaEmDia;
+	}
+
+
+	public String getAviso() {
+		return aviso;
+	}
+
+
+	public void setAviso(String aviso) {
+		this.aviso = aviso;
+	}
 
 
 	public int getId() {

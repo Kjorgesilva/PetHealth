@@ -109,7 +109,13 @@
 							value="#{cadastroAnimalBean.animal.dataNascimento}" locale="pt"
 							pattern="dd/MM/yyyy hh:mm">
 						</p:calendar>
-						<br/>
+						<br/>				
+						<h:outputLabel value="id_especie " for="idEspecie" />
+						<h:inputText id="idEspecie"
+							value="#{cadastroAnimalBean.animal.idEspecieAnimal.id}" required="true"
+							requiredMessage="Preencha o campo especie" />
+						<h:message for="especie" errorStyle="color:red" />
+						
 
 						<h:commandButton value="Cadastrar"
 							action="#{cadastroAnimalBean.inserir}"></h:commandButton>

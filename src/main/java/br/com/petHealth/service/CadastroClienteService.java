@@ -8,7 +8,6 @@ import javax.inject.Inject;
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.Usuario;
-import br.com.petHealth.model.Vacinas;
 import br.com.petHealth.model.Usuario.PerfilUsuario;
 import br.com.petHealth.repository.CadastroAnimalRepository;
 import br.com.petHealth.repository.CadastroClienteRepository;

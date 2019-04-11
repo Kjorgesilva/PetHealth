@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +31,10 @@ public class TipoVacinas implements Serializable {
 	
 	@Column(name="descricao")
 	private String descricao;
+	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_especie")
+	private EspecieAnimal especie;
 	
 
 	public int getId() {

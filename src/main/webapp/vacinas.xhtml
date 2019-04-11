@@ -7,8 +7,8 @@
 <ui:composition template="base.xhtml">
 
 	<f:metadata>
-		<f:viewAction action="#{vacinasBean.init}" />
-		<f:viewParam name="editarParam" value="#{vacinasBean.id}" />
+		<f:viewAction action="#{tipoVacinaBean.init}" />
+		<f:viewParam name="editarParam" value="#{tipoVacinaBean.id}" />
 
 	</f:metadata>
 
@@ -17,43 +17,29 @@
 
 			<h:panelGrid columns="3">
 
-				<h:outputLabel value="Numero de identificação do animal: "
-					for="nome" />
-				<h:outputText id="nome" value=" #{vacinasBean.id}" />
-
+				
 			</h:panelGrid>
 			<div class="ui-g">
 				<div class="ui-g-10 ui-md-12">
-					<p:dataTable var="vacinas" value="#{vacinasBean.vacinas}">
+					<p:dataTable var="vacinas" value="#{tipoVacinaBean.listaVacinas}">
 
-
-						<p:column headerText="Data Vacina">
-							<h:outputText value="#{vacinas.dataVacina}">
-								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
-							</h:outputText>
-						</p:column>
-
-						<p:column headerText="Data Proxima">
-							<h:outputText value="#{vacinas.dataProxima}">
-								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
-							</h:outputText>
-						</p:column>
 
 						<p:column headerText="Descricao">
-							<h:outputText value="#{vacinas.tipoVacina.descricao}" />
+							<h:outputText value="#{vacinas.descricao}" />
 						</p:column>
+								
 
-						<p:column headerText="Vacina em Dia">
+						<!-- <p:column headerText="Vacina em Dia">
 							<h:outputText
 								value="#{vacinas.vacinaEmDia eq 'false'? 'Não':(vacinas.vacinaEmDia eq 'true'? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
-						</p:column>
+						</p:column> -->
 
 						
-						<p:column headerText="Vacina">
+					<!-- 	<p:column headerText="Vacina">
 							<p:commandButton title="Vacina" disabled="#{vacinas.vacinaEmDia}"
 								action="#{vacinasBean.salvar(vacinas.id)}">
 							</p:commandButton>
-						</p:column>
+						</p:column> -->
 
 
 
