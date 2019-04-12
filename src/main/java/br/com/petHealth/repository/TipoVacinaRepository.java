@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.petHealth.core.JpaConnector;
 import br.com.petHealth.model.TipoVacinas;
+import br.com.petHealth.model.Vacina;
 
 public class TipoVacinaRepository {
 
@@ -24,12 +25,6 @@ public class TipoVacinaRepository {
 
 	}
 
-
-
-	
-	
-	
-	
 	public TipoVacinas findById(int id){
 		TipoVacinas vacinas = null;
 		try {
@@ -52,6 +47,19 @@ public class TipoVacinaRepository {
 		em.getTransaction().commit();
 		return vacinas;
 
+	}
+	
+	
+	public void insert (Vacina tipoVacina){
+		try {
+			em = JpaConnector.getConnectionMySql();
+			em.getTransaction().begin();
+			em.persist(tipoVacina);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}		
 	}
 
 }

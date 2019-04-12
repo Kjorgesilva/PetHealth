@@ -14,34 +14,17 @@
 
 	<ui:define name="body">
 		<h:form>
-
-			<h:panelGrid columns="3">
-
-				
-			</h:panelGrid>
-			<div class="ui-g">
-				<div class="ui-g-10 ui-md-12">
+			<div class="ui-g-12" align="center">
+				<div class="ui-g-6">
 					<p:dataTable var="vacinas" value="#{tipoVacinaBean.listaVacinas}">
-
-
-						<p:column headerText="Descricao">
+						<p:column headerText="Descricao" style="text-align:center">
 							<h:outputText value="#{vacinas.descricao}" />
 						</p:column>
-								
 
-						<!-- <p:column headerText="Vacina em Dia">
-							<h:outputText
-								value="#{vacinas.vacinaEmDia eq 'false'? 'Não':(vacinas.vacinaEmDia eq 'true'? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
-						</p:column> -->
-
-						
-					<!-- 	<p:column headerText="Vacina">
-							<p:commandButton title="Vacina" disabled="#{vacinas.vacinaEmDia}"
-								action="#{vacinasBean.salvar(vacinas.id)}">
+						<p:column headerText="Vacinar">
+							<p:commandButton value="Vacinar" action="#{tipoVacinaBean.inserir(vacinas.id)}">
 							</p:commandButton>
-						</p:column> -->
-
-
+						</p:column>
 
 
 					</p:dataTable>
@@ -54,3 +37,16 @@
 
 </ui:composition>
 </html>
+
+
+<!-- <p:column headerText="Vacina em Dia">
+							<h:outputText
+								value="#{vacinas.vacinaEmDia eq 'false'? 'Não':(vacinas.vacinaEmDia eq 'true'? 'Sim' : vacinas.vacinaEmDia) }"></h:outputText>
+						</p:column> -->
+
+						
+					<!-- 	<p:column headerText="Vacina">
+							<p:commandButton title="Vacina" disabled="#{vacinas.vacinaEmDia}"
+								action="#{vacinasBean.salvar(vacinas.id)}">
+							</p:commandButton>
+						</p:column> -->

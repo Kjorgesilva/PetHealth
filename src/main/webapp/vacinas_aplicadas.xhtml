@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="base.xhtml">
+
+	<f:metadata>
+		<f:viewAction action="#{vacinasAplicadasBean.init}" />
+		<f:viewParam name="editarParam" value="#{vacinasAplicadasBean.id}" />
+
+	</f:metadata>
+
+
+	<ui:define name="body">
+
+		<h:form>
+
+			<legend align="center">Vacinas Aplicadas</legend>
+			<div class="ui-g">
+				<div class="ui-g-10 ui-md-12">
+
+					<p:dataTable var="vacinas"
+						value="#{vacinasAplicadasBean.listaVacinasTomadas}">
+
+						<p:column headerText="Data Da Vacina">
+							<h:outputText value="#{vacinas.idVacinaEspecie.tipoVacina.descricao}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Data Da Vacina">
+							<h:outputText value="#{vacinas.dataVacina}">
+								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</p:column>
+
+
+						<p:column headerText="Data Da Proxima">
+							<h:outputText value="#{vacinas.dataProxima}">
+								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</p:column>
+
+
+
+					</p:dataTable>
+				</div>
+			</div>
+
+
+			<p:dataTable var="vacinas"
+				value="#{vacinasAplicadasBean.listaVacinasTomadas}">
+				<p:column headerText="Verificar" style="width:100px">
+					<div class="text-center">
+
+						<h:link outcome="vacinas" title="Verificar" value="Vacinas">
+							<f:param name="editarParam" value="#{vacinas.id}" />
+						</h:link>
+					</div>
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

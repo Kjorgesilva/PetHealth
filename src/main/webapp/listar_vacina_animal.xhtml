@@ -50,12 +50,18 @@
 								</h:outputText>
 						</p:column>
 						
+						
+						<p:column headerText="Especie">
+							<h:outputText value="#{animal.idEspecieAnimal.especie}">
+							</h:outputText>
+						</p:column>
+						
 
 
-						<p:column headerText="Varificar" style="width:100px">
+						<p:column headerText="Verificar" style="width:100px">
 							<div class="text-center">
 
-								<h:link outcome="vacinas" title="Verificar" value="Vacinas">
+								<h:link outcome="vacinas_aplicadas" title="Verificar" value="Vacinas">
 									<f:param name="editarParam" value="#{animal.id}" />
 								</h:link>
 							</div>

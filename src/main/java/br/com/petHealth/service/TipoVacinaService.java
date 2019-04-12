@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.petHealth.model.TipoVacinas;
+import br.com.petHealth.model.Vacina;
 import br.com.petHealth.repository.TipoVacinaRepository;
 
 public class TipoVacinaService implements Serializable {
@@ -30,6 +31,10 @@ public class TipoVacinaService implements Serializable {
 
 	public TipoVacinas atualizar(TipoVacinas vacinas){
 		return vacinas = tipoVacinaRepository.atualizar(vacinas);
+	}
+	
+	public void insert (Vacina tipoVacina){
+		tipoVacinaRepository.insert(tipoVacina);
 	}
 
 }

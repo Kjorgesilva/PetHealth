@@ -159,13 +159,12 @@ create table tab_vacina_especie(
 );  
 
 create table tab_vacina_tomada_especie(
-		id_vacina_tomara_especie int primary key NOT NULL AUTO_INCREMENT,
+		id_vacina_tomada_especie int primary key NOT NULL AUTO_INCREMENT,
         id_animal_vacina_tomada_especie INTEGER,
         id_vacina_especie_tomada INTEGER,
         aviso varchar (255),
         data_vacina timestamp ,
 		data_da_proxima timestamp ,	
-        vacina_em_dia boolean,  
 		CONSTRAINT id_animal_vacina_tomada_especie_fk FOREIGN KEY (id_animal_vacina_tomada_especie) REFERENCES tab_animal (id_animal),
 		CONSTRAINT id_vacina_especie_tomada_fk FOREIGN KEY (id_vacina_especie_tomada) REFERENCES tab_vacina_especie (id_vacina_especie)
         
@@ -275,7 +274,7 @@ VALUES(1,1,1);
 
 
 INSERT INTO tab_vacina_tomada_especie
-(id_vacina_tomara_especie,id_animal_vacina_tomada_especie,id_vacina_especie_tomada,aviso,data_vacina,data_da_proxima,vacina_em_dia )
-VALUES(1,1,1,'aviso',now(),now(),true); 
+(id_vacina_tomada_especie,id_animal_vacina_tomada_especie,id_vacina_especie_tomada,aviso,data_vacina,data_da_proxima)
+VALUES(1,1,1,'aviso',now(),now()); 
 
 
