@@ -5,6 +5,8 @@ import java.util.List;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Vacina;
 import br.com.petHealth.service.VacinasAplicadasService;
 
@@ -63,11 +65,15 @@ public class VacinasAplicadasBean implements Serializable{
 	public void setListaVacinasTomadas(List<Vacina> listaVacinasTomadas) {
 		this.listaVacinasTomadas = listaVacinasTomadas;
 	}
-
-
-
+	
+	
 	public void listar(){
-		listaVacinasTomadas = aplicadasService.findAll(id);
+		listaVacinasTomadas = aplicadasService.findAll();
 	}
+	
+	
+//	public void listar(){
+//		listTeste = aplicadasService.findAll(id);
+//	}
 
 }

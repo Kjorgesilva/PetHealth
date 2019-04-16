@@ -31,6 +31,7 @@ public class UsuarioBean implements Serializable{
 	}
 	
 	public String  checkLogin(){
+				
 		loginUsuario = usuarioService.checkLogin(login, senha);
 		
 		if(loginUsuario != null){

@@ -213,6 +213,10 @@ INSERT INTO tab_animal
 (nome,raca,cor,data_de_nascimento,sexo,pais_de_origem,observacoes,id_cliente,id_especie)
 VALUES('totó','cachorro alemao','Preto', now() ,'F','Brasil',NULL,1,1);
 
+INSERT INTO tab_animal
+(nome,raca,cor,data_de_nascimento,sexo,pais_de_origem,observacoes,id_cliente,id_especie)
+VALUES('gato','alemao','Preto', now() ,'F','Brasil',NULL,1,2);
+
 INSERT INTO tab_pergunta_relatorio
 (descricao)
 VALUES('Hidratação');  
@@ -269,12 +273,12 @@ INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`,`id_esp
 
 
 INSERT INTO tab_vacina_especie
-(id_vacina_especie,id_tipo_especie,id_tipo_vacina_especie)
-VALUES(1,1,1); 
+(id_tipo_especie,id_tipo_vacina_especie)
+VALUES(1,1); 
 
 
 INSERT INTO tab_vacina_tomada_especie
-(id_vacina_tomada_especie,id_animal_vacina_tomada_especie,id_vacina_especie_tomada,aviso,data_vacina,data_da_proxima)
-VALUES(1,1,1,'aviso',now(),now()); 
+(id_animal_vacina_tomada_especie,id_vacina_especie_tomada,aviso,data_vacina,data_da_proxima)
+VALUES(1,1,'aviso',now(),now()); 
 
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Vacina;
 import br.com.petHealth.repository.VacinasAplicadasRepository;
 
@@ -17,7 +18,11 @@ public class VacinasAplicadasService implements Serializable {
 	@Inject
 	private VacinasAplicadasRepository aplicadasRepository;
 	
-	public List<Vacina> findAll(int id) {	
-		return aplicadasRepository.findAll(id);
+	public List<Vacina> findAll() {	
+		return aplicadasRepository.findAll();
 	}
+	
+//	public List<Animal> findAll(int id) {	
+//		return aplicadasRepository.findAll(id);
+//	}
 }

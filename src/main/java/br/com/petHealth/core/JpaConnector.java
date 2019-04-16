@@ -11,7 +11,7 @@ public class JpaConnector {
 		
 		if(em == null){
 			em = Persistence.createEntityManagerFactory("mySqlConnector").createEntityManager();
-			System.out.println("passou aqui" + em);
+			System.out.println("passou aqui: " + em);
 		}
 		return em;
 	}

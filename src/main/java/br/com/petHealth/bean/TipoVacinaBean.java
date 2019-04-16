@@ -72,8 +72,7 @@ public class TipoVacinaBean implements Serializable {
 		vacinaTomadaEspecie.setAviso("aviso");
 		vacinaTomadaEspecie.setDataVacina(hoje);
 		vacinaTomadaEspecie.setDataProxima(hoje.plusMonths(2));
-//		VacinaEspecie ve = new VacinaEspecie();
-//		ve.setId();
+
 		System.out.println("valor do id: " + id);	
 				
 		tipoVacinaService.insert(vacinaTomadaEspecie);
