@@ -2,6 +2,7 @@ package br.com.petHealth.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -66,8 +67,9 @@ public class Animal implements Serializable {
 	@JoinColumn(name="id_especie")
 	private EspecieAnimal idEspecieAnimal;
 
-
-
+	@OneToMany(mappedBy="idAnimal")
+	private List<Vacina> vacinaTomada;
+	
 	public EspecieAnimal getIdEspecieAnimal() {
 		return idEspecieAnimal;
 	}
@@ -168,8 +170,14 @@ public class Animal implements Serializable {
 	}
 
 
+	public List<Vacina> getVacinaTomada() {
+		return vacinaTomada;
+	}
 
 
+	public void setVacinaTomada(List<Vacina> vacinaTomada) {
+		this.vacinaTomada = vacinaTomada;
+	}
 
 	
 }

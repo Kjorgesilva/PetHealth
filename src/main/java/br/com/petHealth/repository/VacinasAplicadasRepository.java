@@ -86,5 +86,19 @@ public class VacinasAplicadasRepository {
 //	INNER JOIN tab_animal ON tab_animal.id_animal = tab_vacina_especie.id_vacina_especie
 //	INNER JOIN tab_vacina_tomada_especie ON tab_vacina_tomada_especie.id_vacina_tomada_especie = tab_vacina_especie.id_vacina_especie;
 
+	
+	
+	public List<TipoVacinas> listarVacinasTomadas(Integer idAnimal){
+		em = JpaConnector.getConnectionMySql();		
+		Query animal = em.createQuery("SELECT v, t FROM Animal a INNER JOIN  a.vacinaTomada v INNER JOIN FETCH v.tipoVacina t WHERE a.id = :idAnimal");
+		animal.setParameter("idAnimal", idAnimal);
+		List<TipoVacinas> lista =  animal.getResultList();
+		return lista;
+	}
+	
+//	SELECT animal.nome, vacina.* FROM tab_animal animal
+//	INNER JOIN tab_vacina_tomada ON id_animal = animal_id
+//	INNER JOIN tab_tipo_vacina vacina ON vacina_Id = id_tipo_vacina;
+//	
 		
 }

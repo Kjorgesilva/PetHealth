@@ -68,6 +68,6 @@ public class CadastroAnimalRepository {
 		return lista;
 
 	}
-	
+
 	
 }

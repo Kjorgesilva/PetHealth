@@ -1,4 +1,5 @@
 use  pethealth;
+drop table if exists tab_vacina_tomada;
 
 drop table if exists tab_histoico;
 drop table if exists tab_resposta_relatorio;
@@ -16,7 +17,6 @@ drop table if exists tab_cliente;
 drop table if exists tab_usuario;
 drop table if exists tab_perfil;
 
-drop table if exists tab_vacina_tomada;
 
  
 create table tab_perfil(

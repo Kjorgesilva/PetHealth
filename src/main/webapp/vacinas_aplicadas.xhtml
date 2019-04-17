@@ -22,19 +22,30 @@
 			<div class="ui-g">
 				<div class="ui-g-10 ui-md-12">
 
-					<p:dataTable var="animais"
-						value="#{vacinasAplicadasBean.listaAnimais}">
+					<p:dataTable var="vacinas"
+						value="#{vacinasAplicadasBean.tipoVacinaLista}">
 
 						<p:column headerText="Tipo da Vacina">
-							<h:outputText value="#{animais.idEspecieAnimal.tipoVacina.descricao}">
+							<h:outputText
+								value="#{vacinas.tipoVacina.descricao}">
 							</h:outputText>
 						</p:column>
 
 						<p:column headerText="Data Da Vacina">
+								<h:outputText
+								value="#{vacinas.dataVacina}">
+									<f:convertDateTime type="localDateTime"
+								pattern="dd/MM/yyyy" />
+							</h:outputText>
 						</p:column>
 
 
 						<p:column headerText="Data Da Proxima">
+									<h:outputText
+								value="#{vacinas.dataProxima}">
+									<f:convertDateTime type="localDateTime"
+								pattern="dd/MM/yyyy" />
+							</h:outputText>
 						</p:column>
 
 
@@ -44,18 +55,10 @@
 			</div>
 
 
-			<p:dataTable var="vacinas"
-				value="#{vacinasAplicadasBean.listaVacinasTomadas}">
-				<p:column headerText="Verificar" style="width:100px">
-					<div class="text-center">
+		 <p:link value="Vacinar" outcome="vacinas"> 
+			<f:param name="editarParam" value="#{vacinasAplicadasBean.id}" /> 
+		</p:link> 
 
-						<h:link outcome="vacinas" title="Verificar" value="#{vacinas.descricao}">
-							<f:param name="editarParam" value="#{vacinas.id}" />
-						</h:link>
-					</div>
-				</p:column>
-
-			</p:dataTable>
 		</h:form>
 	</ui:define>
 </ui:composition>
