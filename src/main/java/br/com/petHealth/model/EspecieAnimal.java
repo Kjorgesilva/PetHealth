@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +26,9 @@ public class EspecieAnimal implements Serializable {
 	
 	@Column(name = "especie")
 	private String especie;
+	
+	@OneToOne(mappedBy="especie")
+	private TipoVacinas tipoVacina;
 
 	public Integer getId() {
 		return id;
@@ -41,8 +45,13 @@ public class EspecieAnimal implements Serializable {
 	public void setEspecie(String especie) {
 		this.especie = especie;
 	}
-	
-	
-	
+
+	public TipoVacinas getTipoVacina() {
+		return tipoVacina;
+	}
+
+	public void setTipoVacina(TipoVacinas tipoVacina) {
+		this.tipoVacina = tipoVacina;
+	}
 	
 }

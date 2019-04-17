@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tab_vacina_tomada_especie")
+@Table(name = "tab_vacina_tomada")
 public class Vacina implements Serializable {
 
 	/**
@@ -28,12 +28,12 @@ public class Vacina implements Serializable {
 	private int id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_animal_vacina_tomada_especie")
+	@JoinColumn(name = "animal_id")
 	private Animal idAnimal;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_vacina_especie_tomada")
-	private VacinaEspecie idVacinaEspecie;
+	@JoinColumn(name = "vacina_id")
+	private TipoVacinas  tipoVacina ;
 
 	@Column(name = "data_vacina")
 	private LocalDateTime dataVacina;
@@ -84,12 +84,14 @@ public class Vacina implements Serializable {
 		this.idAnimal = idAnimal;
 	}
 
-	public VacinaEspecie getIdVacinaEspecie() {
-		return idVacinaEspecie;
+	public TipoVacinas getTipoVacina() {
+		return tipoVacina;
 	}
 
-	public void setIdVacinaEspecie(VacinaEspecie idVacinaEspecie) {
-		this.idVacinaEspecie = idVacinaEspecie;
+	public void setTipoVacina(TipoVacinas tipoVacina) {
+		this.tipoVacina = tipoVacina;
 	}
+
+
 
 }

@@ -22,7 +22,11 @@ public class VacinasAplicadasService implements Serializable {
 		return aplicadasRepository.findAll();
 	}
 	
-//	public List<Animal> findAll(int id) {	
-//		return aplicadasRepository.findAll(id);
-//	}
+	public List<Animal> listaVacinasPendentes(int id) {	
+		return aplicadasRepository.listaVacinasPendentes(id);
+	}
+	
+	public List<Vacina> findVacinasPermitidas(Integer id) {		
+		return aplicadasRepository.findVacinasPermitidas(id);
+	}
 }

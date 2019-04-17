@@ -9,16 +9,12 @@ import javax.inject.Named;
 
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.service.CadastroAnimalService;
-import br.com.petHealth.service.CadastroRelatorioMedicoService;
 
 
 @Named
 @ViewScoped
 public class ListarAnimalBean implements Serializable{
 	
-	public void init(){
-		listar();
-	}
 	/**
 	 * 
 	 */
@@ -28,6 +24,11 @@ public class ListarAnimalBean implements Serializable{
 	private CadastroAnimalService animalService;
 	private List<Animal> animal;
 	private int id;
+	
+	public void init(){
+		listar();
+	}
+
 	
 
 	public int getId() {
@@ -42,7 +43,6 @@ public class ListarAnimalBean implements Serializable{
 		animal = animalService.findAll();
 	}
 	
-		
 	public CadastroAnimalService getAnimalService() {
 		return animalService;
 	}

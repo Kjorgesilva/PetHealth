@@ -22,25 +22,19 @@
 			<div class="ui-g">
 				<div class="ui-g-10 ui-md-12">
 
-					<p:dataTable var="vacinas"
-						value="#{vacinasAplicadasBean.listaVacinasTomadas}">
+					<p:dataTable var="animais"
+						value="#{vacinasAplicadasBean.listaAnimais}">
 
 						<p:column headerText="Tipo da Vacina">
-							<h:outputText value="#{vacinas.idVacinaEspecie.tipoVacina.descricao}">
+							<h:outputText value="#{animais.idEspecieAnimal.tipoVacina.descricao}">
 							</h:outputText>
 						</p:column>
 
 						<p:column headerText="Data Da Vacina">
-							<h:outputText value="#{vacinas.dataVacina}">
-								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
-							</h:outputText>
 						</p:column>
 
 
 						<p:column headerText="Data Da Proxima">
-							<h:outputText value="#{vacinas.dataProxima}">
-								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
-							</h:outputText>
 						</p:column>
 
 
@@ -55,7 +49,7 @@
 				<p:column headerText="Verificar" style="width:100px">
 					<div class="text-center">
 
-						<h:link outcome="vacinas" title="Verificar" value="Vacinas">
+						<h:link outcome="vacinas" title="Verificar" value="#{vacinas.descricao}">
 							<f:param name="editarParam" value="#{vacinas.id}" />
 						</h:link>
 					</div>

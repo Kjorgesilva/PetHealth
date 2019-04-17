@@ -7,6 +7,7 @@ drop table if exists tab_agendamento;
 drop table if exists tab_endereco;
 drop table if exists tab_vacina_tomada_especie;
 drop table if exists tab_vacina_especie;
+drop table if exists tab_vacina;
 drop table if exists tab_animal;
 drop table if exists tab_tipo_vacina;
 drop table if exists tab_especie_animal;
@@ -15,6 +16,7 @@ drop table if exists tab_cliente;
 drop table if exists tab_usuario;
 drop table if exists tab_perfil;
 
+drop table if exists tab_vacina_tomada;
 
  
 create table tab_perfil(
@@ -158,15 +160,15 @@ create table tab_vacina_especie(
 
 );  
 
-create table tab_vacina_tomada_especie(
+create  table tab_vacina_tomada(
 		id_vacina_tomada_especie int primary key NOT NULL AUTO_INCREMENT,
-        id_animal_vacina_tomada_especie INTEGER,
-        id_vacina_especie_tomada INTEGER,
+        animal_id INTEGER,
+        vacina_id INTEGER,
         aviso varchar (255),
         data_vacina timestamp ,
 		data_da_proxima timestamp ,	
-		CONSTRAINT id_animal_vacina_tomada_especie_fk FOREIGN KEY (id_animal_vacina_tomada_especie) REFERENCES tab_animal (id_animal),
-		CONSTRAINT id_vacina_especie_tomada_fk FOREIGN KEY (id_vacina_especie_tomada) REFERENCES tab_vacina_especie (id_vacina_especie)
+		CONSTRAINT id_animal_vacina_tomada_especie_fk FOREIGN KEY (animal_id) REFERENCES tab_animal (id_animal),
+		CONSTRAINT id_vacina_tomada_fk FOREIGN KEY (vacina_id) REFERENCES tab_tipo_vacina (id_tipo_vacina)
         
 );
 
@@ -276,9 +278,12 @@ INSERT INTO tab_vacina_especie
 (id_tipo_especie,id_tipo_vacina_especie)
 VALUES(1,1); 
 
+INSERT INTO tab_vacina_tomada
+(vacina_id, animal_Id,aviso,data_vacina,data_da_proxima)
+VALUES(1,1,'aviso',now(),now());
 
-INSERT INTO tab_vacina_tomada_especie
-(id_animal_vacina_tomada_especie,id_vacina_especie_tomada,aviso,data_vacina,data_da_proxima)
-VALUES(1,1,'aviso',now(),now()); 
+INSERT INTO tab_vacina_tomada
+(vacina_id, animal_Id,aviso,data_vacina,data_da_proxima)
+VALUES(2,1,'aviso',now(),now()); 
 
 

@@ -28,8 +28,13 @@ public class VacinasAplicadasBean implements Serializable{
 	@Inject
 	private VacinasAplicadasService aplicadasService;
 	private List<Vacina> listaVacinasTomadas;
+	private List<Animal> listaAnimais;
 	private int id;
 	
+	public void listar(){
+		listaAnimais = aplicadasService.listaVacinasPendentes(id);
+		listaVacinasTomadas = aplicadasService.findVacinasPermitidas(id);
+	}
 	
 	
 	public int getId() {
@@ -67,9 +72,18 @@ public class VacinasAplicadasBean implements Serializable{
 	}
 	
 	
-	public void listar(){
-		listaVacinasTomadas = aplicadasService.findAll();
+	
+	
+	public List<Animal> getListaAnimais() {
+		return listaAnimais;
 	}
+
+
+
+	public void setListaAnimais(List<Animal> listaAnimais) {
+		this.listaAnimais = listaAnimais;
+	}
+
 	
 	
 //	public void listar(){

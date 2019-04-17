@@ -66,6 +66,22 @@ public class VacinasAplicadasRepository {
 		return lista;
 	}	
 	
+	public List<Animal> listaVacinasPendentes(Integer idAnimal){
+		em = JpaConnector.getConnectionMySql();		
+		Query animal = em.createQuery("FROM Animal a INNER JOIN FETCH a.idEspecieAnimal e INNER JOIN FETCH e.tipoVacina t");
+		List<Animal> lista = animal.getResultList();
+		System.out.println(lista.size());		
+		return lista;
+	}
+	
+	public List<Vacina> findVacinasPermitidas(Integer id) {		
+		em = JpaConnector.getConnectionMySql();		
+		Query vacina = em.createQuery("SELECT t FROM Animal a INNER JOIN  a.idEspecieAnimal e INNER JOIN  e.tipoVacina t WHERE a.id = :id");
+		vacina.setParameter("id", id);
+		List<Vacina> lista = vacina.getResultList();
+		return lista;
+	}	
+	
 //	SELECT * FROM tab_vacina_especie
 //	INNER JOIN tab_animal ON tab_animal.id_animal = tab_vacina_especie.id_vacina_especie
 //	INNER JOIN tab_vacina_tomada_especie ON tab_vacina_tomada_especie.id_vacina_tomada_especie = tab_vacina_especie.id_vacina_especie;
