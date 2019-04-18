@@ -2,14 +2,20 @@ package br.com.petHealth.json.response;
 
 import java.io.Serializable;
 
+import br.com.petHealth.model.Animal;
+import br.com.petHealth.model.TipoVacinas;
+
 public class VacinaResponse implements Serializable{
-	
+
 	private int id;
-    private String aviso;
-    private String dataVacina;
-    private String dataDaProxima;
-    private String descricao;
-    
+	private String aviso;
+	private String dataVacina;
+	private String dataDaProxima;
+	private Animal idAnimal;
+	private TipoVacinas idTipoVacina;
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -34,14 +40,20 @@ public class VacinaResponse implements Serializable{
 	public void setDataDaProxima(String dataDaProxima) {
 		this.dataDaProxima = dataDaProxima;
 	}
-	public String getDescricao() {
-		return descricao;
+	public Animal getIdAnimal() {
+		return idAnimal;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setIdAnimal(Animal idAnimal) {
+		this.idAnimal = idAnimal;
 	}
-    
-    
-    
+	public TipoVacinas getIdTipoVacina() {
+		return idTipoVacina;
+	}
+	public void setIdTipoVacina(TipoVacinas idTipoVacina) {
+		this.idTipoVacina = idTipoVacina;
+	}
+
+
+
 
 }

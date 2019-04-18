@@ -9,9 +9,11 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.TipoVacinas;
 import br.com.petHealth.model.VacinaEspecie;
 import br.com.petHealth.model.Vacina;
+import br.com.petHealth.service.CadastroAnimalService;
 import br.com.petHealth.service.TipoVacinaService;
 
 @Named
@@ -29,6 +31,9 @@ public class TipoVacinaBean implements Serializable {
 	
 	@Inject
 	private TipoVacinaService tipoVacinaService;
+	
+	@Inject
+	private CadastroAnimalService animalService;
 	
 	private List<TipoVacinas> listaVacinas;
 	private TipoVacinas tiopoVacinas;
@@ -65,14 +70,21 @@ public class TipoVacinaBean implements Serializable {
 		listaVacinas = tipoVacinaService.findAll(id);
 	}
 
-		
 	public void inserir(Integer id){
+		
 		LocalDateTime hoje = LocalDateTime.now();		
 		vacinaTomadaEspecie = new Vacina();
 		vacinaTomadaEspecie.setAviso("aviso");
 		vacinaTomadaEspecie.setDataVacina(hoje);
 		vacinaTomadaEspecie.setDataProxima(hoje.plusMonths(2));
-
+		
+		Animal amimal = animalService.findByid(this.id);
+		TipoVacinas tipoVacinas = tipoVacinaService.findById(id);
+		
+		vacinaTomadaEspecie.setIdAnimal(amimal);
+		
+		vacinaTomadaEspecie.setTipoVacina(tipoVacinas);
+		
 		System.out.println("valor do id: " + id);	
 				
 		tipoVacinaService.insert(vacinaTomadaEspecie);
