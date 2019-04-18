@@ -43,7 +43,17 @@ public class VacinasWs implements Serializable {
 			vacinaResponse.setDataDaProxima("01/01/2001");
 			vacinaResponse.setDataVacina("01/01/2001");
 			
+			vacinaResponse.setNomeAnimal(vacina.getIdAnimal().getNome());
+			vacinaResponse.setIdAnimal(vacina.getIdAnimal().getId());
+			
+			vacinaResponse.setNomeVacina(vacina.getTipoVacina().getDescricao());
+			vacinaResponse.setIdTipoVacina(vacina.getTipoVacina().getId());
+			
+			
 			list.add(vacinaResponse);
+			System.out.println(vacina.getIdAnimal().getNome());
+			
+			
 			
 		}
 		
