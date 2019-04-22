@@ -1,6 +1,6 @@
 use  pethealth;
-drop table if exists tab_vacina_tomada;
 
+drop table if exists tab_vacina_tomada;
 drop table if exists tab_histoico;
 drop table if exists tab_resposta_relatorio;
 drop table if exists tab_pergunta_relatorio;

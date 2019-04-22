@@ -1,6 +1,9 @@
 package br.com.petHealth.resource;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,10 +41,25 @@ public class VacinasWs implements Serializable {
 		for(Vacina vacina : listaVacinas){
 			VacinaResponse vacinaResponse = new VacinaResponse();
 
+//			vacinaResponse.setDataDaProxima(hoje);
+//			vacinaResponse.setDataVacina(hoje.plusMonths(2));
+			
+			LocalDate localDate = LocalDate.now(); 
+	        LocalDate localDate2 = LocalDate.now(); 
+
+	        java.sql.Date date = java.sql.Date.valueOf(localDate);
+	        java.sql.Date dateee = java.sql.Date.valueOf(localDate2.plusMonths(2));
+	        localDate2.plusMonths(2);
+	        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+	        String dataFormatada = formatador.format(date);
+	        String dataProxima = formatador.format(dateee);
+
 			vacinaResponse.setId(vacina.getId());
-			vacinaResponse.setAviso(vacina.getAviso());
-			vacinaResponse.setDataDaProxima("01/01/2001");
-			vacinaResponse.setDataVacina("01/01/2001");
+			vacinaResponse.setAviso(vacina.getAviso());			
+		
+			vacinaResponse.setDataVacina(dataFormatada);
+			vacinaResponse.setDataDaProxima(dataProxima);
+
 			
 			vacinaResponse.setNomeAnimal(vacina.getIdAnimal().getNome());
 			vacinaResponse.setIdAnimal(vacina.getIdAnimal().getId());
