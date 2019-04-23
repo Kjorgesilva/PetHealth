@@ -98,6 +98,7 @@ public class Usuario implements Serializable {
 	public enum PerfilUsuario {
 
 		CLIENTE(1), MEDICO(2);
+		
 		private int id;
 
 		private PerfilUsuario(int id) {

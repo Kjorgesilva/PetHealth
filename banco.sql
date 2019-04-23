@@ -194,7 +194,7 @@ VALUES('Pedro','33333333-3', 'Rua Dois' ,'5555-5555','pedroSilva@outlook.com' ,1
 
 INSERT INTO tab_medico
 (nome,telefone,email,id_usuario)
-VALUES('Pedro','5555-5555','pedroSilva@outlook.com' ,1);
+VALUES('Pedro','5555-5555','pedroSilva@outlook.com' ,2);
 
 INSERT INTO tab_endereco
 (rua,cidade,bairro,estado)
