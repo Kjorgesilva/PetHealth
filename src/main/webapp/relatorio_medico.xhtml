@@ -13,72 +13,66 @@
 
 
 	<ui:define name="body">
-	<h:form>
+		<h:form>
 
-		<div class="ui-g">
-			<div class="ui-g-10 ui-md-12">
-				<p:dataTable var="relatorioAnimal"
-					value="#{cadastroRelatorioMedicoBean.animal}">
-					<p:column headerText="Nº Animal">
-						<h:outputText value="#{relatorioAnimal.id}" />
-					</p:column>
+			<div class="ui-g">
+				<div class="ui-g-10 ui-md-12">
+					<p:dataTable var="agenda"
+						value="#{cadastroRelatorioMedicoBean.agenda}">
 
-					<p:column headerText="Nome">
-						<h:outputText value="#{relatorioAnimal.nome}">
-						</h:outputText>
-					</p:column>
-
-					<p:column headerText="Raça">
-						<h:outputText value="#{relatorioAnimal.raca}">
-						</h:outputText>
-					</p:column>
-
-					<p:column headerText="Cor">
-						<h:outputText value="#{relatorioAnimal.cor}">
-						</h:outputText>
-					</p:column>
+						<p:column headerText="Nº Agendamento">
+							<h:outputText value="#{agenda.id}" />
+						</p:column>
 
 
-					<p:column headerText="Data Nascimento">
-						<h:outputText value="#{relatorioAnimal.dataNascimento}">
-							<f:convertDateTime type="localDateTime"
-								pattern="dd/MM/yyyy HH:MM" />
-						</h:outputText>
-					</p:column>
+						<p:column headerText="Animal">
+							<h:outputText value="#{agenda.animal.nome}">
+							</h:outputText>
+						</p:column>
 
-					<p:column headerText="Sexo">
-						<h:outputText
-							value="#{relatorioAnimal.sexo eq 'M'? 'Macho':(relatorioAnimal.sexo eq 'F' ? 'Fêmea' :relatorioAnimal.sexo)}">
-
-
-						</h:outputText>
-					</p:column>
-					<p:column headerText="País De Origem">
-						<h:outputText value="#{relatorioAnimal.paisOrigem}">
-						</h:outputText>
-					</p:column>
-
-					<p:column headerText="Dono">
-						<h:outputText value="#{relatorioAnimal.cliente.nome}">
-						</h:outputText>
-					</p:column>
-
-					<p:column headerText="Relatorio" style="width:100px">
-						<div class="text-center">
-
-							<h:link outcome="preencher_relatorio_medico" title="Relatorio" value="Relatorio">
-								<f:param name="relatorioParam" value="#{relatorioAnimal.id}" />
-								
-							</h:link>
-						</div>
-					</p:column>
+						<p:column headerText="Data Inicio">
+							<h:outputText value="#{agenda.dataInicio}">
+								<f:convertDateTime type="localDateTime"
+									pattern="dd/MM/yyyy HH:MM" />
+							</h:outputText>
+						</p:column>
 
 
-				</p:dataTable>
+
+						<p:column headerText="Data Fim">
+							<h:outputText value="#{agenda.dataFim}">
+								<f:convertDateTime type="localDateTime"
+									pattern="dd/MM/yyyy HH:MM" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Dono">
+							<h:outputText value="#{agenda.cliente.nome}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Medico">
+							<h:outputText value="#{agenda.medico.nome}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Relatorio" style="width:100px">
+							<div class="text-center">
+
+								<h:link outcome="preencher_relatorio_medico" title="Relatorio"
+									value="Relatorio">
+									<f:param name="relatorioParam" value="#{agenda.id}" />
+
+								</h:link>
+							</div>
+						</p:column>
+
+
+					</p:dataTable>
+				</div>
 			</div>
-		</div>
 
-</h:form>
+		</h:form>
 
 	</ui:define>
 

@@ -104,8 +104,10 @@ create table tab_agendamento(
         id_cliente INTEGER not null,
 		id_medico INTEGER not null,
 		id_endereco INTEGER not null,
+        id_animal INTEGER not null,
 		CONSTRAINT id_cliente_agendamento_fk FOREIGN KEY (id_cliente) REFERENCES tab_cliente (id_cliente),
         CONSTRAINT id_medico_agendamento_fk FOREIGN KEY (id_medico) REFERENCES tab_medico (id_medico),
+        CONSTRAINT id_animal_agendamento_fk FOREIGN KEY (id_animal) REFERENCES tab_animal (id_animal),
         CONSTRAINT id_endereco_agendamento_fk FOREIGN KEY (id_endereco) REFERENCES tab_endereco (id_endereco)
 	);
     
@@ -200,9 +202,7 @@ INSERT INTO tab_endereco
 (rua,cidade,bairro,estado)
 VALUES('Rua dois','São Paulo','Barra funda' ,'São Paulo');
 
-INSERT INTO tab_agendamento
-(data_de_inicio,data_de_fim,id_cliente,id_medico,id_endereco)
-VALUES(now(),now(),1,1,1);
+
 
 INSERT INTO tab_especie_animal (id_especie_animal,especie)
 VALUES(1,'canino');
@@ -218,6 +218,10 @@ VALUES('totó','cachorro alemao','Preto', now() ,'F','Brasil',NULL,1,1);
 INSERT INTO tab_animal
 (nome,raca,cor,data_de_nascimento,sexo,pais_de_origem,observacoes,id_cliente,id_especie)
 VALUES('gato','alemao','Preto', now() ,'F','Brasil',NULL,1,2);
+
+INSERT INTO tab_agendamento
+(data_de_inicio,data_de_fim,id_cliente,id_medico,id_animal,id_endereco)
+VALUES(now(),now(),1,1,1,1);
 
 INSERT INTO tab_pergunta_relatorio
 (descricao)

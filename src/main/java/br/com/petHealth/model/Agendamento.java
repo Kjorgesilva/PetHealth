@@ -33,6 +33,7 @@ public class Agendamento implements Serializable {
 	
 	@Column(name = "data_de_inicio")
 	private LocalDateTime dataInicio;
+	
 	@Column(name = "data_de_fim")
 	private LocalDateTime dataFim;
 	
@@ -41,6 +42,10 @@ public class Agendamento implements Serializable {
 	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_animal")
+	private Animal animal;
+
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_medico")
 	private Medico medico;
@@ -99,5 +104,12 @@ public class Agendamento implements Serializable {
 	
 	
 
+	public Animal getAnimal() {
+		return animal;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
 
 }

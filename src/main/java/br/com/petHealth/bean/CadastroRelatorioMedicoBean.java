@@ -3,14 +3,12 @@ package br.com.petHealth.bean;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.petHealth.model.Animal;
-import br.com.petHealth.model.Cliente;
-import br.com.petHealth.service.CadastroRelatorioMedicoService;
+import br.com.petHealth.model.Agendamento;
+import br.com.petHealth.service.AgendamentoService;
 
 @Named
 @ViewScoped
@@ -25,30 +23,37 @@ public class CadastroRelatorioMedicoBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 2544796501440233453L;
-
-
+	
 	@Inject 
-	private CadastroRelatorioMedicoService cadastroRelatorioMedicoService;
-	private List<Animal> animal;
+	private AgendamentoService agendamentoService;	
+	private List<Agendamento> agenda;
 	
 
 	public void listar(){		
-		animal = cadastroRelatorioMedicoService.findAll();
+		agenda = agendamentoService.findAll();
+	}
+
+
+	public AgendamentoService getAgendamentoService() {
+		return agendamentoService;
+	}
+
+
+	public void setAgendamentoService(AgendamentoService agendamentoService) {
+		this.agendamentoService = agendamentoService;
+	}
+
+
+	public List<Agendamento> getAgenda() {
+		return agenda;
+	}
+
+
+	public void setAgenda(List<Agendamento> agenda) {
+		this.agenda = agenda;
 	}
 	
-	public CadastroRelatorioMedicoService getCadastroRelatorioMedicoService() {
-		return cadastroRelatorioMedicoService;
-	}
-	public void setCadastroRelatorioMedicoService(CadastroRelatorioMedicoService cadastroRelatorioMedicoService) {
-		this.cadastroRelatorioMedicoService = cadastroRelatorioMedicoService;
-	}
-	
-	public List<Animal> getAnimal() {
-		return animal;
-	}
-	public void setAnimal(List<Animal> animal) {
-		this.animal = animal;
-	}
+
 
 
 }

@@ -9,15 +9,17 @@ import javax.persistence.TypedQuery;
 
 import br.com.petHealth.core.JpaConnector;
 import br.com.petHealth.model.Agendamento;
-public class AgendamentoRepository {
+import br.com.petHealth.model.Endereco;
 
+public class EnderecoRepository {
+	
 	private EntityManager em;
 
-	public void insert(Agendamento agendamento) {
+	public void insert(Endereco endereco) {
 		try {
 			em = JpaConnector.getConnectionMySql();
 			em.getTransaction().begin();
-			em.persist(agendamento);
+			em.persist(endereco);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -26,32 +28,30 @@ public class AgendamentoRepository {
 		
 		
 	}
-	public List<Agendamento> findAll() {		
+	public List<Endereco> findAll() {		
 		em = JpaConnector.getConnectionMySql();		
-		Query agendamento = em.createQuery("FROM Agendamento l INNER JOIN FETCH l.cliente " +
-		" INNER JOIN FETCH l.medico " +
-		" INNER JOIN FETCH l.animal " +
-		" INNER JOIN FETCH l.endereco");		
-		List<Agendamento> lista = agendamento.getResultList();	
+		Query endereco = em.createQuery("FROM Endereco e",Endereco.class);		
+		List<Endereco> lista = endereco.getResultList();	
 	
 		return lista;
 
 	}
 		
-	public Agendamento findByid(int id){
-		Agendamento agenda = null;
+	public Endereco findByid(int id){
+		Endereco endereco = null;
 		try {
 		
 			em = JpaConnector.getConnectionMySql();
-			TypedQuery<Agendamento> agen = em.createQuery("SELECT b FROM Agendamento b WHERE b.id = :id",Agendamento.class);
+			TypedQuery<Endereco> agen = em.createQuery("SELECT b FROM Endereco b WHERE b.id = :id",Endereco.class);
 			agen.setParameter("id", id);
-			agenda = agen.getSingleResult();
+			endereco = agen.getSingleResult();
 			
 		} catch (NoResultException e) {
 			e.printStackTrace();
 		}
 		
-		return agenda;
+		return endereco;
 	}
 	
+
 }

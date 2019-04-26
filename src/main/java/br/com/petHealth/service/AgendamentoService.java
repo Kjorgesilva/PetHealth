@@ -20,5 +20,9 @@ public class AgendamentoService implements Serializable {
 	public List<Agendamento> findAll() {
 		return agendamentoRepository.findAll();
 	}
+	
+	public Agendamento findByid(int id){
+	return agendamentoRepository.findByid(id);
+	}
 
 }
