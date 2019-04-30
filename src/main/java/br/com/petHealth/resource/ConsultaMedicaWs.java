@@ -44,16 +44,16 @@ public class ConsultaMedicaWs implements Serializable {
 		
 		agendamento.setId(jsonObject.getInt("id"));
 		
-		int idCliente = jsonObject.getInt("cliente");
+		int idCliente = jsonObject.getInt("id_cliente");
 		agendamento.setCliente(clienteService.findByid(idCliente));//		
 		
-		int idAnimal = jsonObject.getInt("animal");
+		int idAnimal = jsonObject.getInt("id_animal");
 		agendamento.setAnimal(animalService.findByid(idAnimal));	
 	
-		int idMedico = jsonObject.getInt("medico");
+		int idMedico = jsonObject.getInt("id_medico");
 		agendamento.setMedico(medicoService.findById(idMedico));
 		
-		int idEndereco = jsonObject.getInt("endereco");
+		int idEndereco = jsonObject.getInt("id_endereco");
 		agendamento.setEndereco(enderecoService.findByid(idEndereco));
 	
 		
