@@ -10,7 +10,7 @@ import br.com.petHealth.core.JpaConnector;
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Cliente;
 
-public class CadastroClienteRepository {
+public class ClienteRepository {
 	
 	private EntityManager em ;
 

@@ -6,9 +6,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.petHealth.model.Animal;
-import br.com.petHealth.repository.CadastroAnimalRepository;
+import br.com.petHealth.repository.AnimalRepository;
 
-public class CadastroAnimalService implements Serializable{
+public class AnimalService implements Serializable{
 
 	/**
 	 * 
@@ -16,7 +16,7 @@ public class CadastroAnimalService implements Serializable{
 	private static final long serialVersionUID = -6097645191515785881L;
 	
 	@Inject
-	private CadastroAnimalRepository cadastroAnimalRepository;
+	private AnimalRepository cadastroAnimalRepository;
 	
 	
 	public void inserirAnimal(Animal animal){ 		
@@ -24,7 +24,7 @@ public class CadastroAnimalService implements Serializable{
 	}
 	
 	public Animal findByid(int id){
-		cadastroAnimalRepository = new CadastroAnimalRepository();
+		cadastroAnimalRepository = new AnimalRepository();
 		return cadastroAnimalRepository.findByid(id);
 	}
 	

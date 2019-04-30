@@ -13,7 +13,7 @@ import javax.inject.Named;
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.EspecieAnimal;
-import br.com.petHealth.service.CadastroAnimalService;
+import br.com.petHealth.service.AnimalService;
 
 @Named
 @ViewScoped
@@ -25,7 +25,7 @@ public class CadastroAnimalBean implements Serializable {
 	private static final long serialVersionUID = -1566842690014543106L;
 
 	@Inject
-	private CadastroAnimalService cadastroAnimalService;
+	private AnimalService cadastroAnimalService;
 	private Animal animal;
 	private int id;
 
@@ -52,11 +52,11 @@ public class CadastroAnimalBean implements Serializable {
 		}
 	}
 
-	public CadastroAnimalService getCadastroAnimalService() {
+	public AnimalService getCadastroAnimalService() {
 		return cadastroAnimalService;
 	}
 
-	public void setCadastroAnimalService(CadastroAnimalService cadastroAnimalService) {
+	public void setCadastroAnimalService(AnimalService cadastroAnimalService) {
 		this.cadastroAnimalService = cadastroAnimalService;
 	}
 

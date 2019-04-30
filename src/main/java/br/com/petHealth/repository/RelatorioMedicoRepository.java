@@ -13,7 +13,7 @@ import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.PerguntaRelatorio;
 import br.com.petHealth.model.RespostaRelatorio;
 
-public class CadastroRelatorioMedicoRepository {
+public class RelatorioMedicoRepository {
 	
 	private EntityManager em ;
 	

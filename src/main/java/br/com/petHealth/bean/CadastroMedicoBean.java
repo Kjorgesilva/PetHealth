@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.petHealth.model.Medico;
-import br.com.petHealth.service.CadastroMedicoService;
+import br.com.petHealth.service.MedicoService;
 
 
 @Named
@@ -22,7 +22,7 @@ public class CadastroMedicoBean implements Serializable {
 	
 	
 	@Inject
-	private CadastroMedicoService cadastroMedicoService;
+	private MedicoService cadastroMedicoService;
 	private Medico medico;
 	private int id;
 	
@@ -54,11 +54,11 @@ public class CadastroMedicoBean implements Serializable {
 		this.medico = medico;
 	}
 
-	public CadastroMedicoService getCadastroMedicoService() {
+	public MedicoService getCadastroMedicoService() {
 		return cadastroMedicoService;
 	}
 
-	public void setCadastroMedicoService(CadastroMedicoService cadastroMedicoService) {
+	public void setCadastroMedicoService(MedicoService cadastroMedicoService) {
 		this.cadastroMedicoService = cadastroMedicoService;
 	}
 	

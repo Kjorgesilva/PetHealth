@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 import br.com.petHealth.core.JpaConnector;
 import br.com.petHealth.model.Medico;
 
-public class CadastroMedicoRepository {
+public class MedicoRepository {
 
 	private EntityManager em ;
 

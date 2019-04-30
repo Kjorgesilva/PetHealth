@@ -9,11 +9,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.primefaces.json.JSONObject;
 import br.com.petHealth.model.Agendamento;
-import br.com.petHealth.repository.CadastroClienteRepository;
+import br.com.petHealth.repository.ClienteRepository;
 import br.com.petHealth.service.AgendamentoService;
-import br.com.petHealth.service.CadastroAnimalService;
-import br.com.petHealth.service.CadastroClienteService;
-import br.com.petHealth.service.CadastroMedicoService;
+import br.com.petHealth.service.AnimalService;
+import br.com.petHealth.service.ClienteService;
+import br.com.petHealth.service.MedicoService;
 import br.com.petHealth.service.EnderecoService;
 
 @Path("/consulta")
@@ -23,13 +23,13 @@ public class ConsultaMedicaWs implements Serializable {
 	private AgendamentoService agendamentoService;
 	
 	@Inject
-	private CadastroClienteService clienteService;
+	private ClienteService clienteService;
 	
 	@Inject
-	private CadastroAnimalService animalService;
+	private AnimalService animalService;
 	
 	@Inject
-	private CadastroMedicoService medicoService;
+	private MedicoService medicoService;
 	
 	@Inject
 	private EnderecoService enderecoService;
@@ -64,7 +64,7 @@ public class ConsultaMedicaWs implements Serializable {
 //		agendamento.setAnimal(jsonObject.getString("nome"));
 //		agendamento.setMedico(jsonObject.getString("spinnerMedico"));		
 
-//		agendamentoService.insert(agendamento);
+		agendamentoService.insert(agendamento);
 		return agendamento;
 	}
 

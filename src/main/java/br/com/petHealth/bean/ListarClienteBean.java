@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.petHealth.model.Cliente;
-import br.com.petHealth.service.CadastroClienteService;
+import br.com.petHealth.service.ClienteService;
 
 @Named
 @ViewScoped
@@ -23,15 +23,15 @@ public class ListarClienteBean implements Serializable {
 	private static final long serialVersionUID = 2379132029806868994L;
 
 	@Inject
-	private CadastroClienteService cadastroClienteService;
+	private ClienteService cadastroClienteService;
 	
 	private List<Cliente> cliente;
 
-	public CadastroClienteService getCadastroClienteService() {
+	public ClienteService getCadastroClienteService() {
 		return cadastroClienteService;
 	}
 
-	public void setCadastroClienteService(CadastroClienteService cadastroClienteService) {
+	public void setCadastroClienteService(ClienteService cadastroClienteService) {
 		this.cadastroClienteService = cadastroClienteService;
 	}
 

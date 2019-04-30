@@ -11,8 +11,8 @@ import javax.inject.Named;
 
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Cliente;
-import br.com.petHealth.service.CadastroAnimalService;
-import br.com.petHealth.service.CadastroClienteService;
+import br.com.petHealth.service.AnimalService;
+import br.com.petHealth.service.ClienteService;
 
 @Named
 @ViewScoped
@@ -24,9 +24,9 @@ public class CadastroClienteBean implements Serializable {
 	private static final long serialVersionUID = 5287031319521232755L;
 	
 	@Inject
-	private CadastroClienteService cadastroClienteService;
+	private ClienteService cadastroClienteService;
 	@Inject
-	private CadastroAnimalService cadastroAnimalService;
+	private AnimalService cadastroAnimalService;
 	private Cliente cliente;
 	private int id;
 
@@ -40,11 +40,11 @@ public class CadastroClienteBean implements Serializable {
 		cliente = new Cliente();
 	}}
 	
-	public CadastroAnimalService getCadastroAnimalService() {
+	public AnimalService getCadastroAnimalService() {
 		return cadastroAnimalService;
 	}
 
-	public void setCadastroAnimalService(CadastroAnimalService cadastroAnimalService) {
+	public void setCadastroAnimalService(AnimalService cadastroAnimalService) {
 		this.cadastroAnimalService = cadastroAnimalService;
 	}
 
@@ -56,11 +56,11 @@ public class CadastroClienteBean implements Serializable {
 		this.id = id;
 	}
 
-	public CadastroClienteService getCadastroClienteService() {
+	public ClienteService getCadastroClienteService() {
 		return cadastroClienteService;
 	}
 
-	public void setCadastroClienteService(CadastroClienteService cadastroClienteService) {
+	public void setCadastroClienteService(ClienteService cadastroClienteService) {
 		this.cadastroClienteService = cadastroClienteService;
 	}
 

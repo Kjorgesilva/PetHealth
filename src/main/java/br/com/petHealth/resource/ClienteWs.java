@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.petHealth.json.response.ClienteResponse;
 import br.com.petHealth.model.Cliente;
-import br.com.petHealth.service.CadastroClienteService;
+import br.com.petHealth.service.ClienteService;
 
 
 @Path("/cliente")
@@ -21,7 +21,7 @@ public class ClienteWs implements Serializable {
 	
 
 	@Inject
-	private CadastroClienteService clienteService;
+	private ClienteService clienteService;
 	private List<Cliente> listaCliente;
 	
 	
@@ -29,10 +29,10 @@ public class ClienteWs implements Serializable {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/listacliente")
+	@Path("/listaCliente")
 	public List<ClienteResponse> listaCliente(){
 		
-		System.out.println("Chegou aqui no cliente");
+		System.out.println("Chegou aqui no cliente!!!!!!!!!!!!");
 		listaCliente = clienteService.findAll();
 		List<ClienteResponse> list = new ArrayList<>();		
 		

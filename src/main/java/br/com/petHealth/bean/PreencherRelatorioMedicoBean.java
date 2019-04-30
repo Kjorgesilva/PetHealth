@@ -12,10 +12,10 @@ import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.Medico;
 import br.com.petHealth.model.PerguntaRelatorio;
 import br.com.petHealth.model.RespostaRelatorio;
-import br.com.petHealth.service.CadastroAnimalService;
-import br.com.petHealth.service.CadastroClienteService;
-import br.com.petHealth.service.CadastroMedicoService;
-import br.com.petHealth.service.CadastroRelatorioMedicoService;
+import br.com.petHealth.service.AnimalService;
+import br.com.petHealth.service.ClienteService;
+import br.com.petHealth.service.MedicoService;
+import br.com.petHealth.service.RelatorioMedicoService;
 
 @Named
 @ViewScoped
@@ -33,7 +33,7 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 	private int id;
 
 	@Inject
-	private CadastroRelatorioMedicoService cadastroRelatorioMedicoService;
+	private RelatorioMedicoService cadastroRelatorioMedicoService;
 
 	private List<RespostaRelatorio> respostaListas;
 	private List<PerguntaRelatorio> perguntasLista;
@@ -68,11 +68,11 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 		this.id = id;
 	}
 
-	public CadastroRelatorioMedicoService getCadastroRelatorioMedicoService() {
+	public RelatorioMedicoService getCadastroRelatorioMedicoService() {
 		return cadastroRelatorioMedicoService;
 	}
 
-	public void setCadastroRelatorioMedicoService(CadastroRelatorioMedicoService cadastroRelatorioMedicoService) {
+	public void setCadastroRelatorioMedicoService(RelatorioMedicoService cadastroRelatorioMedicoService) {
 		this.cadastroRelatorioMedicoService = cadastroRelatorioMedicoService;
 	}
 
@@ -108,9 +108,9 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 		//findById(int id);
 		//Animal animal = animalService.findById(idAnimal)
 		//respostaRelatorio.setAnimal(animal);
-		CadastroMedicoService medi = new CadastroMedicoService();
-		CadastroAnimalService anim = new CadastroAnimalService();
-		CadastroClienteService cli = new CadastroClienteService();
+		MedicoService medi = new MedicoService();
+		AnimalService anim = new AnimalService();
+		ClienteService cli = new ClienteService();
 		
 
 		Medico medico = medi.findById(1);

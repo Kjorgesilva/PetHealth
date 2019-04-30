@@ -9,11 +9,11 @@ import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.Usuario;
 import br.com.petHealth.model.Usuario.PerfilUsuario;
-import br.com.petHealth.repository.CadastroAnimalRepository;
-import br.com.petHealth.repository.CadastroClienteRepository;
+import br.com.petHealth.repository.AnimalRepository;
+import br.com.petHealth.repository.ClienteRepository;
 import br.com.petHealth.repository.UsuarioRepository;
 
-public class CadastroClienteService implements Serializable {
+public class ClienteService implements Serializable {
 	
 	
 	/**
@@ -21,7 +21,7 @@ public class CadastroClienteService implements Serializable {
 	 */
 	private static final long serialVersionUID = -2706542046084886553L;
 	@Inject
-	private CadastroClienteRepository cadastroClienteRepository;
+	private ClienteRepository cadastroClienteRepository;
 	
 	@Inject
 	private UsuarioRepository loginRepository;
@@ -53,7 +53,7 @@ public class CadastroClienteService implements Serializable {
 	}
 	
 	public Cliente findByid(int id){
-		cadastroClienteRepository = new CadastroClienteRepository();
+		cadastroClienteRepository = new ClienteRepository();
 		return cadastroClienteRepository.findByid(id);
 	}
 	

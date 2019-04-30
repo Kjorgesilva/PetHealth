@@ -13,7 +13,7 @@ import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.TipoVacinas;
 import br.com.petHealth.model.VacinaEspecie;
 import br.com.petHealth.model.Vacina;
-import br.com.petHealth.service.CadastroAnimalService;
+import br.com.petHealth.service.AnimalService;
 import br.com.petHealth.service.TipoVacinaService;
 
 @Named
@@ -33,7 +33,7 @@ public class TipoVacinaBean implements Serializable {
 	private TipoVacinaService tipoVacinaService;
 	
 	@Inject
-	private CadastroAnimalService animalService;
+	private AnimalService animalService;
 	
 	private List<TipoVacinas> listaVacinas;
 	private TipoVacinas tiopoVacinas;

@@ -12,14 +12,14 @@ import javax.ws.rs.core.MediaType;
 import br.com.petHealth.json.response.MedicoResponse;
 import br.com.petHealth.json.response.VacinaResponse;
 import br.com.petHealth.model.Medico;
-import br.com.petHealth.service.CadastroMedicoService;
+import br.com.petHealth.service.MedicoService;
 
 
 @Path("/medico")
 public class MedicoWs implements Serializable {
 
 	@Inject
-	private CadastroMedicoService medicoService;
+	private MedicoService medicoService;
 	private List<Medico> listaMedico;
 	
 	
@@ -27,7 +27,7 @@ public class MedicoWs implements Serializable {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/listamedico")
+	@Path("/listaMedico")
 	public List<MedicoResponse> listaMedico(){
 		
 		System.out.println("Chegou aqui no medico");

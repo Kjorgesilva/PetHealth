@@ -26,7 +26,7 @@ public class EnderecoWs implements Serializable {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/listaendereco")
+	@Path("/listaEndereco")
 	public List<EnderecoResponse> listaEndereco(){
 	
 		System.out.println("Chegou aqui endereco");

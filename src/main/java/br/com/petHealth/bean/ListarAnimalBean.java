@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.petHealth.model.Animal;
-import br.com.petHealth.service.CadastroAnimalService;
+import br.com.petHealth.service.AnimalService;
 
 
 @Named
@@ -21,7 +21,7 @@ public class ListarAnimalBean implements Serializable{
 	private static final long serialVersionUID = -6744500865487566617L;
 	
 	@Inject 
-	private CadastroAnimalService animalService;
+	private AnimalService animalService;
 	private List<Animal> animal;
 	private int id;
 	
@@ -43,11 +43,11 @@ public class ListarAnimalBean implements Serializable{
 		animal = animalService.findAll();
 	}
 	
-	public CadastroAnimalService getAnimalService() {
+	public AnimalService getAnimalService() {
 		return animalService;
 	}
 
-	public void setAnimalService(CadastroAnimalService animalService) {
+	public void setAnimalService(AnimalService animalService) {
 		this.animalService = animalService;
 	}
 

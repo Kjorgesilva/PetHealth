@@ -8,10 +8,10 @@ import javax.inject.Inject;
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.PerguntaRelatorio;
 import br.com.petHealth.model.RespostaRelatorio;
-import br.com.petHealth.repository.CadastroRelatorioMedicoRepository;
+import br.com.petHealth.repository.RelatorioMedicoRepository;
 
 
-public class CadastroRelatorioMedicoService implements Serializable{
+public class RelatorioMedicoService implements Serializable{
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class CadastroRelatorioMedicoService implements Serializable{
 
 
 	@Inject
-	private CadastroRelatorioMedicoRepository cadastroRelatorioMedicoRepository;
+	private RelatorioMedicoRepository cadastroRelatorioMedicoRepository;
 
 	
 	

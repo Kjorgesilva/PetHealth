@@ -13,19 +13,19 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.petHealth.json.response.AnimalResponse;
 import br.com.petHealth.model.Animal;
-import br.com.petHealth.service.CadastroAnimalService;
+import br.com.petHealth.service.AnimalService;
 
 @Path("/animal")
 public class AnimalWs implements Serializable{
 	
 	@Inject
-	private CadastroAnimalService animalService;
+	private AnimalService animalService;
 	private List<Animal> listaAnimal;
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/listaanimal")
+	@Path("/listaAnimal")
 	public List<AnimalResponse> listAnimal(){
 		
 		System.out.println("Chegou aqui animal ");
@@ -35,13 +35,6 @@ public class AnimalWs implements Serializable{
 		
 		for (Animal animal : listaAnimal) {
 			AnimalResponse animalResponse = new AnimalResponse();
-			
-//			private String dataNascimento;
-//			private String sexo;
-//			private String paisDeOrigem;
-//			private String observacoes;
-//			private Integer idCliente;
-//			private Integer idEspecie;
 			
 			animalResponse.setId(animal.getId());
 			animalResponse.setNome(animal.getNome());

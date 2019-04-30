@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.petHealth.model.Medico;
-import br.com.petHealth.service.CadastroMedicoService;
+import br.com.petHealth.service.MedicoService;
 
 @Named
 @ViewScoped
@@ -24,7 +24,7 @@ public class ListarMedicoBean implements Serializable{
 	}
 
 	@Inject 
-	private CadastroMedicoService cadastroMedicoService;
+	private MedicoService cadastroMedicoService;
 	private List<Medico> medico;
 
 
@@ -33,12 +33,12 @@ public class ListarMedicoBean implements Serializable{
 
 	}	
 
-	public CadastroMedicoService getCadastroMedicoService() {
+	public MedicoService getCadastroMedicoService() {
 		return cadastroMedicoService;
 	}
 
 
-	public void setCadastroMedicoService(CadastroMedicoService cadastroMedicoService) {
+	public void setCadastroMedicoService(MedicoService cadastroMedicoService) {
 		this.cadastroMedicoService = cadastroMedicoService;
 	}
 

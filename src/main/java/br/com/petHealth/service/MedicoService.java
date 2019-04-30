@@ -8,10 +8,10 @@ import javax.inject.Inject;
 import br.com.petHealth.model.Medico;
 import br.com.petHealth.model.Usuario;
 import br.com.petHealth.model.Usuario.PerfilUsuario;
-import br.com.petHealth.repository.CadastroMedicoRepository;
+import br.com.petHealth.repository.MedicoRepository;
 import br.com.petHealth.repository.UsuarioRepository;
 
-public class CadastroMedicoService implements Serializable{
+public class MedicoService implements Serializable{
 
 	/**
 	 * 
@@ -20,7 +20,7 @@ public class CadastroMedicoService implements Serializable{
 	
 	
 	@Inject
-	private CadastroMedicoRepository cadastroMedicoRepository;
+	private MedicoRepository cadastroMedicoRepository;
 	
 	@Inject
 	private UsuarioRepository loginRepository;
@@ -55,7 +55,7 @@ public class CadastroMedicoService implements Serializable{
 	
 	public Medico findById(int id){
 		
-		cadastroMedicoRepository = new CadastroMedicoRepository();
+		cadastroMedicoRepository = new MedicoRepository();
 		if(cadastroMedicoRepository == null){
 			System.out.println("repositorio nulo");
 			return null;
