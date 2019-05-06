@@ -43,13 +43,13 @@ public class RelatorioMedicoRepository {
 	}
 	
 	
-//	public List<RespostaRelatorio> findAllResposta() {		
-//		em = JpaConnector.getConnectionMySql();		
-//		TypedQuery<RespostaRelatorio> resposta = em.createQuery
-//			("FROM RespostaRelatorio l LEFT JOIN FETCH l.pergunta ",RespostaRelatorio.class);		
-//		List<RespostaRelatorio> lista = resposta.getResultList();	
-//		return lista;
-//	}
+	public List<RespostaRelatorio> findAllResposta() {		
+		em = JpaConnector.getConnectionMySql();		
+		TypedQuery<RespostaRelatorio> resposta = em.createQuery
+			("FROM RespostaRelatorio l LEFT JOIN FETCH l.pergunta ",RespostaRelatorio.class);		
+		List<RespostaRelatorio> lista = resposta.getResultList();	
+		return lista;
+	}
 	
 	public List<PerguntaRelatorio> findAllPergunta() {		
 		em = JpaConnector.getConnectionMySql();		
