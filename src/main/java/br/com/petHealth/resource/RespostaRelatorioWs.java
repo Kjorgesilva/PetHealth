@@ -36,14 +36,21 @@ public class RespostaRelatorioWs implements Serializable {
 			RelatorioResponse relatorio = new RelatorioResponse();
 
 			relatorio.setId(rel.getId());
+			relatorio.setIdAgenda(rel.getIdAgenda());
 			relatorio.setRelatoriosAnimal(rel.getAnimal().getNome());
 			relatorio.setRelatorioCliente(rel.getCliente().getNome());
 			relatorio.setRelatoriosMedcio(rel.getMedico().getNome());
 			relatorio.setRelatoriosPergunta(rel.getPergunta().getDescricao());
+			relatorio.setResposta(rel.getResposta());
+			
+			
+			System.out.println( "animal: " + rel.getAnimal().getNome() + " Cliente: " + rel.getCliente().getNome() + 
+					 " medico: " + rel.getMedico().getNome() + " pergunta: " + rel.getPergunta().getResposta());
+			
 
 			list.add(relatorio);
 
-			System.out.println(rel.getResposta());
+			System.out.println("passou no relatorio: " + rel.getResposta());
 
 		}
 

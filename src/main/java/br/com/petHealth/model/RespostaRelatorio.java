@@ -47,6 +47,19 @@ public class RespostaRelatorio implements Serializable {
 	@JoinColumn(name = "id_animal")
 	private Animal animal;
 	
+	
+	@Column(name = "id_agenda")
+	private int idAgenda;
+	
+	
+
+	public int getIdAgenda() {
+		return idAgenda;
+	}
+
+	public void setIdAgenda(int idAgenda) {
+		this.idAgenda = idAgenda;
+	}
 
 	public Cliente getCliente() {
 		return cliente;

@@ -6,6 +6,7 @@ public class RelatorioResponse implements Serializable {
 	
 	private int id;
     private String resposta;
+    private int idAgenda;
     private String descricaoResposta;
     private String relatoriosPergunta;
     private String relatorioCliente;
@@ -55,6 +56,13 @@ public class RelatorioResponse implements Serializable {
 	public void setRelatoriosAnimal(String relatoriosAnimal) {
 		this.relatoriosAnimal = relatoriosAnimal;
 	}
+	public int getIdAgenda() {
+		return idAgenda;
+	}
+	public void setIdAgenda(int idAgenda) {
+		this.idAgenda = idAgenda;
+	}
+	
 	
 
 	
