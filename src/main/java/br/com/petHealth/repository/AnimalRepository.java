@@ -1,5 +1,6 @@
 package br.com.petHealth.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -68,6 +69,27 @@ public class AnimalRepository {
 		return lista;
 
 	}
+	
+	
+	public List<Animal> findByidCliente(int id){
+		List<Animal> lista = new ArrayList<>();	
+		try {
+			em = JpaConnector.getConnectionMySql();
+			TypedQuery<Animal> ani = em.createQuery("SELECT a FROM Animal a WHERE a.cliente.id = :id ",Animal.class);
+			ani.setParameter("id", id);			
+			lista = ani.getResultList();			
+		} catch (NoResultException e) {
+			e.printStackTrace();
+		}
+
+		
+		return lista;
+		
+		
+		
+	}
+	
+	
 
 	
 }

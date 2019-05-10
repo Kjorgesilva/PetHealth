@@ -57,6 +57,11 @@ public class ClienteService implements Serializable {
 		return cadastroClienteRepository.findByid(id);
 	}
 	
+	public Cliente findByidCliente(int id){
+		return cadastroClienteRepository.findByidCliente(id);
+	}
+
+	
 	
 	
 

@@ -15,7 +15,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import org.primefaces.json.JSONObject;
+
+import br.com.petHealth.json.response.UsuarioResponse;
+import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.Usuario;
+import br.com.petHealth.service.ClienteService;
 import br.com.petHealth.service.UsuarioService;
 
 @Path("/usuario")
@@ -23,6 +27,9 @@ public class UsuarioWs implements Serializable {
 	
 	@Inject
 	private UsuarioService usuarioService;
+	
+	@Inject
+	private ClienteService clienteService;
 	
 //	@POST
 //	@Produces(MediaType.APPLICATION_JSON)
@@ -36,12 +43,27 @@ public class UsuarioWs implements Serializable {
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	public Usuario getTestService(String json) {
+	public UsuarioResponse getTestService(String json) {
 		JSONObject jsonObject = new JSONObject(json);
 		Usuario usuario = new Usuario();
+		Cliente cliente = new Cliente();
+		UsuarioResponse usuarioRsponse = new UsuarioResponse();
+		
 		System.out.println(json);
-		usuario =  usuarioService.checkLogin(jsonObject.getString("login"),jsonObject.getString("senha")); 
-		return usuario;
+		
+		usuario =  usuarioService.checkLogin(jsonObject.getString("login"),jsonObject.getString("senha"));
+		cliente =  clienteService.findByidCliente(usuario.getId());
+		
+		usuarioRsponse.setIdCliente(cliente.getId());
+		usuarioRsponse.setLogin(usuario.getLogin());
+		usuarioRsponse.setSenha(usuario.getSenha());
+		usuarioRsponse.setNome(usuario.getNome());
+		usuarioRsponse.setEmail(usuario.getEmail());
+		
+		System.out.println("idCleinte: " + usuarioRsponse.getIdCliente());
+			
+		
+		return usuarioRsponse;
 	}
 	
 //	@GET

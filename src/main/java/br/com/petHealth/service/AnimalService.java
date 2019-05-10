@@ -35,5 +35,9 @@ public class AnimalService implements Serializable{
 		return cadastroAnimalRepository.findAll();
 		
 	}
+	
+	public List<Animal> findByidCliente(int id){
+	return cadastroAnimalRepository.findByidCliente(id);
+	}
 
 }

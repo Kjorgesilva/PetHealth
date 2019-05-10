@@ -18,9 +18,7 @@ public class EnderecoService implements Serializable {
 	}
 
 	public List<Endereco> findAll() {
-
 		return enderecoRepository.findAll();
-
 	}
 
 	public Endereco findByid(int id) {

@@ -52,18 +52,29 @@ public class ClienteRepository {
 		try {
 			em = JpaConnector.getConnectionMySql();
 			TypedQuery<Cliente> ani = em.createQuery("SELECT a FROM Cliente a WHERE a.id = :id",Cliente.class);
-			ani.setParameter("id", id);
-			
-			cliente = ani.getSingleResult();
-			
+			ani.setParameter("id", id);			
+			cliente = ani.getSingleResult();			
 		} catch (NoResultException e) {
 			e.printStackTrace();
 		}
-
 		
-		return cliente;
+		return cliente;			
 		
+	}
+	
+	public Cliente findByidCliente(int id){
+		Cliente cliente = null;
 		
+		try {
+			em = JpaConnector.getConnectionMySql();
+			TypedQuery<Cliente> ani = em.createQuery("SELECT a FROM Cliente a WHERE a.usuario.id = :id",Cliente.class);
+			ani.setParameter("id", id);			
+			cliente = ani.getSingleResult();			
+		} catch (NoResultException e) {
+			e.printStackTrace();
+		}
+		
+		return cliente;			
 		
 	}
 

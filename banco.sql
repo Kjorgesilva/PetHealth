@@ -293,3 +293,6 @@ INSERT INTO tab_vacina_tomada
 VALUES(2,1,'aviso',now(),now()); 
 
 
+select * from tab_vacina_tomada v inner join tab_animal a on 
+a.id_animal = v.animal_id where a.id_cliente = 2;
+
