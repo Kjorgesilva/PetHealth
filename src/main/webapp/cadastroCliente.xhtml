@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+	<f:viewParam name="editarParam" value="#{cadastroClienteBean.id}" />
+	<f:viewAction action="#{cadastroClienteBean.init}" />
+</f:metadata>
+
+<ui:composition template="base.xhtml">
+
+	<ui:define name="body">
+		<p />
+		<h:form id="form">
+			<div class="card  bg-light">
+				<div class="card-header">Cadastro de Clientes</div>
+				<div class="card-body">
+					<div class="form-group">
+						<h:outputLabel value="Nome: " for="nome" />
+						<h:inputText id="nome" value="#{cadastroClienteBean.cliente.nome}"
+							class="form-control" pt:placeholder="Digite o Nome"
+							required="true" requiredMessage="Preencha o campo nome" />
+						<h:message for="nome" errorStyle="color:red" />
+					</div>
+
+					<div class="form-group">
+						<h:outputLabel value="RG: " for="rg" />
+						<h:inputText id="rg" class="form-control"
+							value="#{cadastroClienteBean.cliente.rg}"
+							pt:placeholder="Digite o RG" required="true"
+							requiredMessage="Preencha o campo RG" />
+						<h:message for="rg" errorStyle="color:red" />
+					</div>
+
+
+					<div class="form-group">
+						<h:outputLabel value="Endereço: " for="endereco" />
+						<h:inputText id="endereco" class="form-control"
+							pt:placeholder="Digite o Endereço"
+							value="#{cadastroClienteBean.cliente.endereco}" required="true"
+							requiredMessage="Preencha o campo Endereço" />
+						<h:message for="endereco" errorStyle="color:red" />
+					</div>
+
+					<div class="form-group">
+						<h:outputLabel value="Telefone: " for="telefone" />
+						<h:inputText id="telefone" class="form-control"
+							pt:placeholder="Digite o Telefone"
+							value="#{cadastroClienteBean.cliente.telefone}" required="true"
+							requiredMessage="Preencha o campo Telefone" />
+						<h:message for="telefone" errorStyle="color:red" />
+					</div>
+
+					<div class="form-group">
+						<h:outputLabel value="E-mail: " for="email" />
+						<h:inputText id="email" class="form-control"
+							pt:placeholder="Digite o E-mail"
+							value="#{cadastroClienteBean.cliente.email}" required="true"
+							requiredMessage="Preencha o campo E-mail" />
+						<h:message for="email" errorStyle="color:red" />
+					</div>
+					<div class="form-group text-right">
+						<h:commandButton value="Cadastrar"
+							action="#{cadastroClienteBean.inserir}" class="btn btn-success"></h:commandButton>
+						<h:button styleClass="btn btn-dark" value="Cancelar" />
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

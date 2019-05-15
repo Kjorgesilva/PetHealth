@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link href="#{request.contextPath}/style/css/style.min.css"
+		rel="stylesheet" />
+		<link href="https://getbootstrap.com/docs/4.0/examples/sign-in/signin.css" rel="stylesheet"></link>
+</h:head>
+
+
+<h:body class="text-center">
+	<h:form class="form-signin">
+		<img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"></img>		
+		 <h1 class="h3 mb-3 font-weight-normal">Digite Login e Senha</h1>
+		<div class="form-group">
+			<h:inputText class="form-control"
+				pt:placeholder="Entre com o usuário"></h:inputText>
+		</div>
+		<div class="form-group">
+			<h:inputSecret class="form-control"
+				pt:placeholder="Entre com a senha"></h:inputSecret>
+		</div>
+			<h:commandButton value="Entrar" class="form-control btn btn-success"/>
+	</h:form>
+</h:body>
+
+</html>
