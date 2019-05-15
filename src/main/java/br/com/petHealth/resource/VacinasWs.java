@@ -32,7 +32,7 @@ public class VacinasWs implements Serializable {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("{idCliente}/listavacinas")
+	@Path("{idCliente}/listaVacinas")
 	public List<VacinaResponse> listaVacinas(@PathParam("idCliente") Integer id) {
 		
 		System.out.println("Chegou");

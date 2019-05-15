@@ -10,6 +10,7 @@ public class RelatorioResponse implements Serializable {
     private String descricaoResposta;
     private String relatoriosPergunta;
     private String relatorioCliente;
+    private int idCliente;
     private String relatoriosMedcio;
     private String relatoriosAnimal;
     
@@ -62,6 +63,14 @@ public class RelatorioResponse implements Serializable {
 	public void setIdAgenda(int idAgenda) {
 		this.idAgenda = idAgenda;
 	}
+	public int getIdCliente() {
+		return idCliente;
+	}
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+	
+	
 	
 	
 

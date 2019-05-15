@@ -42,6 +42,7 @@ public class RespostaRelatorioWs implements Serializable {
 			relatorio.setRelatoriosMedcio(rel.getMedico().getNome());
 			relatorio.setRelatoriosPergunta(rel.getPergunta().getDescricao());
 			relatorio.setResposta(rel.getResposta());
+			relatorio.setIdCliente(rel.getCliente().getId());
 			
 			
 			System.out.println( "animal: " + rel.getAnimal().getNome() + " Cliente: " + rel.getCliente().getNome() + 
@@ -51,6 +52,7 @@ public class RespostaRelatorioWs implements Serializable {
 			list.add(relatorio);
 
 			System.out.println("passou no relatorio: " + rel.getResposta());
+			System.out.println(rel.getId());
 
 		}
 
