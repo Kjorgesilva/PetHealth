@@ -39,6 +39,7 @@ public class TipoVacinaBean implements Serializable {
 	private TipoVacinas tiopoVacinas;
 	private Vacina vacinaTomadaEspecie;
 	private int id;
+	private int idEspecie;
 	
 	
 	public TipoVacinaService getTipoVacinaService() {
@@ -66,8 +67,16 @@ public class TipoVacinaBean implements Serializable {
 		this.id = id;
 	}
 	
+	public int getIdEspecie() {
+		return idEspecie;
+	}
+	public void setIdEspecie(int idEspecie) {
+		this.idEspecie = idEspecie;
+	}
 	public void listar(){
-		listaVacinas = tipoVacinaService.findAll(id);
+		listaVacinas = tipoVacinaService.findAll(idEspecie);
+		System.out.println("id especie: " + idEspecie);
+		
 	}
 
 	public void inserir(Integer id){

@@ -14,9 +14,8 @@ import br.com.petHealth.service.VacinasAplicadasService;
 @Named
 @ViewScoped
 public class VacinasAplicadasBean implements Serializable {
-	public void init() {
-		listar();
-	}
+
+	
 
 	/**
 	 * 
@@ -25,16 +24,21 @@ public class VacinasAplicadasBean implements Serializable {
 
 	@Inject
 	private VacinasAplicadasService aplicadasService;
-	private List<Vacina> listaVacinasTomadas;
 	private List<Animal> listaAnimais;
 	private Animal animal;
-	private List<TipoVacinas> tipoVacinaLista;
+	private List<Vacina> vacinaLista;
 	private int id;
+	private int idEspecie;
+	
+	
+	public void init() {
+		listar();
+	}
 
-	public void listar() {
-//		listaAnimais = aplicadasService.listaVacinasPendentes(id);
-//		listaVacinasTomadas = aplicadasService.findVacinasPermitidas(id);
-		tipoVacinaLista = aplicadasService.listarVacinasTomadas(id);
+	public void listar() {		
+		
+		vacinaLista = aplicadasService.listarVacinasTomadas(id);	
+				
 	}
 
 	public int getId() {
@@ -44,6 +48,15 @@ public class VacinasAplicadasBean implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+
+	public int getIdEspecie() {
+		return idEspecie;
+	}
+
+	public void setIdEspecie(int idEspecie) {
+		this.idEspecie = idEspecie;
+	}
 
 	public VacinasAplicadasService getAplicadasService() {
 		return aplicadasService;
@@ -51,14 +64,6 @@ public class VacinasAplicadasBean implements Serializable {
 
 	public void setAplicadasService(VacinasAplicadasService aplicadasService) {
 		this.aplicadasService = aplicadasService;
-	}
-
-	public List<Vacina> getListaVacinasTomadas() {
-		return listaVacinasTomadas;
-	}
-
-	public void setListaVacinasTomadas(List<Vacina> listaVacinasTomadas) {
-		this.listaVacinasTomadas = listaVacinasTomadas;
 	}
 
 	public List<Animal> getListaAnimais() {
@@ -77,16 +82,14 @@ public class VacinasAplicadasBean implements Serializable {
 		this.animal = animal;
 	}
 
-	public List<TipoVacinas> getTipoVacinaLista() {
-		return tipoVacinaLista;
+	public List<Vacina> getVacinaLista() {
+
+		return vacinaLista;
 	}
 
-	public void setTipoVacinaLista(List<TipoVacinas> tipoVacinaLista) {
-		this.tipoVacinaLista = tipoVacinaLista;
+	public void setVacinaLista(List<Vacina> tipoVacinaLista) {
+		this.vacinaLista = tipoVacinaLista;
 	}
 
-	// public void listar(){
-	// listTeste = aplicadasService.findAll(id);
-	// }
 
 }

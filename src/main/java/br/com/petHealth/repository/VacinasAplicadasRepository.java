@@ -88,11 +88,13 @@ public class VacinasAplicadasRepository {
 
 	
 	
-	public List<TipoVacinas> listarVacinasTomadas(Integer idAnimal){
+	public List<Vacina> listarVacinasTomadas(Integer idAnimal){
 		em = JpaConnector.getConnectionMySql();		
-		Query animal = em.createQuery("SELECT v, t FROM Animal a INNER JOIN  a.vacinaTomada v INNER JOIN FETCH v.tipoVacina t WHERE a.id = :idAnimal");
-		animal.setParameter("idAnimal", idAnimal);
-		List<TipoVacinas> lista =  animal.getResultList();
+		TypedQuery<Vacina> query = 
+		   em.createQuery("SELECT v FROM Vacina v WHERE v.idAnimal.id  = :idAnimal", Vacina.class);
+		query.setParameter("idAnimal", idAnimal);
+		List<Vacina> lista =  query.getResultList();
+		System.out.println("id " + idAnimal + " lista " + lista.size());
 		return lista;
 	}
 	
@@ -100,5 +102,19 @@ public class VacinasAplicadasRepository {
 //	INNER JOIN tab_vacina_tomada ON id_animal = animal_id
 //	INNER JOIN tab_tipo_vacina vacina ON vacina_Id = id_tipo_vacina;
 //	
+	
+	
+	public List<Vacina> findAllCliente(int id) {		
+		em = JpaConnector.getConnectionMySql();	
+		em = JpaConnector.getConnectionMySql();	
+		TypedQuery<Vacina> vacina = em.createQuery("SELECT v FROM Vacina v INNER JOIN Animal a on a.id = v.idAnimal.id where a.cliente.id =:id ",Vacina.class);
+		vacina.setParameter("id", id);	
+		List<Vacina> lista = vacina.getResultList();
+		System.out.println(lista.size());
+		
+		return lista;
+	}	
+	
+	
 		
 }

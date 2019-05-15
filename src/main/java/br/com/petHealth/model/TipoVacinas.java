@@ -9,9 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +24,7 @@ public class TipoVacinas implements Serializable {
 
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	@Column(name="id_tipo_vacina")
 	private int id;
 	
@@ -34,7 +32,7 @@ public class TipoVacinas implements Serializable {
 	@Column(name="descricao")
 	private String descricao;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_especie")
 	private EspecieAnimal especie;
 	

@@ -10,6 +10,8 @@
 	<f:metadata>
 		<f:viewAction action="#{vacinasAplicadasBean.init}" />
 		<f:viewParam name="editarParam" value="#{vacinasAplicadasBean.id}" />
+		<f:viewParam name="editarParamIdAnimal" value="#{vacinasAplicadasBean.idEspecie}" />
+		
 
 	</f:metadata>
 
@@ -23,7 +25,7 @@
 				<div class="ui-g-10 ui-md-12">
 
 					<p:dataTable var="vacinas"
-						value="#{vacinasAplicadasBean.tipoVacinaLista}">
+						value="#{vacinasAplicadasBean.vacinaLista}">
 
 						<p:column headerText="Tipo da Vacina">
 							<h:outputText
@@ -56,7 +58,10 @@
 
 
 		 <p:link value="Vacinar" outcome="vacinas"> 
-			<f:param name="editarParam" value="#{vacinasAplicadasBean.id}" /> 
+		<f:param name="paramIdAnimal" value="#{vacinasAplicadasBean.idEspecie}" />
+		<f:param name="editarParam" value="#{vacinasAplicadasBean.id}" />
+		
+			
 		</p:link> 
 
 		</h:form>

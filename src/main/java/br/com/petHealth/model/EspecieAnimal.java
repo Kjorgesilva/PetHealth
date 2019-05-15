@@ -27,8 +27,8 @@ public class EspecieAnimal implements Serializable {
 	@Column(name = "especie")
 	private String especie;
 	
-	@OneToOne(mappedBy="especie")
-	private TipoVacinas tipoVacina;
+//	@OneToOne(mappedBy="especie")
+//	private TipoVacinas tipoVacina;
 
 	public Integer getId() {
 		return id;
@@ -46,12 +46,12 @@ public class EspecieAnimal implements Serializable {
 		this.especie = especie;
 	}
 
-	public TipoVacinas getTipoVacina() {
-		return tipoVacina;
-	}
-
-	public void setTipoVacina(TipoVacinas tipoVacina) {
-		this.tipoVacina = tipoVacina;
-	}
-	
+//	public TipoVacinas getTipoVacina() {
+//		return tipoVacina;
+//	}
+//
+//	public void setTipoVacina(TipoVacinas tipoVacina) {
+//		this.tipoVacina = tipoVacina;
+//	}
+//	
 }

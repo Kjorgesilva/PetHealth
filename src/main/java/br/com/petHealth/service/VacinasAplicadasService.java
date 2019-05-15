@@ -11,28 +11,32 @@ import br.com.petHealth.model.Vacina;
 import br.com.petHealth.repository.VacinasAplicadasRepository;
 
 public class VacinasAplicadasService implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3797783424458112L;
 	@Inject
 	private VacinasAplicadasRepository aplicadasRepository;
-	
-	public List<Vacina> findAll() {	
+
+	public List<Vacina> findAll() {
 		return aplicadasRepository.findAll();
 	}
-	
-	public List<Animal> listaVacinasPendentes(int id) {	
+
+	public List<Animal> listaVacinasPendentes(int id) {
 		return aplicadasRepository.listaVacinasPendentes(id);
 	}
-	
-	public List<Vacina> findVacinasPermitidas(Integer id) {		
+
+	public List<Vacina> findVacinasPermitidas(Integer id) {
 		return aplicadasRepository.findVacinasPermitidas(id);
 	}
-	
-	
-	public List<TipoVacinas> listarVacinasTomadas(Integer idAnimal){
+
+	public List<Vacina> listarVacinasTomadas(Integer idAnimal) {
 		return aplicadasRepository.listarVacinasTomadas(idAnimal);
 	}
+
+	public List<Vacina> findAllCliente(int id) {		
+		return aplicadasRepository.findAllCliente(id);
+	}
+
 }

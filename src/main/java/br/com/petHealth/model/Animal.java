@@ -63,7 +63,7 @@ public class Animal implements Serializable {
 	private Cliente cliente;
 	
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_especie")
 	private EspecieAnimal idEspecieAnimal;
 

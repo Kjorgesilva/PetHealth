@@ -23,22 +23,12 @@ public class ListarAnimalBean implements Serializable{
 	@Inject 
 	private AnimalService animalService;
 	private List<Animal> animal;
-	private int id;
 	
 	public void init(){
 		listar();
 	}
 
 	
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public void listar(){		
 		animal = animalService.findAll();
 	}

@@ -8,7 +8,9 @@
 
 	<f:metadata>
 		<f:viewAction action="#{tipoVacinaBean.init}" />
+		<f:viewParam name="paramIdAnimal" value="#{tipoVacinaBean.idEspecie}" />
 		<f:viewParam name="editarParam" value="#{tipoVacinaBean.id}" />
+		
 	</f:metadata>
 
 	<ui:define name="body">

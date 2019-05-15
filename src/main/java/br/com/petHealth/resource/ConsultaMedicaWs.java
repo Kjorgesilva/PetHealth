@@ -55,6 +55,7 @@ public class ConsultaMedicaWs implements Serializable {
 		agendamento.setDataFim(dataFim);
 
 		int idCliente = jsonObject.getInt("id_cliente");
+		System.out.println( " idCliente: " + idCliente);
 		agendamento.setCliente(clienteService.findByid(idCliente));//		
 		
 		int idAnimal = jsonObject.getInt("id_animal");

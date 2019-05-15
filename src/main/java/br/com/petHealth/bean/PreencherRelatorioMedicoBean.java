@@ -97,7 +97,6 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 	}
 
 	public void botao() {
-
 		
 		
 		for (PerguntaRelatorio perguntaRelatorio : perguntasLista) {
@@ -114,11 +113,10 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 		
 		
 
-		Medico medico = medi.findById(2);
+		Medico medico = medi.findById(1);
 		Animal animal = anim.findByid(1);
 		Cliente cliente = cli.findByid(1);
 		respostaRelatorio.setIdAgenda(1);
-		
 		
 		
 		respostaRelatorio.setMedico(medico);

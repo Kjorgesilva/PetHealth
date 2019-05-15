@@ -21,6 +21,7 @@
 				<div class="ui-g-10 ui-md-12">
 
 					<p:dataTable var="animal" value="#{listarAnimalBean.animal}">
+						
 						<p:column headerText="Nº De Identificação Do Animal">
 							<h:outputText value="#{animal.id}" />
 						</p:column>
@@ -63,6 +64,8 @@
 
 								<h:link outcome="vacinas_aplicadas" title="Verificar" value="Vacinas">
 									<f:param name="editarParam" value="#{animal.id}" />
+									<f:param name="editarParamIdAnimal" value="#{animal.idEspecieAnimal.id}" />
+									
 								</h:link>
 							</div>
 						</p:column>

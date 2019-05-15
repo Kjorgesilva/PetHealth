@@ -17,8 +17,10 @@ public class TipoVacinaRepository {
 	
 	public List<TipoVacinas> findAll(int id_tipo_vacina) {
 		em = JpaConnector.getConnectionMySql();		
+//		TypedQuery<TipoVacinas> vacinas = em.createQuery("Select tp FROM TipoVacinas tp "+
+//		"INNER JOIN EspecieAnimal ea ON (tp.especie.id = ea.id) WHERE tp.especie.id = :id_especie", TipoVacinas.class);		
 		TypedQuery<TipoVacinas> vacinas = em.createQuery("Select tp FROM TipoVacinas tp "+
-		"INNER JOIN EspecieAnimal ea ON (tp.especie.id = ea.id) WHERE tp.especie.id = :id_especie", TipoVacinas.class);		
+				" where tp.especie.id  = :id_especie", TipoVacinas.class);		
 		vacinas.setParameter("id_especie", id_tipo_vacina);
 		List<TipoVacinas> lista = vacinas.getResultList();		
 		return lista;
