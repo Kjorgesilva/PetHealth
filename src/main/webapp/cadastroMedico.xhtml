@@ -16,32 +16,43 @@
 	<ui:define name="body">
 
 		<h:form id="form">
-			<fieldset>
-				<legend>Adicionar Novo Medico</legend>
-				<h:panelGroup>
-
-					<h:panelGrid columns="3">
-						<h:outputLabel value="Nome: " for="nome" />
-						<h:inputText id="nome" value="#{cadastroMedicoBean.medico.nome}" required="true"  requiredMessage="Preencha o campo nome" />
-						<h:message for="nome"  errorStyle="color:red"/>							
+			<div class="card  bg-light">
+				<div class="card-header">Cadastro de Medicos</div>
+				<div class="card-body">
 						
+					<div class="form-group">						
+						<h:outputLabel value="Nome: " for="nome" />						
+							<h:inputText id="nome" value="#{cadastroMedicoBean.medico.nome}"
+							class="form-control" pt:placeholder="Digite o Nome"
+							required="true" requiredMessage="Preencha o campo nome" />
+						<h:message for="nome" errorStyle="color:red" />
+					</div>
+
+					<div class="form-group">
 						<h:outputLabel value="Telefone: " for="telefone" />
-						<h:inputText id="telefone"  value ="#{cadastroMedicoBean.medico.telefone}" required="true" requiredMessage="Preencha o campo Telefone"/>
-						<h:message for="telefone" errorStyle="color:red"/>	
+						<h:inputText id="telefone" class="form-control"
+							value ="#{cadastroMedicoBean.medico.telefone}"
+							pt:placeholder="Digite o Telefone" required="true"
+							requiredMessage="Preencha o campo Telefone" />
+						<h:message for="telefone" errorStyle="color:red" />
+					</div>
 
+
+					<div class="form-group">
 						<h:outputLabel value="E-mail: " for="email" />
-						<h:inputText id="email" value ="#{cadastroMedicoBean.medico.email}" required="true" requiredMessage="Preencha o campo E-mail"/>
-						<h:message for="email" errorStyle="color:red"/>	
-
-
-						
-						<h:commandButton value="Salvar" action="#{cadastroMedicoBean.salvar}" ></h:commandButton>
-
-
-					</h:panelGrid>
-
-				</h:panelGroup>
-			</fieldset>
+						<h:inputText id="email" class="form-control"
+							pt:placeholder="Digite o E-mail"
+							value ="#{cadastroMedicoBean.medico.email}" required="true"
+							requiredMessage="Preencha o campo E-mail" />
+						<h:message for="email" errorStyle="color:red" />
+					</div>
+					<div class="form-group text-right">
+						<h:commandButton value="Cadastrar"
+							action="#{cadastroMedicoBean.salvar}" class="btn btn-success"></h:commandButton>
+						<h:button styleClass="btn btn-dark" value="Cancelar" />
+					</div>
+				</div>
+			</div>
 
 		</h:form>
 	</ui:define>

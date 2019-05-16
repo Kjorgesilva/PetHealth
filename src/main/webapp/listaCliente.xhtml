@@ -12,13 +12,17 @@
 
 
 	<ui:define name="body">
+			<h:form>
+	
 		<legend align="center">Listar Cliente</legend>
-		<div class="text-left">
-
-			<h:link outcome="cadastro_cliente" title="Cliente"
-				value="ADD Cliente">
-			</h:link>
-		</div>
+		
+		
+			<div class="form-group text-right">
+						<h:commandButton value="Adicionar Cliente"
+							action="cadastroCliente" class="btn btn-success"></h:commandButton>
+					</div>
+	
+		
 		<div class="ui-g">
 			<div class="ui-g-10 ui-md-12">
 
@@ -52,7 +56,7 @@
 					<p:column headerText="Ação" style="width:100px">
 						<div class="text-center">
 
-							<h:link outcome="cadastro_cliente" title="Editar" value="Editar">
+							<h:link outcome="cadastroCliente" title="Editar" value="Editar">
 								<f:param name="editarParam" value="#{cliente.id}" />
 							</h:link>
 						</div>
@@ -60,7 +64,8 @@
 
 				</p:dataTable>
 			</div>
-		</div>
+		</div> 	
+</h:form>
 
 	</ui:define>
 

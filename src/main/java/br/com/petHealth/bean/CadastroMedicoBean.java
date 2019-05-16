@@ -67,6 +67,8 @@ public class CadastroMedicoBean implements Serializable {
 		if(medico.getId() != null && medico.getId() > 0){
 			cadastroMedicoService.atualizar(medico);
 		}else {
+			System.out.println("medico:" + medico.getNome());
+			
 			cadastroMedicoService.insert(medico);
 		}
 		
