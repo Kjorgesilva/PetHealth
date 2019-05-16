@@ -7,6 +7,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import br.com.petHealth.core.SessionManager;
 import br.com.petHealth.model.Usuario;
 import br.com.petHealth.service.UsuarioService;
 
@@ -42,6 +44,11 @@ public class UsuarioBean implements Serializable{
 		}
 		return null;
 		
+	}
+	
+	public Integer getIdUsuario(){
+		SessionManager session = new SessionManager();
+		return Integer.parseInt(session.getVarSessao("cusuIdParam").toString());
 	}
 
 	public String getLogin() {

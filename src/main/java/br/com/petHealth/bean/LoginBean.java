@@ -31,6 +31,7 @@ public class LoginBean implements Serializable{
 		SessionManager session = new SessionManager();
 		
 		session.setVarSessao("cusuIdParam", Integer.toString(usuario.getId()));
+		session.setVarSessao("cusuIdPerfilParam", usuario.getPerfil());
 		session.setVarSessao("usuarioModel", usuario);
 		
 		
