@@ -37,7 +37,7 @@
        </servlet>
        <servlet-mapping>
              <servlet-name>Jersey REST Service</servlet-name>
-             <url-pattern>/rest/*</url-pattern>
+             <url-pattern>/rest/app/*</url-pattern>
        </servlet-mapping>
 
 		<filter>
