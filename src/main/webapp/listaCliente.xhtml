@@ -23,7 +23,7 @@
 				<h:commandButton value="Novo" action="cadastroCliente"
 					class="btn btn-success"></h:commandButton>
 			</div>
-
+			<p:messages id="messages" showDetail="true" closable="true"></p:messages>
 			<div class="card">
 				<h5 class="card-header">Filtrar Clientes</h5>
 				<div class="card-body">
@@ -45,7 +45,6 @@
 								action="#{listarClienteBean.filtrar}" />
 						</div>
 					</div>
-
 			<div class="ui-g">
 				<div class="ui-g-10 ui-md-12">
 					<table class="table">

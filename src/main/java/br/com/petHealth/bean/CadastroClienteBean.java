@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -72,8 +74,10 @@ public class CadastroClienteBean implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public void inserir() {
+	public String inserir() {
 		cadastroClienteService.insert(cliente);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Cliente Cadastrado com sucesso."));
+        return "listaCliente";
 	}
 
 	public void salvar() {		
