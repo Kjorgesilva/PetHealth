@@ -6,8 +6,7 @@
     <persistence-unit name="mySqlConnector" transaction-type="RESOURCE_LOCAL">
   
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-	
-<!-- 	<class>br.com.petHealth.model.Agendamento</class>
+	 	<class>br.com.petHealth.model.Agendamento</class>
 		<class>br.com.petHealth.model.Animal</class>
 		<class>br.com.petHealth.model.Cliente</class>
 		<class>br.com.petHealth.model.Endereco</class>
@@ -19,7 +18,7 @@
 		<class>br.com.petHealth.model.Usuario</class>
 		<class>br.com.petHealth.model.Vacina</class>
 		<class>br.com.petHealth.model.EspecieAnimal</class>
-		<class>br.com.petHealth.model.VacinaEspecie</class> -->
+		<class>br.com.petHealth.model.VacinaEspecie</class> 
 	
 	
 
