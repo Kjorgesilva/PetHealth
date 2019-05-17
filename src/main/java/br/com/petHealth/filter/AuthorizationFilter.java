@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.petHealth.bean.LoginBean;
 
+
 public class AuthorizationFilter implements Filter{
 
 	@Inject
@@ -26,6 +27,12 @@ public class AuthorizationFilter implements Filter{
 
 		HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
+        
+        //url que contém "app" vem do Android
+        if (request.getRequestURI().contains("app")) {
+			chain.doFilter(req, response);
+			return;
+		}
         
         if(login.getUsuario() == null || !login.isLogado()){
         	
