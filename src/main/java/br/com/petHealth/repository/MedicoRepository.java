@@ -1,5 +1,6 @@
 package br.com.petHealth.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -7,6 +8,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import br.com.petHealth.core.JpaConnector;
+import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.Medico;
 
 public class MedicoRepository {
@@ -59,6 +61,30 @@ public class MedicoRepository {
 		em.getTransaction().commit();
 		return medico;
 		
+	}
+	
+public List<Medico> filtrarMedico(Medico medico){
+		
+		List<Medico> lista = new ArrayList<Medico>();
+		try {
+			em = JpaConnector.getConnectionMySql();
+			StringBuilder filtro = new StringBuilder();
+			
+			if(medico.getNome() != null && medico.getNome().trim().length() > 0){
+				filtro.append(" AND a.nome = :nome");
+			}
+			
+			TypedQuery<Medico> me = em.createQuery("SELECT a FROM Medico a WHERE 1 = 1 " + filtro.toString(),Medico.class);
+			
+			if(medico.getNome() != null && medico.getNome().trim().length() > 0){
+				me.setParameter("nome", medico.getNome());			
+			}
+			
+			lista = (List<Medico>) me.getResultList();			
+		} catch (NoResultException e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 
