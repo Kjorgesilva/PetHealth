@@ -14,6 +14,7 @@ import br.com.petHealth.service.ClienteService;
 public class ListarClienteBean implements Serializable {
 	
 	public void init(){
+		cli = new Cliente();
 		listar();
 	}
 	
@@ -26,7 +27,8 @@ public class ListarClienteBean implements Serializable {
 	private ClienteService cadastroClienteService;
 	
 	private List<Cliente> cliente;
-
+	private Cliente cli;
+	
 	public ClienteService getCadastroClienteService() {
 		return cadastroClienteService;
 	}
@@ -42,9 +44,23 @@ public class ListarClienteBean implements Serializable {
 	public void setCliente(List<Cliente> cliente) {
 		this.cliente = cliente;
 	}
+	
+
+	public Cliente getCli() {
+		return cli;
+	}
+
+	public void setCli(Cliente cli) {
+		this.cli = cli;
+	}
 
 	public void listar(){
 		cliente = cadastroClienteService.findAll();		
+	}
+	
+	public void filtrar(){
+		cliente.clear();
+		cliente = cadastroClienteService.filtrarCliente(cli);
 	}
 
 	
