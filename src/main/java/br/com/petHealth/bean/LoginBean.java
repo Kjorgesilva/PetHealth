@@ -2,6 +2,7 @@ package br.com.petHealth.bean;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -9,9 +10,12 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.NoResultException;
+import javax.servlet.http.HttpSession;
 
 import br.com.petHealth.core.SessionManager;
+import br.com.petHealth.model.PerfilAplicacao;
 import br.com.petHealth.model.Usuario;
+import br.com.petHealth.service.MenuService;
 import br.com.petHealth.service.UsuarioService;
 
 @Named
@@ -25,6 +29,10 @@ public class LoginBean implements Serializable{
 	@Inject
 	private UsuarioService usuarioService;
 	
+	@Inject
+	private MenuService menuService;
+	
+	private List<PerfilAplicacao> listaAplicativos;
 	
 	public String logar(){
 		
@@ -35,6 +43,10 @@ public class LoginBean implements Serializable{
 			session.setVarSessao("cusuIdParam", Integer.toString(usuario.getId()));
 			session.setVarSessao("cusuIdPerfilParam", usuario.getPerfil());
 			session.setVarSessao("usuarioModel", usuario);
+			
+			listaAplicativos  = menuService.montaMenuUsuario(usuario.getPerfil());
+			
+			
 			return "home";
 			
 		}catch (NoResultException e) {
@@ -46,7 +58,19 @@ public class LoginBean implements Serializable{
 		
 	}
 	
+	public String sair() {
+		String retorno = "login";
+		FacesContext facesContext = FacesContext.getCurrentInstance();  
+		HttpSession session = (HttpSession) facesContext .getExternalContext().getSession(false);  
+		session.invalidate();  
+		return retorno;
+	}
+	
 
+	public boolean isLogado() {
+		return (usuario != null);
+	}
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -77,9 +101,16 @@ public class LoginBean implements Serializable{
 		this.senha = senha;
 	}
 
+	
 
-	public boolean isLogado() {
-		return (usuario != null);
+	public List<PerfilAplicacao> getListaAplicativos() {
+		return listaAplicativos;
 	}
+
+
+	public void setListaAplicativos(List<PerfilAplicacao> listaAplicativos) {
+		this.listaAplicativos = listaAplicativos;
+	}
+
 
 }
