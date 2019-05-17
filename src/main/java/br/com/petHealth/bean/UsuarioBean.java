@@ -34,14 +34,19 @@ public class UsuarioBean implements Serializable{
 	
 	public String  checkLogin(){
 				
-		loginUsuario = usuarioService.checkLogin(login, senha);
-		
-		if(loginUsuario != null){
-			return "home.xhtml";
-		}	
-		else{
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login ou senha Invalidos...", null));
+		try {
+			loginUsuario = usuarioService.checkLogin(login, senha);
+			if(loginUsuario != null){
+				return "home.xhtml";
+			}	
+			else{
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login ou senha Invalidos...", null));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 		return null;
 		
 	}

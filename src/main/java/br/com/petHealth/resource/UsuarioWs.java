@@ -41,7 +41,12 @@ public class UsuarioWs implements Serializable {
 		
 		System.out.println(json);
 		
-		usuario =  usuarioService.checkLogin(jsonObject.getString("login"),jsonObject.getString("senha"));
+		try {
+			usuario =  usuarioService.checkLogin(jsonObject.getString("login"),jsonObject.getString("senha"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		cliente =  clienteService.findByidCliente(usuario.getId());
 		
