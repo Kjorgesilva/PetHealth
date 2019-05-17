@@ -46,8 +46,6 @@
 						</div>
 					</div>
 
-				</div>
-
 			<div class="ui-g">
 				<div class="ui-g-10 ui-md-12">
 					<table class="table">
@@ -73,18 +71,21 @@
 									<td>${cliente.endereco}</td>
 									<td>${cliente.telefone}</td>
 									<td>${cliente.email}</td>
-									<td><h:link title="Editar" outcome="cadastroCliente">
-											<f:param name="editarParam" value="#{cliente.id}" />
+									<td><h:commandLink title="Editar">
 											<i class="fa fa-clone" aria-hidden="true"></i>
-										</h:link></td>
+										</h:commandLink></td>
 								</tr>
 							</ui:repeat>
 						</tbody>
 					</table>
+
+
+
 				</div>
 			</div>
-		</div>
 		</h:form>
+
 	</ui:define>
+
 </ui:composition>
 </html>
