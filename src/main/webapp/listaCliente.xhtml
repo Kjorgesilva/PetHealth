@@ -70,9 +70,10 @@
 									<td>${cliente.endereco}</td>
 									<td>${cliente.telefone}</td>
 									<td>${cliente.email}</td>
-									<td><h:commandLink title="Editar">
+							<td><h:link title="Editar" outcome="cadastroCliente">
+								<f:param name="editarParam" value="#{cliente.id}" />
 											<i class="fa fa-clone" aria-hidden="true"></i>
-										</h:commandLink></td>
+										</h:link></td>
 								</tr>
 							</ui:repeat>
 						</tbody>

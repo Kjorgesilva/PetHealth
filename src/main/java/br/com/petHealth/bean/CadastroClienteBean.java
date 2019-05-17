@@ -87,7 +87,6 @@ public class CadastroClienteBean implements Serializable {
 		}else {
 			cadastroClienteService.insert(cliente);
 		}
-		
 	}
 	
 }
