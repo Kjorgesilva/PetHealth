@@ -7,7 +7,7 @@
 
 	<welcome-file-list>
 		<welcome-file>
-			home.xhtml
+			login.xhtml
 		</welcome-file>
 	</welcome-file-list>
 

@@ -16,7 +16,7 @@ public class UsuarioService implements Serializable {
 
 	}
 
-	public Usuario checkLogin(String login, String senha) {
+	public Usuario checkLogin(String login, String senha) throws Exception {
 		return usuarioRepository.checkLogin(login, senha);
 	}
 

@@ -22,17 +22,13 @@ public class UsuarioRepository {
 
 	}
 
-	public Usuario checkLogin(String login,String senha){
+	public Usuario checkLogin(String login,String senha) throws Exception{
 		Usuario loginUsuario = null;
-		try {
 			em = JpaConnector.getConnectionMySql();
 			TypedQuery<Usuario> log = em.createQuery("SELECT l FROM Usuario l WHERE l.login = :login AND l.senha = :senha",Usuario.class);
 			log.setParameter("login", login);
 			log.setParameter("senha", senha);				
 			loginUsuario = log.getSingleResult();				
-		} catch (NoResultException e) {
-			e.printStackTrace();
-		}	
 		return loginUsuario;
 
 	}
