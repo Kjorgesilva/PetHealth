@@ -29,6 +29,7 @@ public class CadastroClienteBean implements Serializable {
 	private ClienteService cadastroClienteService;
 	@Inject
 	private AnimalService cadastroAnimalService;
+	
 	private Cliente cliente;
 	private int id;
 

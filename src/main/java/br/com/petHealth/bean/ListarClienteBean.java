@@ -13,10 +13,6 @@ import br.com.petHealth.service.ClienteService;
 @ViewScoped
 public class ListarClienteBean implements Serializable {
 	
-	public void init(){
-		cli = new Cliente();
-		listar();
-	}
 	
 	/**
 	 * 
@@ -28,6 +24,11 @@ public class ListarClienteBean implements Serializable {
 	
 	private List<Cliente> cliente;
 	private Cliente cli;
+	
+	public void init(){
+		cli = new Cliente();
+		listar();
+	}
 	
 	public ClienteService getCadastroClienteService() {
 		return cadastroClienteService;
@@ -54,6 +55,7 @@ public class ListarClienteBean implements Serializable {
 		this.cli = cli;
 	}
 
+	
 	public void listar(){
 		cliente = cadastroClienteService.findAll();		
 	}
