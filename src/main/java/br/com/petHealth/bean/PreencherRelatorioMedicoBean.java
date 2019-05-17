@@ -112,8 +112,9 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 		ClienteService cli = new ClienteService();		
 
 		
+//consigo pegar para os outros tambem ?
 		
-		Medico medico = medi.findById(UsuarioBean.getIdUsuario());
+		Medico medico = medi.findById(UsuarioBean.getIdUsuario()); //Aqui ele pega o usuario que logou dinamicamente falta as partes de baixo
 		Animal animal = anim.findByid(1);
 		Cliente cliente = cli.findByid(1);
 		respostaRelatorio.setIdAgenda(1);

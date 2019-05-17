@@ -25,7 +25,6 @@ public class CadastroMedicoBean implements Serializable {
 	private MedicoService cadastroMedicoService;
 	private Medico medico;
 	private int id;
-	
 	@PostConstruct
 	public void init(){
 		
