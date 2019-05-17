@@ -1,74 +1,84 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#xA0;"> 
+]>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="base.xhtml">
-<f:metadata>
+	<f:metadata>
 		<f:viewAction action="#{listarClienteBean.init}" />
 	</f:metadata>
 
 
 	<ui:define name="body">
-			<h:form>
-	
-		<legend align="center">Listar Cliente</legend>
-		
-		
-			<div class="form-group text-right">
-						<h:commandButton value="Adicionar Cliente"
-							action="cadastroCliente" class="btn btn-success"></h:commandButton>
-					</div>
-	
-		
-		<div class="ui-g">
-			<div class="ui-g-10 ui-md-12">
+		<h:form>
 
-				<p:dataTable var="cliente" value="#{listarClienteBean.cliente}">
-					
-					<p:column headerText="Nº Cliente">
-						<h:outputText value="#{cliente.id}" />
-					</p:column>
-					
-					<p:column headerText="Nome">
-						<h:outputText value="#{cliente.nome}" />
-					</p:column>
-					
-					
-					<p:column headerText="RG">
-						<h:outputText value="#{cliente.rg}" />
-					</p:column>
+			<h3>Lista de Clientes</h3>
 
-					<p:column headerText="Endereço">
-						<h:outputText value="#{cliente.endereco}" />
-					</p:column>
-					
-					<p:column headerText="Telefone">
-						<h:outputText value="#{cliente.telefone}" />
-					</p:column>
-					
-					<p:column headerText="E-mail">
-						<h:outputText value="#{cliente.email}" />
-					</p:column>
-					
-					<p:column headerText="Ação" style="width:100px">
-						<div class="text-center">
+		<div class="form-group">
+			<h:commandButton value="Adicionar Cliente" action="cadastroCliente"
+				class="btn btn-success"></h:commandButton>
+		</div>
 
-							<h:link outcome="cadastroCliente" title="Editar" value="Editar">
-								<f:param name="editarParam" value="#{cliente.id}" />
-							</h:link>
-						</div>
-					</p:column>
-
-				</p:dataTable>
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<h:outputLabel value="Nome"/>
+				<h:inputText class="form-control" value="#{listarClienteBean.cli.nome}"/>
 			</div>
-		</div> 	
-</h:form>
+			<div class="form-group col-md-2">
+				<h:outputLabel value="RG"/>
+				<h:inputText class="form-control" value="#{listarClienteBean.cli.rg}"/>
+			</div>
+			<div class="form-group col-md-2">
+				<div>&nbsp;</div>
+				<h:commandButton class="btn btn-success" value="Filtrar" action="#{listarClienteBean.filtrar}"/>
+			</div>
+		</div>
+
+			<div class="ui-g">
+				<div class="ui-g-10 ui-md-12">
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Id</th>
+								<th scope="col">Nome</th>
+								<th scope="col">RG</th>
+								<th scope="col">Endereço</th>
+								<th scope="col">Telefone</th>
+								<th scope="col">E-mail</th>
+								<th scope="col">Ação</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<ui:repeat var="cliente" value="#{listarClienteBean.cliente}">
+
+								<tr class="table-active">
+									<td scope="row"><h:outputText value="#{cliente.id}" /></td>
+									<td>${cliente.nome}</td>
+									<td>${cliente.rg}</td>
+									<td>${cliente.endereco}</td>
+									<td>${cliente.telefone}</td>
+									<td>${cliente.email}</td>
+									<td><h:commandLink title="Editar">
+											<i class="fa fa-clone" aria-hidden="true"></i>
+										</h:commandLink></td>
+								</tr>
+							</ui:repeat>
+						</tbody>
+					</table>
+
+
+
+				</div>
+			</div>
+		</h:form>
 
 	</ui:define>
-
 
 </ui:composition>
 </html>

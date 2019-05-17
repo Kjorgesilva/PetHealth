@@ -113,7 +113,7 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 
 		
 		
-		Medico medico = medi.findById(1);
+		Medico medico = medi.findById(UsuarioBean.getIdUsuario());
 		Animal animal = anim.findByid(1);
 		Cliente cliente = cli.findByid(1);
 		respostaRelatorio.setIdAgenda(1);

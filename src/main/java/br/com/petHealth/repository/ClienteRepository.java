@@ -1,5 +1,6 @@
 package br.com.petHealth.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -76,6 +77,35 @@ public class ClienteRepository {
 		
 		return cliente;			
 		
+	}
+	
+	public List<Cliente> findCliente(Cliente cliente){
+		
+		List<Cliente> lista = new ArrayList<Cliente>();
+		try {
+			em = JpaConnector.getConnectionMySql();
+			StringBuilder filtro = new StringBuilder();
+			
+			if(cliente.getNome() != null && cliente.getNome().trim().length() > 0){
+				filtro.append(" AND a.nome = :nome");
+			}
+			if(cliente.getRg() != null && cliente.getRg().trim().length() > 0){
+				filtro.append(" AND a.rg = :rg");
+			}
+			TypedQuery<Cliente> ani = em.createQuery("SELECT a FROM Cliente a WHERE 1 = 1 " + filtro.toString(),Cliente.class);
+			
+			if(cliente.getNome() != null && cliente.getNome().trim().length() > 0){
+				ani.setParameter("nome", cliente.getNome());			
+			}
+			if(cliente.getRg() != null && cliente.getRg().trim().length() > 0){
+				ani.setParameter("rg", cliente.getRg());			
+			}
+			
+			lista = (List<Cliente>) ani.getResultList();			
+		} catch (NoResultException e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 }

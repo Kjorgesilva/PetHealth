@@ -46,7 +46,7 @@ public class UsuarioBean implements Serializable{
 		
 	}
 	
-	public Integer getIdUsuario(){
+	public static Integer getIdUsuario(){
 		SessionManager session = new SessionManager();
 		return Integer.parseInt(session.getVarSessao("cusuIdParam").toString());
 	}
