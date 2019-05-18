@@ -7,7 +7,6 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 
 import br.com.petHealth.model.Medico;
 import br.com.petHealth.service.MedicoService;

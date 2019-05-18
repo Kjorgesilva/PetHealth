@@ -3,6 +3,8 @@ package br.com.petHealth.bean;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -62,16 +64,23 @@ public class CadastroMedicoBean implements Serializable {
 		this.cadastroMedicoService = cadastroMedicoService;
 	}
 	
-	public void salvar() {
-		
+	public void salvar() {		
 		if(medico.getId() != null && medico.getId() > 0){
 			cadastroMedicoService.atualizar(medico);
+
 		}else {
 			System.out.println("medico:" + medico.getNome());
 			
 			cadastroMedicoService.insert(medico);
+
 		}
 		
+	}
+	
+	public String inserir() {
+		cadastroMedicoService.insert(medico);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Médico Cadastrado com sucesso."));
+        return "listaMedico";
 	}
 
 }

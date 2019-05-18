@@ -1,79 +1,77 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#xA0;"> 
+]>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="base.xhtml">
-
 	<f:metadata>
 		<f:viewAction action="#{listarAnimalBean.init}" />
 	</f:metadata>
 
 
 	<ui:define name="body">
-	
 		<h:form>
-		
-			<legend align="center">Cardeneta dos Animais</legend>
-			<div class="ui-g">
-				<div class="ui-g-10 ui-md-12">
 
-					<p:dataTable var="animal" value="#{listarAnimalBean.animal}">
-						
-						<p:column headerText="Nº De Identificação Do Animal">
-							<h:outputText value="#{animal.id}" />
-						</p:column>
+			<h3>Cardeneta dos Animais</h3>
 
-						<p:column headerText="Nome">
-							<h:outputText value="#{animal.nome}">
-							</h:outputText>
-						</p:column>
-
-
-						<p:column headerText="Cor">
-							<h:outputText value="#{animal.cor}">
-							</h:outputText>
-						</p:column>
-
-
-						<p:column headerText="Data Nascimento">
-							<h:outputText value="#{animal.dataNascimento}">
-								<f:convertDateTime type="localDateTime"
-									pattern="dd/MM/yyyy HH:MM" />
-							</h:outputText>
-						</p:column>
-
-						<p:column headerText="Sexo">
-							<h:outputText
-								value="#{animal.sexo eq 'M'? 'Macho':(animal.sexo eq 'F'? 'Fêmea' :animal.sexo)}">
-								</h:outputText>
-						</p:column>
-						
-						
-						<p:column headerText="Especie">
-							<h:outputText value="#{animal.idEspecieAnimal.especie}">
-							</h:outputText>
-						</p:column>
-						
+			
+			<p:messages id="messages" showDetail="true" closable="true"></p:messages>
+			<div class="card">
+				<div class="card-body">
+					
+					<div class="ui-g">
+						<div class="ui-g-10 ui-md-12">
+							<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th scope="col">Nº De Identificação Do Animal</th>
+										<th scope="col">Nome</th>
+										<th scope="col">Cor</th>
+										<th scope="col">Data Nascimento</th>
+										<th scope="col">Sexo</th>
+										<th scope="col">Especie</th>
+										<th scope="col">Ação</th>
 
 
-						<p:column headerText="Verificar" style="width:100px">
-							<div class="text-center">
+									</tr>
+								</thead>
+								<tbody>
 
-								<h:link outcome="vacinasAplicadas" title="Verificar" value="Vacinas">
-									<f:param name="editarParam" value="#{animal.id}" />
-									<f:param name="editarParamIdAnimal" value="#{animal.idEspecieAnimal.id}" />
-									
-								</h:link>
-							</div>
-						</p:column>
+									<ui:repeat var="animal" value="#{listarAnimalBean.animal}">
 
-					</p:dataTable>
+										<tr class="table-active">
+											<td scope="row"><h:outputText value="#{animal.id}" /></td>
+											<td>${animal.nome}</td>
+											<td>${animal.cor}</td>
+											<td><h:outputText value="#{animal.dataNascimento}">
+													<f:convertDateTime type="localDateTime"
+														pattern="dd/MM/yyyy" />
+												</h:outputText></td>
+											<td>${animal.sexo eq 'M'? 'Macho':(animal.sexo eq 'F'?
+												'Fêmea' :animal.sexo)}</td>
+											<td>${animal.idEspecieAnimal.especie}</td>
+											<td><h:link title="Verificar" outcome="vacinasAplicadas">
+													<f:param name="editarParam" value="#{animal.id}" />
+													<f:param name="editarParamIdAnimal"
+														value="#{animal.idEspecieAnimal.id}" />
+													<i class="fa fa-clone" aria-hidden="true"></i>
+												</h:link> </td>
+										</tr>
+									</ui:repeat>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</h:form>
+
 	</ui:define>
+
 </ui:composition>
 </html>

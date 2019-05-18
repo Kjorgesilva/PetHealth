@@ -15,7 +15,10 @@ drop table if exists tab_especie_animal;
 drop table if exists tab_medico;
 drop table if exists tab_cliente;
 drop table if exists tab_usuario;
+drop table if exists tab_perfil_aplicacao;
+drop table if exists tab_aplicacao;
 drop table if exists tab_perfil;
+
 
 
  
@@ -293,6 +296,77 @@ INSERT INTO tab_vacina_tomada
 VALUES(2,1,'aviso',now(),now()); 
 
 
-select * from tab_vacina_tomada v inner join tab_animal a on 
-a.id_animal = v.animal_id where a.id_cliente = 2;
+
+
+create table tab_aplicacao (
+id_aplicacao INT NOT NULL auto_increment,
+nome_aplicacao VARCHAR(50) NOT NULL,
+caminho_aplicacao VARCHAR(100) NOT NULL,
+menu_aplicacao VARCHAR(100) NOT NULL,
+exibe_menu_aplicacao VARCHAR(2) NOT NULL,
+PRIMARY KEY (id_aplicacao)
+);
+ CREATE  TABLE tab_perfil_aplicacao(
+ id_perfil_aplicacao SERIAL,
+ aplicacao_id int NOT NULL,
+ perfil_id int NOT NULL,
+ CONSTRAINT aplicacao_id_fk FOREIGN KEY (aplicacao_id) REFERENCES tab_aplicacao (id_aplicacao),
+ CONSTRAINT perfil_id_fk FOREIGN KEY (perfil_id) REFERENCES tab_perfil (id_perfil)
+ );
+ 
+
+
+
+insert into tab_perfil (descricao) values ('Administrador');
+INSERT INTO tab_usuario (login, senha, nome, email, id_perfil) VALUES ('admin', 'admin', 'Administrador', 'jcn271@gmail.com', 3);
+
+
+
+
+INSERT INTO tab_aplicacao (nome_aplicacao, caminho_aplicacao, menu_aplicacao, exibe_menu_aplicacao)
+ values ('Cadastro de Clientes', 'cadastroCliente.xhtml', 'Cliente', 'N');
+ 
+ INSERT INTO tab_aplicacao (nome_aplicacao, caminho_aplicacao, menu_aplicacao, exibe_menu_aplicacao)
+ values ('Cadastro de Animais', 'cadastroAnimal.xhtml', 'Animal', 'N');
+ 
+ INSERT INTO tab_aplicacao (nome_aplicacao, caminho_aplicacao, menu_aplicacao, exibe_menu_aplicacao)
+ values ('Cadastro de Médicos', 'cadastroMedico.xhtml', 'Médico', 'N');
+ 
+ INSERT INTO tab_aplicacao (nome_aplicacao, caminho_aplicacao, menu_aplicacao, exibe_menu_aplicacao)
+ values ('Cadastro de Clientes', 'cadastroCliente.xhtml', 'Cliente', 'N');
+ 
+  INSERT INTO tab_aplicacao (nome_aplicacao, caminho_aplicacao, menu_aplicacao, exibe_menu_aplicacao)
+ values ('Listagem de Clientes', 'listaCliente.xhtml', 'Cliente', 'S');
+
+  INSERT INTO tab_aplicacao (nome_aplicacao, caminho_aplicacao, menu_aplicacao, exibe_menu_aplicacao)
+ values ('Listagem de Animais', 'listaAnimal.xhtml', 'Animal', 'S');
+ 
+   INSERT INTO tab_aplicacao (nome_aplicacao, caminho_aplicacao, menu_aplicacao, exibe_menu_aplicacao)
+ values ('Listagem de Médicos', 'listaMedico.xhtml', 'Médico', 'S');
+ 
+    INSERT INTO tab_aplicacao (nome_aplicacao, caminho_aplicacao, menu_aplicacao, exibe_menu_aplicacao)
+ values ('Vacinacao', 'listaVacinaAnimal.xhtml', 'Vacinas', 'S');
+ 
+INSERT INTO tab_aplicacao (nome_aplicacao, caminho_aplicacao, menu_aplicacao, exibe_menu_aplicacao)
+ values ('Relatorios', 'relatorioMedico.xhtml', 'Agenda', 'S');
+
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (3,1);
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (3,2);
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (3,3);
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (3,4);
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (3,5);
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (3,6);
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (3,7);
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (3,8);                   
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (3,9);
+
+
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (2,9);
+INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (2,8);
+
+
+
+
+
+
 

@@ -1,38 +1,65 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#xA0;"> 
+]>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
-
 <ui:composition template="base.xhtml">
 
 	<f:metadata>
 		<f:viewAction action="#{tipoVacinaBean.init}" />
 		<f:viewParam name="paramIdAnimal" value="#{tipoVacinaBean.idEspecie}" />
 		<f:viewParam name="editarParam" value="#{tipoVacinaBean.id}" />
-		
+
 	</f:metadata>
 
 	<ui:define name="body">
 		<h:form>
-			<div class="ui-g-12" align="center">
-				<div class="ui-g-6">
-					<p:dataTable var="vacinas" value="#{tipoVacinaBean.listaVacinas}">
-						<p:column headerText="Descricao" style="text-align:center">
-							<h:outputText value="#{vacinas.descricao}" />
-						</p:column>
 
-						<p:column headerText="Vacinar">
-							<p:commandButton value="Vacinar" action="#{tipoVacinaBean.inserir(vacinas.id)}">
-							</p:commandButton>
-						</p:column>
+			<h3>Vacinas</h3>
 
 
-					</p:dataTable>
+
+			<p:messages id="messages" showDetail="true" closable="true"></p:messages>
+			<div class="card">
+				<div class="card-body">
+
+					<div class="ui-g">
+						<div class="ui-g-10 ui-md-12">
+							<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th scope="col">Descrição</th>
+										<th scope="col">Vacinar</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<ui:repeat var="vacinas" value="#{tipoVacinaBean.listaVacinas}">
+
+										<tr class="table-active">
+
+											<td>${vacinas.descricao}</td>
+											<td><p:commandButton value="Vacinar"
+													action="#{tipoVacinaBean.inserir(vacinas.id)}">
+												</p:commandButton></td>
+
+
+										</tr>
+									</ui:repeat>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 
+
 		</h:form>
+
 	</ui:define>
 
 

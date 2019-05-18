@@ -1,12 +1,14 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#xA0;"> 
+]>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="base.xhtml">
-
 	<f:metadata>
 		<f:viewAction action="#{cadastroRelatorioMedicoBean.init}" />
 	</f:metadata>
@@ -15,67 +17,72 @@
 	<ui:define name="body">
 		<h:form>
 
-			<div class="ui-g">
-				<div class="ui-g-10 ui-md-12">
-					<p:dataTable var="agenda"
-						value="#{cadastroRelatorioMedicoBean.agenda}">
-
-						<p:column headerText="Nº Agendamento">
-							<h:outputText value="#{agenda.id}" />
-						</p:column>
+			<h3>Agendamento</h3>
 
 
-						<p:column headerText="Animal">
-							<h:outputText value="#{agenda.animal.nome}">
-							</h:outputText>
-						</p:column>
+			<p:messages id="messages" showDetail="true" closable="true"></p:messages>
+			<div class="card">
+				<div class="card-body">
 
-						<p:column headerText="Data Inicio">
-							<h:outputText value="#{agenda.dataInicio}">
-								<f:convertDateTime type="localDateTime"
-									pattern="dd/MM/yyyy HH:MM" />
-							</h:outputText>
-						</p:column>
+					<div class="ui-g">
+						<div class="ui-g-10 ui-md-12">
+							<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th scope="col">Nº Agendamento</th>
+										<th scope="col">Animal</th>
+										<th scope="col">Data Inicio</th>
+										<th scope="col">Data Fim</th>
+										<th scope="col">Dono</th>
+										<th scope="col">Medico</th>
+										<th scope="col">Ação</th>
 
+									</tr>
+								</thead>
+								<tbody>
 
+									<ui:repeat var="agenda"
+										value="#{cadastroRelatorioMedicoBean.agenda}">
 
-						<p:column headerText="Data Fim">
-							<h:outputText value="#{agenda.dataFim}">
-								<f:convertDateTime type="localDateTime"
-									pattern="dd/MM/yyyy HH:MM" />
-							</h:outputText>
-						</p:column>
-
-						<p:column headerText="Dono">
-							<h:outputText value="#{agenda.cliente.nome}">
-							</h:outputText>
-						</p:column>
-
-						<p:column headerText="Medico">
-							<h:outputText value="#{agenda.medico.nome}">
-							</h:outputText>
-						</p:column>
-
-						<p:column headerText="Relatorio" style="width:100px">
-							<div class="text-center">
-
-								<h:link outcome="preencher_relatorio_medico" title="Relatorio"
-									value="Relatorio">
-									<f:param name="relatorioParam" value="#{agenda.id}" />
-
-								</h:link>
-							</div>
-						</p:column>
+										<tr class="table-active">
+											<td scope="row"><h:outputText value="#{agenda.id}" /></td>
+											<td>${agenda.animal.nome}</td>
 
 
-					</p:dataTable>
+											<td><h:outputText value="#{agenda.dataInicio}">
+													<f:convertDateTime type="localDateTime"
+														pattern="dd/MM/yyyy" />
+												</h:outputText></td>
+
+
+											<td><h:outputText value="#{agenda.dataFim}">
+													<f:convertDateTime type="localDateTime"
+														pattern="dd/MM/yyyy" />
+												</h:outputText></td>
+
+
+
+											<td>${agenda.cliente.nome}</td>
+											<td>${agenda.medico.nome}</td>
+
+
+
+											<td><h:link title="Relatorio"
+													outcome="preencher_relatorio_medico">
+													<f:param name="relatorioParam" value="#{agenda.id}" />
+													<i class="fa fa-clone" aria-hidden="true"></i>
+												</h:link></td>
+										</tr>
+									</ui:repeat>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
-
 		</h:form>
 
 	</ui:define>
-
 
 </ui:composition>
 </html>

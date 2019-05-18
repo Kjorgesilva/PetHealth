@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.petHealth.core.JpaConnector;
 import br.com.petHealth.model.Animal;
+import br.com.petHealth.model.Cliente;
 
 public class AnimalRepository {
 	
@@ -88,6 +89,29 @@ public class AnimalRepository {
 		
 		
 	}
+	
+public List<Animal> findAnimal(Animal animal){
+		
+		List<Animal> lista = new ArrayList<Animal>();
+		try {
+			em = JpaConnector.getConnectionMySql();
+			StringBuilder filtro = new StringBuilder();
+			
+			if(animal.getNome() != null && animal.getNome().trim().length() > 0){
+				filtro.append(" AND a.nome = :nome");
+			}
+			TypedQuery<Animal> ani = em.createQuery("SELECT a FROM Animal a WHERE 1 = 1 " + filtro.toString(),Animal.class);
+			
+			if(animal.getNome() != null && animal.getNome().trim().length() > 0){
+				ani.setParameter("nome", animal.getNome());			
+			}
+			lista = (List<Animal>) ani.getResultList();			
+		} catch (NoResultException e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
+	
 	
 	
 

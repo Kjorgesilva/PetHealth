@@ -40,4 +40,11 @@ public class AnimalService implements Serializable{
 	return cadastroAnimalRepository.findByidCliente(id);
 	}
 
+	
+	public List<Animal> findAnimal(Animal animal){		
+		return cadastroAnimalRepository.findAnimal(animal);
+	}
+
+	
+
 }

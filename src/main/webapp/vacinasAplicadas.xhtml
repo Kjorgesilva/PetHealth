@@ -1,10 +1,12 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#xA0;"> 
+]>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
-
 <ui:composition template="base.xhtml">
 
 	<f:metadata>
@@ -17,54 +19,70 @@
 
 
 	<ui:define name="body">
-
 		<h:form>
 
-			<legend align="center">Vacinas Aplicadas</legend>
-			<div class="ui-g">
-				<div class="ui-g-10 ui-md-12">
-
-					<p:dataTable var="vacinas"
-						value="#{vacinasAplicadasBean.vacinaLista}">
-
-						<p:column headerText="Tipo da Vacina">
-							<h:outputText
-								value="#{vacinas.tipoVacina.descricao}">
-							</h:outputText>
-						</p:column>
-
-						<p:column headerText="Data Da Vacina">
-								<h:outputText
-								value="#{vacinas.dataVacina}">
-									<f:convertDateTime type="localDateTime"
-								pattern="dd/MM/yyyy" />
-							</h:outputText>
-						</p:column>
+			<h3>Vacinas Aplicadas</h3>
 
 
-						<p:column headerText="Data Da Proxima">
-									<h:outputText
-								value="#{vacinas.dataProxima}">
-									<f:convertDateTime type="localDateTime"
-								pattern="dd/MM/yyyy" />
-							</h:outputText>
-						</p:column>
-
-
-
-					</p:dataTable>
-				</div>
+			<div class="form-group">
+				<h:link title="Relatorio" outcome="vacinas" value="Vacinar">
+					<f:param name="paramIdAnimal"
+						value="#{vacinasAplicadasBean.idEspecie}" />
+					<f:param name="editarParam" value="#{vacinasAplicadasBean.id}" />
+					<i class="fa fa-paw" aria-hidden="true"></i>
+				</h:link>
 			</div>
 
+			<p:messages id="messages" showDetail="true" closable="true"></p:messages>
+			<div class="card">
+				<div class="card-body">
 
-		 <p:link value="Vacinar" outcome="vacinas"> 
-		<f:param name="paramIdAnimal" value="#{vacinasAplicadasBean.idEspecie}" />
-		<f:param name="editarParam" value="#{vacinasAplicadasBean.id}" />
-		
+					<div class="ui-g">
+						<div class="ui-g-10 ui-md-12">
+							<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th scope="col">Tipo da Vacina</th>
+										<th scope="col">Data Da Vacina</th>
+										<th scope="col">Data Da Proxima</th>
+
+									</tr>
+								</thead>
+								<tbody>
+
+									<ui:repeat var="vacinas"
+										value="#{vacinasAplicadasBean.vacinaLista}">
+
+										<tr class="table-active">
+											
+											<td>${vacinas.tipoVacina.descricao}</td>
+
+
+											<td><h:outputText value="#{vacinas.dataVacina}">
+													<f:convertDateTime type="localDateTime"
+														pattern="dd/MM/yyyy" />
+												</h:outputText></td>
+
+
+											<td><h:outputText value="#{vacinas.dataProxima}">
+													<f:convertDateTime type="localDateTime"
+														pattern="dd/MM/yyyy" />
+												</h:outputText></td>
+
+
+										</tr>
+									</ui:repeat>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
 			
-		</p:link> 
-
+			
 		</h:form>
+
 	</ui:define>
+
 </ui:composition>
 </html>
