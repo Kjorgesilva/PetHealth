@@ -51,16 +51,7 @@ public class MedicoService implements Serializable {
 	}
 
 	public Medico findById(int id) {
-
-		cadastroMedicoRepository = new MedicoRepository();
-		if (cadastroMedicoRepository == null) {
-			System.out.println("repositorio nulo");
-			return null;
-		} else {
-			return cadastroMedicoRepository.findById(id);
-
-		}
-
+		return cadastroMedicoRepository.findById(id);
 	}
 
 	public Medico atualizar(Medico medico) {

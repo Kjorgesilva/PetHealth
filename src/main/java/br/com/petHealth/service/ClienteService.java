@@ -3,7 +3,9 @@ package br.com.petHealth.service;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Cliente;
@@ -13,6 +15,8 @@ import br.com.petHealth.repository.AnimalRepository;
 import br.com.petHealth.repository.ClienteRepository;
 import br.com.petHealth.repository.UsuarioRepository;
 
+@Named(value="clienteService")
+@RequestScoped
 public class ClienteService implements Serializable {
 	
 	
@@ -42,6 +46,10 @@ public class ClienteService implements Serializable {
 		
 	}
 	
+	public List<Cliente> findByNomeERg(String query){
+		return cadastroClienteRepository.findByNomeERg(query);
+	}
+	
 	
 	public List<Cliente> findAll() {
 		return cadastroClienteRepository.findAll();
@@ -53,7 +61,6 @@ public class ClienteService implements Serializable {
 	}
 	
 	public Cliente findByid(int id){
-		cadastroClienteRepository = new ClienteRepository();
 		return cadastroClienteRepository.findByid(id);
 	}
 	

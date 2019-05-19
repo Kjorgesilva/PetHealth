@@ -17,15 +17,16 @@
 	<ui:define name="body">
 		<h:form>
 
-			<h3>Lista de Animal</h3>
+			<h3>Lista de Animais</h3>
 
 			<div class="form-group">
 				<h:commandButton value="Novo" action="cadastroAnimal"
-					class="btn btn-success"></h:commandButton>
+					class="btn btn-success">
+				</h:commandButton>
 			</div>
 			<p:messages id="messages" showDetail="true" closable="true"></p:messages>
 			<div class="card">
-				<h5 class="card-header">Filtrar Animal</h5>
+				<h5 class="card-header">Filtrar Animais</h5>
 				<div class="card-body">
 					<div class="form-row">
 
@@ -46,7 +47,7 @@
 							<table class="table">
 								<thead class="thead-dark">
 									<tr>
-										<th scope="col">Nº De Identificação Do Animal</th>
+										<th scope="col">Registro</th>
 										<th scope="col">Nome</th>
 										<th scope="col">Raça</th>
 										<th scope="col">Cor</th>
@@ -55,8 +56,6 @@
 										<th scope="col">País De Origem</th>
 										<th scope="col">Especie</th>
 										<th scope="col">Ação</th>
-
-
 									</tr>
 								</thead>
 								<tbody>

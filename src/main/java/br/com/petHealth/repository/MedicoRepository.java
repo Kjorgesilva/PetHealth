@@ -71,13 +71,13 @@ public List<Medico> filtrarMedico(Medico medico){
 			StringBuilder filtro = new StringBuilder();
 			
 			if(medico.getNome() != null && medico.getNome().trim().length() > 0){
-				filtro.append(" AND a.nome = :nome");
+				filtro.append(" AND a.nome LIKE UPPER(:nome)");
 			}
 			
 			TypedQuery<Medico> me = em.createQuery("SELECT a FROM Medico a WHERE 1 = 1 " + filtro.toString(),Medico.class);
 			
 			if(medico.getNome() != null && medico.getNome().trim().length() > 0){
-				me.setParameter("nome", medico.getNome());			
+				me.setParameter("nome", "%"+medico.getNome().toUpperCase()+"%");			
 			}
 			
 			lista = (List<Medico>) me.getResultList();			

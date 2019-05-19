@@ -7,6 +7,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.petHealth.model.Agendamento;
 import br.com.petHealth.model.Animal;
 import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.Medico;
@@ -39,14 +40,11 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 	private List<PerguntaRelatorio> perguntasLista;
 	private RespostaRelatorio respostaRelatorio;
 	private String teste;
+	private Agendamento agendamento;
 	
-	
-
 	public String getTeste() {
 		return teste;
 	}
-
-
 
 	public void setTeste(String teste) {
 		this.teste = teste;
@@ -95,45 +93,47 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 	public void listarRespostas() {
 		perguntasLista = cadastroRelatorioMedicoService.findAllPergunta();
 	}
+	
+	public Agendamento getAgendamento() {
+		return agendamento;
+	}
+
+	public void setAgendamento(Agendamento agendamento) {
+		this.agendamento = agendamento;
+	}
 
 	public void botao() {
-		
-		
+
 		for (PerguntaRelatorio perguntaRelatorio : perguntasLista) {
 			respostaRelatorio = new RespostaRelatorio();
 			respostaRelatorio.setPergunta(perguntaRelatorio);
-			
-		//instancia seus services de animal, cliente e médido
-		//findById(int id);
-		//Animal animal = animalService.findById(idAnimal)
-		//respostaRelatorio.setAnimal(animal);
-		MedicoService medi = new MedicoService();
-		AnimalService anim = new AnimalService();
-		ClienteService cli = new ClienteService();		
 
-		
-//consigo pegar para os outros tambem ?
-		
-		Medico medico = medi.findById(UsuarioBean.getIdUsuario()); //Aqui ele pega o usuario que logou dinamicamente falta as partes de baixo
-		Animal animal = anim.findByid(1);
-		Cliente cliente = cli.findByid(1);
-		respostaRelatorio.setIdAgenda(1);
-				
-		respostaRelatorio.setMedico(medico);
-		respostaRelatorio.setAnimal(animal);
-		respostaRelatorio.setCliente(cliente);
-			
-		
-		if (respostaRelatorio != null) {
-			respostaRelatorio.setResposta(perguntaRelatorio.getResposta());
-			cadastroRelatorioMedicoService.inserir(respostaRelatorio);
-		} else {
-			System.out.println("valor nulo");
-		}
+			// instancia seus services de animal, cliente e médido
+			// findById(int id);
+			// Animal animal = animalService.findById(idAnimal)
+			// respostaRelatorio.setAnimal(animal);
+			MedicoService medi = new MedicoService();
+			AnimalService anim = new AnimalService();
+			ClienteService cli = new ClienteService();
+
+			// consigo pegar para os outros tambem ?
+
+			Medico medico = medi.findById(UsuarioBean.getIdUsuario());
+			Animal animal = anim.findByid(1);
+			Cliente cliente = cli.findByid(1);
+			System.out.println(agendamento);
+			respostaRelatorio.setIdAgenda(1);
+			respostaRelatorio.setMedico(medico);
+			respostaRelatorio.setAnimal(animal);
+			respostaRelatorio.setCliente(cliente);
+
+			if (respostaRelatorio != null) {
+				respostaRelatorio.setResposta(perguntaRelatorio.getResposta());
+				cadastroRelatorioMedicoService.inserir(respostaRelatorio);
+			} else {
+			}
 		}
 
 	}
-	
-
 
 }

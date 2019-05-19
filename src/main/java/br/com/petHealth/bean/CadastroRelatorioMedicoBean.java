@@ -52,8 +52,5 @@ public class CadastroRelatorioMedicoBean implements Serializable {
 	public void setAgenda(List<Agendamento> agenda) {
 		this.agenda = agenda;
 	}
-	
-
-
 
 }

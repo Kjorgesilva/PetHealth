@@ -75,18 +75,16 @@ public class CadastroClienteBean implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public String inserir() {
-		cadastroClienteService.insert(cliente);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Cliente Cadastrado com sucesso."));
-        return "listaCliente";
-	}
 
-	public void salvar() {		
+	public String salvar() {		
 		if(cliente.getId() != null && cliente.getId() > 0){
 			cadastroClienteService.atualizar(cliente);
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Cliente atualizado com sucesso."));
 		}else {
 			cadastroClienteService.insert(cliente);
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Cliente cadastrado com sucesso."));
 		}
+		return "listaCliente";
 	}
 	
 }

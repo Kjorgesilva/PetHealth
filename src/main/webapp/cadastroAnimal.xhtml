@@ -83,8 +83,8 @@
 					<div class="form-group">
 						<h:outputLabel value="Sexo: " for="sexo" />
 						
-						<p:selectOneMenu value="#{cadastroAnimalBean.animal.sexo}" style="width:200px"
-							required="true" requiredMessage="Preencha o campo sexo">
+						<p:selectOneMenu  value="#{cadastroAnimalBean.animal.sexo}"  styleClass="form-control radius-none"
+							 required="true" requiredMessage="Preencha o campo sexo">
 							<f:selectItem itemValue="M" itemLabel="Macho"/>
 							<f:selectItem itemValue="F" itemLabel="Fêmea"/>
 						</p:selectOneMenu>
@@ -117,42 +117,68 @@
 					
 					
 					<div class="form-group">
-						<h:outputLabel value="ID Cliente " for="idCliente" />
-						<h:inputText id="idCliente" class="form-control"
-							pt:placeholder="Digite o ID Cliente"
-							value="#{cadastroAnimalBean.animal.cliente.id}" required="true"
-							requiredMessage="Preencha o campo ID Cliente" />
-						<h:message for="idCliente" errorStyle="color:red" />
+						<h:outputLabel value="Cliente " for="idCliente" />
+							
+					<p:autoComplete required="true" requiredMessage="Preencha o campo ID Cliente" placeholder="Digite o nome do cliente" id="idClientes"
+						 inputStyleClass="form-control" minQueryLength="3" value="#{cadastroAnimalBean.animal.cliente}"
+						 	 completeMethod="#{cadastroAnimalBean.completeTheme}"
+                        var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente}" converter="#{themeConverter}" forceSelection="true">
+
+				            <p:column>
+				                <h:outputText value="#{cliente.id}" />
+				            </p:column>
+		
+				            <p:column>
+				                <h:outputText value="#{cliente.nome}" />
+				            </p:column>
+
+				            <p:column>
+				                <h:outputText value="#{cliente.rg}" />
+				            </p:column>
+				
+				            <p:column>
+				                <h:outputText value="#{cliente.telefone}" />
+				            </p:column>
+			
+				            <p:column>
+				                <h:outputText value="#{cliente.email}" />
+				            </p:column>
+       				</p:autoComplete>
+						<h:message for="idClientes" errorStyle="color:red" />
 					</div>
 					
 					
 					
 					<div class="form-group">
 						<h:outputLabel value="Data Nascimento " for="dataNascimento"></h:outputLabel>
-						<p:calendar id="dataNascimento" required="true"
+						<p:calendar id="dataNascimento" required="true" inputStyleClass="form-control"
+							placeholder="Digite a Data de Nascimento"
 							converter="dataConverter"
 							value="#{cadastroAnimalBean.animal.dataNascimento}" locale="pt"
 							pattern="dd/MM/yyyy hh:mm">
 						</p:calendar>
 					</div>
 					
-					
+
 					<div class="form-group">
-						<h:outputLabel value="ID EspecieAnimal: (1 Canino ou 2 Felino)" for="idEspecieAnimal" />
-						<h:inputText id="idEspecieAnimal" class="form-control"
-							pt:placeholder="Digite o ID EspecieAnimal"
-							value="#{cadastroAnimalBean.animal.idEspecieAnimal.id}" required="true"
-							requiredMessage="Preencha o campo ID EspecieAnimal" />
+						<h:outputLabel value="Espécie" for="idEspecieAnimal" />
+							
+						<p:selectOneMenu id="idEspecieAnimal"  value="#{cadastroAnimalBean.animal.idEspecieAnimal.id}"
+							  styleClass="form-control radius-none"
+							 required="true" requiredMessage="Selecione a Espécie">
+							<f:selectItem itemValue="1" itemLabel="Canino"/>
+							<f:selectItem itemValue="2" itemLabel="Felino"/>
+						</p:selectOneMenu>
+							
+							
 						<h:message for="idEspecieAnimal" errorStyle="color:red" />
 					</div>
 					
 					
 					<div class="form-group text-right">
-						<h:commandButton value="Cadastrar"
-							action="#{cadastroAnimalBean.inserir}" class="btn btn-success"></h:commandButton>
-							
-							
-						<h:button styleClass="btn btn-dark" value="Cancelar" />
+						<h:commandButton value="#{cadastroAnimalBean.animal.id gt 0 ? 'Atualizar':'Cadastrar'}"
+							action="#{cadastroAnimalBean.salvar}" class="btn btn-success"></h:commandButton>
+						<h:button styleClass="btn btn-dark" value="Cancelar" outcome="listaAnimal"/>
 					</div>
 				</div>
 			</div>
