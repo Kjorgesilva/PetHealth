@@ -1,20 +1,15 @@
 package br.com.petHealth.bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import br.com.petHealth.model.Agendamento;
-import br.com.petHealth.model.Animal;
-import br.com.petHealth.model.Cliente;
 import br.com.petHealth.model.Medico;
 import br.com.petHealth.model.PerguntaRelatorio;
 import br.com.petHealth.model.RespostaRelatorio;
-import br.com.petHealth.service.AnimalService;
-import br.com.petHealth.service.ClienteService;
+import br.com.petHealth.service.AgendamentoService;
 import br.com.petHealth.service.MedicoService;
 import br.com.petHealth.service.RelatorioMedicoService;
 
@@ -22,9 +17,6 @@ import br.com.petHealth.service.RelatorioMedicoService;
 @ViewScoped
 public class PreencherRelatorioMedicoBean implements Serializable {
 
-	public void init() {
-		listarRespostas();
-	}
 
 	/**
 	 * 
@@ -36,11 +28,22 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 	@Inject
 	private RelatorioMedicoService cadastroRelatorioMedicoService;
 
+	@Inject
+	private AgendamentoService agendamentoService;
+	
 	private List<RespostaRelatorio> respostaListas;
 	private List<PerguntaRelatorio> perguntasLista;
 	private RespostaRelatorio respostaRelatorio;
 	private String teste;
 	private Agendamento agendamento;
+	
+	
+	public void init() {
+		agendamento = agendamentoService.findByid(id);
+		listarRespostas();
+	}
+
+	
 	
 	public String getTeste() {
 		return teste;
@@ -108,30 +111,17 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 			respostaRelatorio = new RespostaRelatorio();
 			respostaRelatorio.setPergunta(perguntaRelatorio);
 
-			// instancia seus services de animal, cliente e médido
-			// findById(int id);
-			// Animal animal = animalService.findById(idAnimal)
-			// respostaRelatorio.setAnimal(animal);
 			MedicoService medi = new MedicoService();
-			AnimalService anim = new AnimalService();
-			ClienteService cli = new ClienteService();
 
-			// consigo pegar para os outros tambem ?
+//			Medico medico = medi.findById(UsuarioBean.getIdUsuario());
 
-			Medico medico = medi.findById(UsuarioBean.getIdUsuario());
-			Animal animal = anim.findByid(1);
-			Cliente cliente = cli.findByid(1);
-			System.out.println(agendamento);
-			respostaRelatorio.setIdAgenda(1);
-			respostaRelatorio.setMedico(medico);
-			respostaRelatorio.setAnimal(animal);
-			respostaRelatorio.setCliente(cliente);
-
-			if (respostaRelatorio != null) {
-				respostaRelatorio.setResposta(perguntaRelatorio.getResposta());
-				cadastroRelatorioMedicoService.inserir(respostaRelatorio);
-			} else {
-			}
+			respostaRelatorio.setIdAgenda(id);
+			respostaRelatorio.setMedico(agendamento.getMedico());
+			respostaRelatorio.setAnimal(agendamento.getAnimal());
+			respostaRelatorio.setCliente(agendamento.getCliente());
+			respostaRelatorio.setResposta(perguntaRelatorio.getResposta());
+			
+			cadastroRelatorioMedicoService.inserir(respostaRelatorio);
 		}
 
 	}
