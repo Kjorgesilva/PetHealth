@@ -10,6 +10,8 @@ import br.com.petHealth.model.Usuario;
 import br.com.petHealth.model.Usuario.PerfilUsuario;
 import br.com.petHealth.repository.MedicoRepository;
 import br.com.petHealth.repository.UsuarioRepository;
+import br.com.petHealth.utils.EmailUtils;
+import br.com.petHealth.utils.SenhaRandom;
 
 public class MedicoService implements Serializable {
 
@@ -32,8 +34,8 @@ public class MedicoService implements Serializable {
 		Usuario usuario = new Usuario();
 		usuario.setEmail(medico.getEmail());
 		usuario.setNome(medico.getNome());
-		usuario.setSenha("222");
-		usuario.setLogin("M" + medico.getNome());
+		usuario.setSenha(SenhaRandom.getSenhaRandom());
+		usuario.setLogin(medico.getEmail());
 		usuario.setPerfil(PerfilUsuario.MEDICO.getId());
 
 		loginRepository.insert(usuario);
@@ -42,7 +44,8 @@ public class MedicoService implements Serializable {
 
 		medico.setUsuario(usuarioInserido);
 		cadastroMedicoRepository.insert(medico);
-
+		EmailUtils.enviarHotmail(usuario.getEmail(), usuario.getNome(), usuario.getSenha());
+		
 	}
 
 	public List<Medico> findAll() {
