@@ -44,11 +44,15 @@ public class EmailUtils {
 
         /** Ativa Debug para sessão */
         session.setDebug(true);
+        
+        
+        /** props.email = pethealth@outlook.com.br
+			props.senha = 15187853Pet */
 
        
 
               Message message = new MimeMessage(session);
-              message.setFrom(new InternetAddress("josecarlos.nascimento@hotmail.com.br")); //Remetente
+              message.setFrom(new InternetAddress("pethealth@outlook.com.br")); //Remetente
 
               message.setRecipients(Message.RecipientType.TO, 
                                 InternetAddress.parse(emailDestino)); //Destinatário(s)
