@@ -120,7 +120,7 @@
 						<h:outputLabel value="Cliente " for="idCliente" />
 							
 					<p:autoComplete required="true" requiredMessage="Preencha o campo ID Cliente" placeholder="Digite o nome do cliente" id="idClientes"
-						 inputStyleClass="form-control" minQueryLength="3" value="#{cadastroAnimalBean.animal.cliente}"
+						 inputStyleClass="form-control" minQueryLength="2" value="#{cadastroAnimalBean.animal.cliente}"
 						 	 completeMethod="#{cadastroAnimalBean.completeTheme}"
                         var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente}" converter="#{themeConverter}" forceSelection="true">
 
