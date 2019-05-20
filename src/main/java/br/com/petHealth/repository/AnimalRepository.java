@@ -61,12 +61,9 @@ public class AnimalRepository {
 	
 	public List<Animal> findAll() {		
 		em = JpaConnector.getConnectionMySql();		
-		Query animal = em.createQuery("FROM Animal l INNER JOIN FETCH l.cliente");		
+		Query animal = em.createQuery("FROM Animal l INNER JOIN FETCH l.cliente INNER JOIN FETCH l.idEspecieAnimal esp");		
 		List<Animal> lista = animal.getResultList();	
 		
-//		for(int i=0; i<lista.size();i++){
-//			System.out.println(lista.get(i).getCliente().getNome());		
-//		}
 		return lista;
 
 	}
@@ -98,12 +95,12 @@ public List<Animal> findAnimal(Animal animal){
 			StringBuilder filtro = new StringBuilder();
 			
 			if(animal.getNome() != null && animal.getNome().trim().length() > 0){
-				filtro.append(" AND a.nome = :nome");
+				filtro.append(" AND a.nome LIKE UPPER(:nome)");
 			}
 			TypedQuery<Animal> ani = em.createQuery("SELECT a FROM Animal a WHERE 1 = 1 " + filtro.toString(),Animal.class);
 			
 			if(animal.getNome() != null && animal.getNome().trim().length() > 0){
-				ani.setParameter("nome", animal.getNome());			
+				ani.setParameter("nome", "%"+animal.getNome().toUpperCase()+"%");			
 			}
 			lista = (List<Animal>) ani.getResultList();			
 		} catch (NoResultException e) {

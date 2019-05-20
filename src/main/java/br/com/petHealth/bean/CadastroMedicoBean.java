@@ -64,23 +64,17 @@ public class CadastroMedicoBean implements Serializable {
 		this.cadastroMedicoService = cadastroMedicoService;
 	}
 	
-	public void salvar() {		
+	public String salvar() {		
 		if(medico.getId() != null && medico.getId() > 0){
 			cadastroMedicoService.atualizar(medico);
-
+	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Médico atualizado com sucesso."));
 		}else {
-			System.out.println("medico:" + medico.getNome());
-			
 			cadastroMedicoService.insert(medico);
+	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Médico cadastrado com sucesso."));
 
 		}
-		
-	}
-	
-	public String inserir() {
-		cadastroMedicoService.insert(medico);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Médico Cadastrado com sucesso."));
         return "listaMedico";
+		
 	}
 
 }

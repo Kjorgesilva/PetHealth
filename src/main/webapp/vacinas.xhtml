@@ -6,6 +6,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:r="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition template="base.xhtml">
 
@@ -43,10 +44,9 @@
 										<tr class="table-active">
 
 											<td>${vacinas.descricao}</td>
-											<td><p:commandButton value="Vacinar"
+											<td><h:commandButton value="Vacinar" class="btn btn-success"
 													action="#{tipoVacinaBean.inserir(vacinas.id)}">
-												</p:commandButton></td>
-
+												</h:commandButton></td>
 
 										</tr>
 									</ui:repeat>
@@ -56,12 +56,7 @@
 					</div>
 				</div>
 			</div>
-
-
 		</h:form>
-
 	</ui:define>
-
-
 </ui:composition>
 </html>

@@ -16,7 +16,7 @@
 	<ui:define name="body">
 		<h:form>
 
-			<h3>Lista de Médico</h3>
+			<h3>Lista de Médicos</h3>
 
 			<div class="form-group">
 				<h:commandButton value="Novo" action="cadastroMedico"
@@ -24,7 +24,7 @@
 			</div>
 			<p:messages id="messages" showDetail="true" closable="true"></p:messages>
 			<div class="card">
-				<h5 class="card-header">Filtrar Medico</h5>
+				<h5 class="card-header">Filtrar Medicos</h5>
 				<div class="card-body">
 					<div class="form-row">
 						<div class="form-group col-md-4">
@@ -61,7 +61,9 @@
 									<td>${medico.email}</td>
 
 									<td><h:link outcome="cadastroMedico">
-											<i class="fa fa-clone" aria-hidden="true"> <f:param
+											<i class="fa fa-pencil-square-o" aria-hidden="true">
+
+											 <f:param
 													name="editarParam" value="#{medico.id}" />
 											</i>
 										</h:link></td>

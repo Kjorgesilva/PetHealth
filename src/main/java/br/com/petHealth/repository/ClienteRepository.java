@@ -54,7 +54,7 @@ public class ClienteRepository {
 			em = JpaConnector.getConnectionMySql();
 			TypedQuery<Cliente> ani = em.createQuery("SELECT a FROM Cliente a WHERE a.id = :id",Cliente.class);
 			ani.setParameter("id", id);			
-			cliente = ani.getSingleResult();			
+			cliente = ani.getSingleResult();
 		} catch (NoResultException e) {
 			e.printStackTrace();
 		}
@@ -87,7 +87,7 @@ public class ClienteRepository {
 			StringBuilder filtro = new StringBuilder();
 			
 			if(cliente.getNome() != null && cliente.getNome().trim().length() > 0){
-				filtro.append(" AND a.nome = :nome");
+				filtro.append(" AND a.nome LIKE UPPER(:nome)");
 			}
 			if(cliente.getRg() != null && cliente.getRg().trim().length() > 0){
 				filtro.append(" AND a.rg = :rg");
@@ -95,7 +95,7 @@ public class ClienteRepository {
 			TypedQuery<Cliente> ani = em.createQuery("SELECT a FROM Cliente a WHERE 1 = 1 " + filtro.toString(),Cliente.class);
 			
 			if(cliente.getNome() != null && cliente.getNome().trim().length() > 0){
-				ani.setParameter("nome", cliente.getNome());			
+				ani.setParameter("nome", "%"+cliente.getNome().toUpperCase()+"%");			
 			}
 			if(cliente.getRg() != null && cliente.getRg().trim().length() > 0){
 				ani.setParameter("rg", cliente.getRg());			
@@ -106,6 +106,22 @@ public class ClienteRepository {
 			e.printStackTrace();
 		}
 		return lista;
+	}
+	
+	public List<Cliente> findByNomeERg(String query){
+		List<Cliente> cliente = new ArrayList<Cliente>();
+		
+		try {
+			em = JpaConnector.getConnectionMySql();
+			TypedQuery<Cliente> ani = em.createQuery("SELECT a FROM Cliente a WHERE UPPER(a.nome) LIKE :query",Cliente.class);
+			ani.setParameter("query", "%" + query +"%");			
+			cliente = ani.getResultList();		
+		} catch (NoResultException e) {
+			e.printStackTrace();
+		}
+		
+		return cliente;			
+		
 	}
 
 }

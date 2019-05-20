@@ -1,6 +1,6 @@
 .metadata/
 .settings/
-target/
+/target/**
 .classpath
 .project
 persistence.xml

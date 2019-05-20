@@ -11,10 +11,14 @@
 	<link href="#{request.contextPath}/style/css/style.min.css"
 		rel="stylesheet" />
 	<link rel="stylesheet"
-		href="#{request.contextPath}/font-awesome/css/font-awesome.min.css"></link>
+		href="#{request.contextPath}/style/font-awesome/css/font-awesome.min.css"></link>
 
 </h:head>
  <style type="text/css">
+
+		.radius-none {
+		    border-radius: 0 !important;
+		}
 
         .ui-widget {
     		font-size: .875rem;
@@ -61,16 +65,15 @@
 	<h:form>
 		<ui:insert name="menu">
 			<nav class="navbar navbar-expand-lg navbar navbar-dark bg-success">
-				<a class="navbar-brand" href="#">PetHealth</a>
+				<a class="navbar-brand" style="font-weight: bold;" href="#">PetHealth</a>
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" href="home.xhtml">Home
-								<span class="sr-only">(current)</span>
+						<li class="nav-item"><a class="nav-link" style="font-weight: bold;" href="home.xhtml">Home
 						</a></li>
 						
 						<ui:repeat var="app" value="#{loginBean.listaAplicativos}">
 	 						<li class="nav-item">
-	 							<a class="nav-link" href="#{app.aplicacao.caminhoAplicacao}">
+	 							<a class="nav-link" style="font-weight: bold;" href="#{app.aplicacao.caminhoAplicacao}">
 	 								#{app.aplicacao.menuAplicacao}
 	 							</a>
 	 						</li> 
