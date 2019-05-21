@@ -70,21 +70,29 @@ public class ConsultaMedicaWs implements Serializable {
 		agendamentoService.insert(agendamento);
 		return Response.ok(json.toString()).build();
 	}
+	
+	@POST
+	@Path("{idAgenda}/atualizaAgenda")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response atualiza(String json) {
+		JSONObject jsonObject = new JSONObject(json);
+		Agendamento agendamento = new Agendamento();		
 
-//	public static class teste {
-//		public static void main(String[] args) {
-//			String dateString = "07/05/2019 17:00:00";
-//			
-//			Date date = new Date(dateString);
-//			
-//			System.out.println(date);
-//
-//			LocalDateTime date2 = date.toInstant()
-//				      .atZone(ZoneId.systemDefault())
-//				      .toLocalDateTime();
-//			
-//			
-//			System.out.println(date2);
-//		}
-//	}
+		int idCliente = jsonObject.getInt("id_cliente");
+		System.out.println( " idCliente: " + idCliente);
+		
+		agendamento.setCliente(clienteService.findByid(idCliente));//		
+		
+		
+
+		//agendamentoService.insert(agendamento);
+		//fazer o update
+		return Response.ok(json.toString()).build();
+	}
+
+
+
+	
+	
+	
 }

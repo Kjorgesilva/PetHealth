@@ -31,7 +31,7 @@ public class AgendamentoRepository {
 		Query agendamento = em.createQuery("FROM Agendamento l INNER JOIN FETCH l.cliente " +
 		" INNER JOIN FETCH l.medico " +
 		" INNER JOIN FETCH l.animal " +
-		" INNER JOIN FETCH l.endereco");		
+		" INNER JOIN FETCH l.endereco ORDER BY l.id DESC");		
 		List<Agendamento> lista = agendamento.getResultList();	
 	
 		return lista;

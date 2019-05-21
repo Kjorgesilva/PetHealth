@@ -10,76 +10,83 @@
 
 <ui:composition template="base.xhtml">
 	<f:metadata>
-		<f:viewAction action="#{cadastroRelatorioMedicoBean.init}" />
+		<f:viewAction action="#{cadastroRelatorioMedicoBean.init}"/>
 	</f:metadata>
 
 
 	<ui:define name="body">
-		<h:form>
+		<h:form id="idFom">
+		
+		
+		
+		
+		
 
 			<h3>Agendamento</h3>
-
-
 			<p:messages id="messages" showDetail="true" closable="true"></p:messages>
-			<div class="card">
-				<div class="card-body">
-
-					<div class="ui-g">
-						<div class="ui-g-10 ui-md-12">
-							<table class="table">
-								<thead class="thead-dark">
-									<tr>
-										<th scope="col">Nº Agendamento</th>
-										<th scope="col">Animal</th>
-										<th scope="col">Data Inicio</th>
-										<th scope="col">Data Fim</th>
-										<th scope="col">Dono</th>
-										<th scope="col">Medico</th>
-										<th scope="col">Ação</th>
-
-									</tr>
-								</thead>
-								<tbody>
-
-									<ui:repeat var="agenda"
-										value="#{cadastroRelatorioMedicoBean.agenda}">
-
-										<tr class="table-active">
-											<td scope="row"><h:outputText value="#{agenda.id}" /></td>
-											<td>${agenda.animal.nome}</td>
-
-
-											<td><h:outputText value="#{agenda.dataInicio}">
-													<f:convertDateTime type="localDateTime"
-														pattern="dd/MM/yyyy" />
-												</h:outputText></td>
-
-
-											<td><h:outputText value="#{agenda.dataFim}">
-													<f:convertDateTime type="localDateTime"
-														pattern="dd/MM/yyyy" />
-												</h:outputText></td>
-
-
-
-											<td>${agenda.cliente.nome}</td>
-											<td>${agenda.medico.nome}</td>
-
-
-
-											<td><h:link title="Relatorio"
-													outcome="preencher_relatorio_medico">
-													<f:param name="relatorioParam" value="#{agenda.id}" />
-													<i class="fa fa-search" aria-hidden="true"></i>
-												</h:link></td>
+			
+			
+		    <p:poll interval="5" listener="#{cadastroRelatorioMedicoBean.init}" update="agendamento" />
+			<h:panelGroup id="agendamento">
+				<div class="card">
+					<div class="card-body">
+						<div class="ui-g">
+							<div class="ui-g-10 ui-md-12">
+								<table class="table">
+									<thead class="thead-dark">
+										<tr>
+											<th scope="col">Nº Agendamento</th>
+											<th scope="col">Animal</th>
+											<th scope="col">Data Inicio</th>
+											<th scope="col">Data Fim</th>
+											<th scope="col">Dono</th>
+											<th scope="col">Medico</th>
+											<th scope="col">Ação</th>
+	
 										</tr>
-									</ui:repeat>
-								</tbody>
-							</table>
+									</thead>
+									<tbody>
+	
+										<ui:repeat var="agenda"
+										value="#{cadastroRelatorioMedicoBean.agenda}">							
+										
+	
+											<tr class="table-active">
+												<td scope="row"><h:outputText value="#{agenda.id}" /></td>
+												<td>${agenda.animal.nome}</td>
+	
+												<td><h:outputText value="#{agenda.dataInicio}">
+														<f:convertDateTime type="localDateTime"
+															pattern="dd/MM/yyyy" />
+													</h:outputText></td>
+	
+	
+												<td><h:outputText value="#{agenda.dataFim}">
+														<f:convertDateTime type="localDateTime"
+															pattern="dd/MM/yyyy" />
+													</h:outputText></td>
+	
+												<td>${agenda.cliente.nome}</td>
+												<td>${agenda.medico.nome}</td>
+	
+	
+	
+												<td><h:link title="Relatorio"
+														outcome="preencher_relatorio_medico">
+														<f:param name="relatorioParam" value="#{agenda.id}" />
+														<i class="fa fa-search" aria-hidden="true"></i>
+													</h:link></td>
+											</tr>
+										</ui:repeat>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</h:panelGroup>
+						
+			
 		</h:form>
 
 	</ui:define>

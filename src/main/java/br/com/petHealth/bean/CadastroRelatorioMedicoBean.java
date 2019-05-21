@@ -17,6 +17,8 @@ public class CadastroRelatorioMedicoBean implements Serializable {
 
 	public void init(){
 		listar();
+		System.out.println("entrou aqui ");
+	
 	}
 	
 	/**

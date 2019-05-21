@@ -108,7 +108,7 @@ create table tab_agendamento(
 		id_medico INTEGER not null,
 		id_endereco INTEGER not null,
         id_animal INTEGER not null,
-		CONSTRAINT id_cliente_agendamento_fk FOREIGN KEY (id_cliente) REFERENCES tab_cliente (id_cliente),
+        CONSTRAINT id_cliente_agendamento_fk FOREIGN KEY (id_cliente) REFERENCES tab_cliente (id_cliente),
         CONSTRAINT id_medico_agendamento_fk FOREIGN KEY (id_medico) REFERENCES tab_medico (id_medico),
         CONSTRAINT id_animal_agendamento_fk FOREIGN KEY (id_animal) REFERENCES tab_animal (id_animal),
         CONSTRAINT id_endereco_agendamento_fk FOREIGN KEY (id_endereco) REFERENCES tab_endereco (id_endereco)
@@ -205,7 +205,7 @@ VALUES('Pedro','5555-5555','pedroSilva@outlook.com' ,2);
 
 INSERT INTO tab_endereco
 (rua,cidade,bairro,estado)
-VALUES('Rua dois','São Paulo','Barra funda' ,'São Paulo');
+VALUES('AV Francisco Matarazzo','São Paulo','Barra funda' ,'São Paulo');
 
 
 
@@ -223,10 +223,6 @@ VALUES('totó','cachorro alemao','Preto', now() ,'F','Brasil',NULL,1,1);
 INSERT INTO tab_animal
 (nome,raca,cor,data_de_nascimento,sexo,pais_de_origem,observacoes,id_cliente,id_especie)
 VALUES('gato','alemao','Preto', now() ,'F','Brasil',NULL,1,2);
-
-INSERT INTO tab_agendamento
-(data_de_inicio,data_de_fim,id_cliente,id_medico,id_animal,id_endereco)
-VALUES(now(),now(),1,1,1,1);
 
 INSERT INTO tab_pergunta_relatorio
 (descricao)
@@ -249,10 +245,6 @@ VALUES('Condutores Auditivos');
 INSERT INTO tab_pergunta_relatorio
 (descricao)
 VALUES('Temperatura'); 
-
-INSERT INTO tab_histoico
-(id_agendamento)
-VALUES(1); 
 
 
 INSERT INTO `pethealth`.`tab_tipo_vacina` (`id_tipo_vacina`, `descricao`,`id_especie`) VALUES ('1', 'V3',1);
@@ -318,7 +310,7 @@ PRIMARY KEY (id_aplicacao)
 
 
 insert into tab_perfil (descricao) values ('Administrador');
-INSERT INTO tab_usuario (login, senha, nome, email, id_perfil) VALUES ('admin', 'admin', 'Administrador', 'jcn271@gmail.com', 3);
+INSERT INTO tab_usuario (login, senha, nome, email, id_perfil) VALUES ('admin', 'admin', 'Administrador', 'email', 3);
 
 
 
@@ -365,6 +357,9 @@ INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (2,9);
 INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (2,8);
 
 
+
+
+alter table tab_agendamento add status_agenda char(1) not null default 'P';
 
 
 
