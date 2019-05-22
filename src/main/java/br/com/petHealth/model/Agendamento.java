@@ -53,6 +53,9 @@ public class Agendamento implements Serializable {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_endereco")
 	private Endereco endereco;
+	
+	@Column(name = "status_agenda")
+	private String status;
 
 	public int getId() {
 		return id;
@@ -100,8 +103,7 @@ public class Agendamento implements Serializable {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-	
+	}	
 	
 
 	public Animal getAnimal() {
@@ -111,5 +113,15 @@ public class Agendamento implements Serializable {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 
 }

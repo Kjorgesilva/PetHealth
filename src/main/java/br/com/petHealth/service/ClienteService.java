@@ -14,6 +14,8 @@ import br.com.petHealth.model.Usuario.PerfilUsuario;
 import br.com.petHealth.repository.AnimalRepository;
 import br.com.petHealth.repository.ClienteRepository;
 import br.com.petHealth.repository.UsuarioRepository;
+import br.com.petHealth.utils.EmailUtils;
+import br.com.petHealth.utils.SenhaRandom;
 
 @Named(value="clienteService")
 @RequestScoped
@@ -35,14 +37,18 @@ public class ClienteService implements Serializable {
 		Usuario usuario = new Usuario();
 		usuario.setEmail(cliente.getEmail());
 		usuario.setNome(cliente.getNome());
-		usuario.setSenha("111");
-		usuario.setLogin("C" + cliente.getRg());
+		usuario.setSenha(SenhaRandom.getSenhaRandom());
+		usuario.setLogin(cliente.getEmail());
 		usuario.setPerfil(PerfilUsuario.CLIENTE.getId());
 		
 		Integer id = loginRepository.insert(usuario);
 		
 		cliente.setUsuario(usuario);
 		cadastroClienteRepository.insert(cliente);
+		
+
+		EmailUtils.enviarHotmail(usuario.getEmail(), usuario.getNome(), usuario.getSenha());
+		
 		
 	}
 	

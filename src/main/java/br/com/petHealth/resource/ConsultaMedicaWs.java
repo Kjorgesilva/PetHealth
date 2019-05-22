@@ -8,8 +8,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -66,27 +68,24 @@ public class ConsultaMedicaWs implements Serializable {
 		
 		int idEndereco = jsonObject.getInt("id_endereco");
 		agendamento.setEndereco(enderecoService.findByid(idEndereco));
+		
+		agendamento.setStatus("P");
 
 		agendamentoService.insert(agendamento);
 		return Response.ok(json.toString()).build();
 	}
 	
 	@POST
-	@Path("{idAgenda}/atualizaAgenda")
+	@Path("/atualizaAgenda")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response atualiza(String json) {
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response atualiza(String json) {		
+		
 		JSONObject jsonObject = new JSONObject(json);
-		Agendamento agendamento = new Agendamento();		
-
-		int idCliente = jsonObject.getInt("id_cliente");
-		System.out.println( " idCliente: " + idCliente);
+		int idAgenda = jsonObject.getInt("id");
+		System.out.println( " idAgenda: " + idAgenda);		
+		agendamentoService.update(idAgenda);
 		
-		agendamento.setCliente(clienteService.findByid(idCliente));//		
-		
-		
-
-		//agendamentoService.insert(agendamento);
-		//fazer o update
 		return Response.ok(json.toString()).build();
 	}
 

@@ -359,7 +359,10 @@ INSERT INTO tab_perfil_aplicacao (perfil_id, aplicacao_id) VALUES (2,8);
 
 
 
-alter table tab_agendamento add status_agenda char(1) not null default 'P';
+alter table tab_agendamento add status_agenda varchar(255) not null default 'P';
+
+
+
 
 
 

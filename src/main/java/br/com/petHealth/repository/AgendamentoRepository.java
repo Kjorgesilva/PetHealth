@@ -1,11 +1,14 @@
 package br.com.petHealth.repository;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+
 
 import br.com.petHealth.core.JpaConnector;
 import br.com.petHealth.model.Agendamento;
@@ -31,7 +34,7 @@ public class AgendamentoRepository {
 		Query agendamento = em.createQuery("FROM Agendamento l INNER JOIN FETCH l.cliente " +
 		" INNER JOIN FETCH l.medico " +
 		" INNER JOIN FETCH l.animal " +
-		" INNER JOIN FETCH l.endereco ORDER BY l.id DESC");		
+		" INNER JOIN FETCH l.endereco WHERE l.status = 'P' ORDER BY l.id DESC ");		
 		List<Agendamento> lista = agendamento.getResultList();	
 	
 		return lista;
@@ -53,5 +56,22 @@ public class AgendamentoRepository {
 		
 		return agenda;
 	}
+	
+	
+	public  int update (int idAgendamento){             
+		Agendamento agendaAtualizada = null;
+		try {              
+	      em = JpaConnector.getConnectionMySql(); 	      
+	      em.getTransaction().begin();
+	      agendaAtualizada = findByid(idAgendamento);
+	      agendaAtualizada.setStatus("C");
+	      em.merge(agendaAtualizada);  
+		  em.getTransaction().commit();
+	    } catch (NoResultException e) {
+	      e.printStackTrace();
+	    }
+	        return agendaAtualizada.getId();
+	          
+	      }
 	
 }
