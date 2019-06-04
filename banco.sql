@@ -1,7 +1,7 @@
 use  pethealth;
 
 drop table if exists tab_vacina_tomada;
-drop table if exists tab_histoico;
+drop table if exists tab_historico;
 drop table if exists tab_resposta_relatorio;
 drop table if exists tab_pergunta_relatorio;
 drop table if exists tab_agendamento;
@@ -141,7 +141,7 @@ create table tab_resposta_relatorio(
 	);
     
 
-create table tab_histoico(
+create table tab_historico(
 		id_historico int NOT NULL AUTO_INCREMENT,
         id_agendamento INTEGER not null,
         primary key (id_historico),

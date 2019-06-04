@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tab_histoico")
+@Table(name="tab_historico")
 public class Historico implements Serializable{
 	
 	/**
