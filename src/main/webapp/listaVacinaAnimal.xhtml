@@ -34,7 +34,6 @@
 										<th scope="col">Cor</th>
 										<th scope="col">Data Nascimento</th>
 										<th scope="col">Sexo</th>
-										<th scope="col">Especie</th>
 										<th scope="col">Ação</th>
 
 
@@ -51,10 +50,10 @@
 											<td><h:outputText value="#{animal.dataNascimento}">
 													<f:convertDateTime type="localDateTime"
 														pattern="dd/MM/yyyy" />
-												</h:outputText></td>
+												</h:outputText>
+												</td>
 											<td>${animal.sexo eq 'M'? 'Macho':(animal.sexo eq 'F'?
 												'Fêmea' :animal.sexo)}</td>
-											<td>${animal.idEspecieAnimal.especie}</td>
 											<td><h:link title="Verificar" outcome="vacinasAplicadas">
 													<f:param name="editarParam" value="#{animal.id}" />
 													<f:param name="editarParamIdAnimal"
