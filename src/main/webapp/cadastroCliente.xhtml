@@ -27,10 +27,11 @@
 
 					<div class="form-group">
 						<h:outputLabel value="RG: " for="rg" />
-						<h:inputText id="rg" class="form-control"
-							value="#{cadastroClienteBean.cliente.rg}"
+						<p:inputMask id="rg" class="form-control"
+							value="#{cadastroClienteBean.cliente.rg}" mask="99.999.999-9"
 							pt:placeholder="Digite o RG" required="true"
 							requiredMessage="Preencha o campo RG" />
+							
 						<h:message for="rg" errorStyle="color:red" />
 					</div>
 
@@ -46,9 +47,9 @@
 
 					<div class="form-group">
 						<h:outputLabel value="Telefone: " for="telefone" />
-						<h:inputText id="telefone" class="form-control"
+						<p:inputMask id="telefone" class="form-control"
 							pt:placeholder="Digite o Telefone"
-							value="#{cadastroClienteBean.cliente.telefone}" required="true"
+							value="#{cadastroClienteBean.cliente.telefone}" required="true" mask="(99)99999-9999"
 							requiredMessage="Preencha o campo Telefone" />
 						<h:message for="telefone" errorStyle="color:red" />
 					</div>
