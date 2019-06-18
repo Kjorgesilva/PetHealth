@@ -1,0 +1,267 @@
+[33mcommit d02e5c173c30f509d277605d5511ca13ae969e9a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: ee1afd4 b2a1929
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Tue Jun 18 10:32:15 2019 -0300
+
+    Atualização 1.2
+
+[33mcommit ee1afd43340c48f5a7213aa1b25689355c4e3bfb[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Tue Jun 18 10:21:48 2019 -0300
+
+    atualização 1.2
+
+[33mcommit b2a192948db625d726edbb7daabf15a0f17edd05[m
+Merge: f7fc0ac ec30e3e
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Tue Jun 18 10:09:41 2019 -0300
+
+    atualização pc 1.1
+
+[33mcommit f7fc0acb169a6d6832a966ff7f799cae268e4bfc[m
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Tue Jun 18 10:06:12 2019 -0300
+
+    atualização pc
+
+[33mcommit ec30e3e124dc3d01f754ad5a1909e3fe3501b11a[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Mon Jun 17 09:59:38 2019 -0300
+
+    commit final tudo atualizado
+
+[33mcommit c597cc67a1afe8118e27d60a538d9941ec60d519[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Tue Jun 4 11:16:45 2019 -0300
+
+    Atualização da imagem do login
+
+[33mcommit 2c7356e3b80c30bb6975067be14aacb5e2d9e233[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Wed May 22 15:28:49 2019 -0300
+
+    Atualização do banco, e ajustes na tela agendamento
+
+[33mcommit 3d445538465a6d2e527b3ddcf14b2d4d8d1750ca[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Tue May 21 17:56:21 2019 -0300
+
+    atualiza a tela de Agenda
+
+[33mcommit e969352bcbc7243d5724cd98442589147e52150b[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Mon May 20 17:35:00 2019 -0300
+
+    atualização
+
+[33mcommit 63db8386384aba8cf404c084530269d6711934aa[m
+Merge: 0cf8510 9f3ab2c
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Mon May 20 11:45:34 2019 -0300
+
+    ADD E-mail
+
+[33mcommit 0cf85101c6286f839b19cbe17b3745a9d0fd44b3[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Mon May 20 11:44:41 2019 -0300
+
+    ADD email
+
+[33mcommit 9f3ab2c564efdb5b9ec90ef7089ab365abd370bc[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Mon May 20 11:25:39 2019 -0300
+
+    Adicionando Properties
+
+[33mcommit 0e4ad6bed6a81125b128793a9d1e756bcbc8c8a0[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Mon May 20 10:47:13 2019 -0300
+
+    Adicionado o Envio de emails para médicos
+
+[33mcommit 22ab5492b5163167167d03a38dce251bb47f79a0[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Mon May 20 10:46:49 2019 -0300
+
+    Adicionada a dependencia para envio de E-mails
+
+[33mcommit 5b92fd59aee4e64dd64ef91090074ca7e6c94be9[m
+Merge: fe09c77 2ef5ca7
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Sun May 19 21:34:08 2019 -0300
+
+    Revisão Geral
+
+[33mcommit fe09c77ea5732aa7547f96d5e697f5237a036b4c[m
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Sun May 19 21:31:26 2019 -0300
+
+    atualizacao
+
+[33mcommit 2ef5ca7c1b1127f87172a0331d4a0514f048e757[m
+Author: jose <jcarlos.nascimento@Outlook.com>
+Date:   Sun May 19 17:10:21 2019 -0300
+
+    Ajustes e Correções gerais
+
+[33mcommit 6d4d3431ca7d61b76bbbc3ede237afd87a5d9fbb[m
+Author: jose <jcarlos.nascimento@Outlook.com>
+Date:   Sat May 18 23:02:31 2019 -0300
+
+    Revisão geral
+
+[33mcommit 2d1c78d95712e0e3711630c6b384097e537d3912[m
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Sat May 18 02:56:31 2019 -0300
+
+    Interface atualizada e banco atualizado!!
+
+[33mcommit 065d0f0b70f748251b98584f059c2726c6824791[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 19:36:33 2019 -0300
+
+    Conserto da lista
+
+[33mcommit 2b104c52537b371a284a95e2f33b0c6633fbe411[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 19:27:14 2019 -0300
+
+    Mensagem de aviso ao cadastrar clientes
+
+[33mcommit 297390b2dfd193b394585211c065f2f909532c77[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 19:22:01 2019 -0300
+
+    Mensagem de Cadastro no cliente
+
+[33mcommit bfe29eabc23cb5581c27e3ddeb221211bab4dabc[m
+Merge: cc03c40 6a3f326
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 18:59:50 2019 -0300
+
+    Target
+
+[33mcommit cc03c404e5d20d4b5d405d548911bbb94765a936[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 18:58:22 2019 -0300
+
+    Implementando função completa de login
+
+[33mcommit 6a3f32616927a3395f8612a7c62ad1d7eae4e43c[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Fri May 17 17:06:17 2019 -0300
+
+    metodo feito para mandar um JSON para o android
+
+[33mcommit 88d6c29a80f37d931bc44008ab26193ea70deaec[m
+Merge: 42d3d45 9849d30
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 16:03:54 2019 -0300
+
+    Merge branch 'master' of https://github.com/Kjorgesilva/PetHealth
+
+[33mcommit 42d3d4504dd8114ea589ea2631bf41dfa5b9a757[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 16:02:05 2019 -0300
+
+    Bootstrap e filtros na listagem de clientes
+
+[33mcommit 9849d305f7ed1c5a52f7864a0af03729c908fa57[m
+Merge: 69c2670 738050f
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Fri May 17 15:52:50 2019 -0300
+
+    lista cliente atualizado
+
+[33mcommit 69c267082dbf1d727886409e3797a73e8a2bc56f[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Fri May 17 15:39:30 2019 -0300
+
+    lista medico atualizada
+
+[33mcommit 738050f6e041e0e21c028f039f6c4c83afb1f601[m
+Merge: 13d678b 63e9228
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 15:35:52 2019 -0300
+
+    Merge branch 'master' of https://github.com/Kjorgesilva/PetHealth
+
+[33mcommit 13d678bbfb30ad3692457e9778d5cea59da0c8c5[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 15:34:15 2019 -0300
+
+    Ajustes em Listagem de clientes
+
+[33mcommit 63e9228b7b104af944fa4d7f6aa4fd45608cbabd[m
+Merge: b56affc 8bdb54d
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Fri May 17 12:15:13 2019 -0300
+
+    Bootstrap e filtros na listagem de Cliente
+
+[33mcommit b56affc151f4e1e24bf598e68c50cb95954c4cef[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Fri May 17 12:12:43 2019 -0300
+
+    Tela login
+
+[33mcommit 8bdb54d5810e306b74797f904289eb952a4d4713[m
+Merge: f0d1c12 867573d
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 11:48:13 2019 -0300
+
+    Consertando o Login para que funcione de acordo com dados do banco
+
+[33mcommit f0d1c124f6519dae47d3ccebf983f9cab7426661[m
+Author: José Carlos <jcarlos.nascimento@outlook.com>
+Date:   Fri May 17 11:47:31 2019 -0300
+
+    Consertando o Login para que funcione de acordo com dados do banco
+
+[33mcommit 867573d77ac95be69ee0725feccc3cd950865811[m
+Merge: 40e1469 da931f9
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Fri May 17 09:52:13 2019 -0300
+
+    Bootstrap e filtros na listagem de clientes
+
+[33mcommit 40e1469bf8319023645185525620ee8dd9de264b[m
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Fri May 17 09:50:06 2019 -0300
+
+    Bootstrap e filtros na listagem de clientes
+
+[33mcommit da931f99f116310fed1edef83db2c94d3bc37a29[m
+Merge: 7213c3c fb95ec4
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Fri May 17 09:47:19 2019 -0300
+
+    Bootstrap e filtros na listagem de Cliente
+
+[33mcommit 7213c3c2e4956288e66e316c2538c8c46a1834fe[m
+Author: Kjorgesilva <kaiqueadm@hotmail.com>
+Date:   Fri May 17 09:45:47 2019 -0300
+
+    Bootstrap e filtros na listagem de Cliente
+
+[33mcommit fb95ec428581ac42dfa67c554ec3a1d95a2ed28a[m
+Merge: 127629e 154727c
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Fri May 17 09:01:08 2019 -0300
+
+    Bootstrap e filtros na listagem de clientes
+
+[33mcommit 127629ec503a1d1e9cbe119fe16aea7d46bbc191[m
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Fri May 17 00:02:15 2019 -0300
+
+    feito a atualizacao da tela cadastro medico, persistence e delete a faces-confing
+
+[33mcommit 14c9df52004e7b9310993312cb3ccf9724743125[m
+Author: Kaique <kaiqueadm@hotmail.com>
+Date:   Thu May 16 23:59:57 2019 -0300
+
+    feito a atualizacao da tela cadastro medico, persistence e delete a faces-confing
+
+[33mcommit 154727c2ffa68c9308205ec89fe8ccade47ad5ef[m
+Author: José Carlos <jcarlos.nascimento@outloo

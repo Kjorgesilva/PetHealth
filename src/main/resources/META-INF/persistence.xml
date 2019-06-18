@@ -10,7 +10,6 @@
 		<class>br.com.petHealth.model.Animal</class>
 		<class>br.com.petHealth.model.Cliente</class>
 		<class>br.com.petHealth.model.Endereco</class>
-		<class>br.com.petHealth.model.Historico</class>
 		<class>br.com.petHealth.model.Medico</class>
 		<class>br.com.petHealth.model.PerguntaRelatorio</class>
 		<class>br.com.petHealth.model.RespostaRelatorio</class>

@@ -29,10 +29,11 @@
 
 					<div class="form-group">
 						<h:outputLabel value="Telefone: " for="telefone" />
-						<h:inputText id="telefone" class="form-control"
+						<p:inputMask id="telefone" class="form-control"
 							value ="#{cadastroMedicoBean.medico.telefone}"
-							pt:placeholder="Digite o Telefone" required="true"
-							requiredMessage="Preencha o campo Telefone" />
+							pt:placeholder="Digite o Telefone" required="true" mask="(99)99999-9999"
+							requiredMessage="Preencha o campo Telefone" ></p:inputMask>
+					
 						<h:message for="telefone" errorStyle="color:red" />
 					</div>
 
