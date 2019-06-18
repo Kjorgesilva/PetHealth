@@ -2,6 +2,9 @@ package br.com.petHealth.bean;
 
 import java.io.Serializable;
 import java.util.List;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -41,6 +44,10 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 	public void init() {
 		agendamento = agendamentoService.findByid(id);
 		listarRespostas();
+		for(int i = 0 ; i<perguntasLista.size();i++){
+			perguntasLista.get(i).setResposta("");
+		}
+		
 	}
 
 	
@@ -122,6 +129,9 @@ public class PreencherRelatorioMedicoBean implements Serializable {
 			respostaRelatorio.setResposta(perguntaRelatorio.getResposta());
 			
 			cadastroRelatorioMedicoService.inserir(respostaRelatorio);
+			
+
+
 		}
 
 	}
