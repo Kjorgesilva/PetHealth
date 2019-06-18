@@ -14,6 +14,7 @@
 
 	<ui:define name="body">
 		<h:form id="form">
+		<f:passThroughAttribute name="autocomplete" value="off"/>
 			<div class="card  bg-light">
 				<div class="card-header">Cadastro de Clientes</div>
 				<div class="card-body">
@@ -27,10 +28,11 @@
 
 					<div class="form-group">
 						<h:outputLabel value="RG: " for="rg" />
-						<h:inputText id="rg" class="form-control"
+						<p:inputMask id="rg" class="form-control"
 							value="#{cadastroClienteBean.cliente.rg}"
 							pt:placeholder="Digite o RG" required="true"
-							requiredMessage="Preencha o campo RG" />
+							requiredMessage="Preencha o campo RG" mask="99.999.999-9"></p:inputMask>
+							
 						<h:message for="rg" errorStyle="color:red" />
 					</div>
 
@@ -46,10 +48,10 @@
 
 					<div class="form-group">
 						<h:outputLabel value="Telefone: " for="telefone" />
-						<h:inputText id="telefone" class="form-control"
-							pt:placeholder="Digite o Telefone"
+						<p:inputMask id="telefone" class="form-control"
+							pt:placeholder="Digite o Telefone" mask="(99)99999-9999"
 							value="#{cadastroClienteBean.cliente.telefone}" required="true"
-							requiredMessage="Preencha o campo Telefone" />
+							requiredMessage="Preencha o campo Telefone" ></p:inputMask>
 						<h:message for="telefone" errorStyle="color:red" />
 					</div>
 
